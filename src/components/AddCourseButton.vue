@@ -2,6 +2,9 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   props: {
+    /**
+     * Color of the button.
+     */
     compact: { type: Boolean, required: true },
     shouldClearPadding: { type: Boolean, default: false },
   },
@@ -38,6 +41,11 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
+
+@mixin hover-button {
+  background: rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
 .semester {
   &-addWrapper {
     margin-top: -5rem;
@@ -47,8 +55,6 @@ export default defineComponent({
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px dashed $borderGray;
-    color: $medGray;
     margin-left: 1.125rem;
     margin-right: 1.125rem;
     &--compact {
@@ -65,7 +71,6 @@ export default defineComponent({
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
-    color: $medGray;
     &--compact {
       font-size: 14px;
       line-height: 17px;
