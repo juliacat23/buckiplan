@@ -175,7 +175,7 @@ export default defineComponent({
 </template>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '../scss/_variables.scss';
 
 .top-sec {
     background-image: url('@/assets/images/landing_new/top_rect.svg');
