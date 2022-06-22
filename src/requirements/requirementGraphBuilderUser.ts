@@ -5,7 +5,11 @@ import {
   buildRequirementFulfillmentGraph,
   removeIllegalEdgesFromRequirementFulfillmentGraph,
 } from './requirementGraphBuilder';
-import { getUserRequirements } from './utils';
+import {
+  allowCourseDoubleCountingBetweenRequirements,
+  getMatchedRequirementFulfillmentSpecification,
+  getUserRequirements,
+} from './utils';
 
 export default function buildRequirementFulfillmentGraphFromUserData(
   coursesTaken: readonly CourseTaken[],

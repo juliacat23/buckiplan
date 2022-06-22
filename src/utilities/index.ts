@@ -1,5 +1,6 @@
 import { coursesColorSet } from '@/constants/colors';
 import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
+import { CourseTaken } from '@/types/requirements';
 import requirementJSON from './requirements/typed-requirement-json';
 
 export function checkNotNull<T>(value: T | null | undefined): T {
@@ -140,10 +141,9 @@ export const isCourseTaken = (
 ): element is CourseTaken => !!(element as CourseTaken).uniqueId;
 
 export const SeasonOrdinal = {
-    Winter: 0,
-    Spring: 1,
-    Summer: 2,
-    Fall: 3,
+    Spring: 0,
+    Summer: 1,
+    Fall: 2,
 } as const;
 
 export const sortedSemesters = (
