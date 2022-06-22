@@ -1,5 +1,9 @@
-import firebase from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+/* eslint-disable no-undef */
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
+import { getTypedFirestoreDataConverter } from './fbTypes';
 
 let config;
 config = {
@@ -11,7 +15,14 @@ config = {
     measurementId: process.env.VUE_APP_MEASUREMENT_ID,
 };
 
-const app = firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 // authentication with firebase
-export const auth = getAuth(app);
+export const auth = firebase.auth();
+
+// firestore db
+export const db = firebase.firestore();
+
+export const usernameCollection = db
+    .collection('user-name')
+    .withConverter(getTypedFirestoreDataConverter<FirestoreUserName>());
