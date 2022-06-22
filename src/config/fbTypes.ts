@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 type CommonDocumentData = { [field: string]: any };
 /** An interface for `FirestoreDataConverter` common to both frontend firebase and admin firebase. */
@@ -17,6 +18,10 @@ export const getTypedFirestoreDataConverter = <
     },
 });
 
+export type SemesterDocumentData = {
+    readonly semesters: readonly FirestoreSemester[];
+    readonly orderByNewest: boolean;
+};
 export type UniqueIncrementerDocumentData = {
     readonly uniqueIncrementer: number;
 };
