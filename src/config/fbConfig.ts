@@ -26,3 +26,9 @@ export const db = firebase.firestore();
 export const usernameCollection = db
     .collection('user-name')
     .withConverter(getTypedFirestoreDataConverter<FirestoreUserName>());
+
+export const subjectColorsCollection = db
+    .collection('user-subject-colors')
+    .withConverter(
+        getTypedFirestoreDataConverter<Readonly<Record<string, string>>>()
+    );

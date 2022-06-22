@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { Store } from 'vuex';
 import * as fb from './config/fbConfig';
-import { checkNotNull } from './utilities';
+import { checkNotNull, updateSubjectColor } from './utilities';
 
 type SimplifiedFirebaseUser = {
     readonly displayName: string;
@@ -11,6 +11,7 @@ type SimplifiedFirebaseUser = {
 export type VuexStoreState = {
     currentFirebaseUser: SimplifiedFirebaseUser;
     userName: FirestoreUserName;
+    subjectColors: Readonly<Record<string, string>>;
 };
 
 export class TypedVuexStore extends Store<VuexStoreState> {}
@@ -19,6 +20,7 @@ const store: TypedVuexStore = new TypedVuexStore({
     state: {
         currentFirebaseUser: null!,
         userName: { firstName: '', middleName: '', lastName: '' },
+        subjectColors: {},
     },
     actions: {},
     mutations: {
@@ -31,6 +33,13 @@ const store: TypedVuexStore = new TypedVuexStore({
         setUserName(state: VuexStoreState, userName: FirestoreUserName) {
             state.userName = userName;
         },
+
+        setSubjectColors(
+            state: VuexStoreState,
+            colors: Readonly<Record<string, string>>
+        ) {
+            state.subjectColors = colors;
+        },
     },
 });
 
@@ -40,10 +49,16 @@ export const initalizeFirestoreListeners = (
     const simplifiedUser = store.state.currentFirebaseUser;
 
     let userNameInitalLoadFinished = false;
+    let subjectColorInitialLoadFinished = false;
+
     let emitted = false;
 
     const emitOnLoadWhenLoaded = (): void => {
-        if (userNameInitalLoadFinished && !emitted) {
+        if (
+            userNameInitalLoadFinished &&
+            subjectColorInitialLoadFinished &&
+            !emitted
+        ) {
             emitted = true;
             onLoad();
         }
@@ -71,6 +86,25 @@ export const initalizeFirestoreListeners = (
         userNameUnsubscriber();
     };
     return unsubscriber;
+};
+
+export const updateSubjectColorData = (color: string, code: string): void => {
+    const simplifiedUser = store.state.currentFirebaseUser;
+    fb.subjectColorsCollection
+        .doc(simplifiedUser.email)
+        .get()
+        .then((snapshot) => {
+            const subjectColors = snapshot.data() || {};
+            const newSubjectColors = updateSubjectColor(
+                subjectColors,
+                color,
+                code
+            );
+            store.commit('setSubjectColors', newSubjectColors);
+            fb.subjectColorsCollection
+                .doc(simplifiedUser.email)
+                .set(newSubjectColors);
+        });
 };
 
 fb.auth.onAuthStateChanged((user) => {
