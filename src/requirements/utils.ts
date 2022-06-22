@@ -3,7 +3,7 @@ import RequirementFulfillmentGraph, { CourseWithUniqueId } from './requirementGr
 import examData, { ExamFulfillment, ExamFulfillments } from './data/exams/examCredit';
 import specialized from './specialize';
 import { NO_FULFILLMENTS_COURSE_ID } from './data/constants';
-import { examCourseIds } from './requirement-exam-mapping';
+import { examCourseIds } from './examMapping';
 import requirementJson from './typed-requirement-json';
 import {
   CourseTaken,
@@ -17,7 +17,6 @@ import {
 } from '@/types/requirements';
 
 import featureFlagCheckers from '../featuredFlags';
-
 
 type RequirementFulfillmentGraphConstraintViolations<Requirement extends string> = {
   constraintViolationsGraph: RequirementFulfillmentGraph<Requirement, CourseWithUniqueId>;
@@ -320,7 +319,7 @@ const fieldOfStudyReqs = (sourceType: 'Major' | 'Minor' | 'PreProgram', fields: 
     .map((field) => {
       const fieldRequirement = fieldRequirements[field];
       return fieldRequirement?.requirements.map(
-        (it: { name: any; }) =>
+        (it: { name: any }) =>
           (({
             ...it,
             id: `${sourceType}-${field}-${it.name}`,
@@ -379,7 +378,7 @@ export function getUserRequirements({
   // University requirements only added if college is defined, i.e. if the user has selected an undergraduate program.
   const uniReqs = college
     ? rawUniReqs.requirements.map(
-        (it: { name: any; }) =>
+        (it: { name: any }) =>
           ({
             ...it,
             id: `College-UNI-${it.name}`,

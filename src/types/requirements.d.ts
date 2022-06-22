@@ -40,24 +40,23 @@ type RequirementFulfillmentInformationCourseOrCreditBase<T> =
   | RequirementFulfillmentInformationCourseBase<T>
   | RequirementFulfillmentInformationCreditBase<T>;
 
-type ToggleableRequirementFulfillmentInformation<T = Record<string, unknown>> =
-  {
-    readonly fulfilledBy: 'toggleable';
-    readonly fulfillmentOptions: {
-      readonly [optionName: string]: {
-        readonly perSlotMinCount: readonly number[];
-        readonly minNumberOfSlots?: number;
-        readonly description: string;
-      } & T &
-        (
-          | {
-              readonly counting: 'courses';
-              readonly slotNames: readonly string[];
-            }
-          | { readonly counting: 'credits' }
-        );
-    };
+type ToggleableRequirementFulfillmentInformation<T = Record<string, unknown>> = {
+  readonly fulfilledBy: 'toggleable';
+  readonly fulfillmentOptions: {
+    readonly [optionName: string]: {
+      readonly perSlotMinCount: readonly number[];
+      readonly minNumberOfSlots?: number;
+      readonly description: string;
+    } & T &
+      (
+        | {
+            readonly counting: 'courses';
+            readonly slotNames: readonly string[];
+          }
+        | { readonly counting: 'credits' }
+      );
   };
+};
 type RequirementFulfillmentInformation<T = Record<string, unknown>> =
   | {
       readonly fulfilledBy: 'self-check';
@@ -70,16 +69,12 @@ type RequirementFulfillmentInformation<T = Record<string, unknown>> =
        * It is a map from additional requirement name and corresponding courses/checkers.
        */
       readonly additionalRequirements?: {
-        readonly [
-          name: string
-        ]: RequirementFulfillmentInformationCourseOrCreditBase<T>;
+        readonly [name: string]: RequirementFulfillmentInformationCourseOrCreditBase<T>;
       };
     } & T)
   | (RequirementFulfillmentInformationCreditBase<T> & {
       readonly additionalRequirements?: {
-        readonly [
-          name: string
-        ]: RequirementFulfillmentInformationCourseOrCreditBase<T>;
+        readonly [name: string]: RequirementFulfillmentInformationCourseOrCreditBase<T>;
       };
     } & T)
   | ToggleableRequirementFulfillmentInformation<T>;
@@ -120,7 +115,7 @@ type CourseTaken = {
   readonly credits: number;
 };
 
-type RequirementGroupType = 'College' | 'Major' | 'Minor' | 'Grad';
+type RequirementGroupType = 'College' | 'Major' | 'Minor' | 'Pre-Professional';
 
 type RequirementWithIDSourceType = DecoratedCollegeOrMajorRequirement & {
   readonly id: string;
@@ -134,10 +129,9 @@ type RequirementFulfillmentStatistics = {
   readonly minCountRequired: number;
 };
 
-type RequirementFulfillmentStatisticsWithCourses =
-  RequirementFulfillmentStatistics & {
-    readonly courses: readonly (readonly CourseTaken[])[];
-  };
+type RequirementFulfillmentStatisticsWithCourses = RequirementFulfillmentStatistics & {
+  readonly courses: readonly (readonly CourseTaken[])[];
+};
 
 type RequirementFulfillmentStatisticsWithCoursesWithAdditionalRequirements =
   RequirementFulfillmentStatisticsWithCourses & {
@@ -155,12 +149,11 @@ type MixedRequirementFulfillmentStatistics = {
   readonly dangerousMinCountFulfilled: number;
   readonly minCountRequired: number;
 };
-type MixedRequirementFulfillmentStatisticsWithAdditionalRequirements =
-  MixedRequirementFulfillmentStatistics & {
-    readonly additionalRequirements?: {
-      readonly [name: string]: MixedRequirementFulfillmentStatistics;
-    };
+type MixedRequirementFulfillmentStatisticsWithAdditionalRequirements = MixedRequirementFulfillmentStatistics & {
+  readonly additionalRequirements?: {
+    readonly [name: string]: MixedRequirementFulfillmentStatistics;
   };
+};
 
 type RequirementFulfillment = {
   /** The original requirement object. */
@@ -175,8 +168,7 @@ type GroupedRequirementFulfillmentReport = {
 };
 
 export type Course = Omit<OSUCourse>;
-export type BaseRequirement = RequirementCommon &
-  RequirementFulfillmentInformation;
+export type BaseRequirement = RequirementCommon & RequirementFulfillmentInformation;
 
 export type RequirementChecker = (course: Course) => boolean;
 export type CollegeOrMajorRequirement = RequirementCommon &
@@ -216,8 +208,7 @@ type GenericRequirementsJson<R> = {
   readonly preProgram: MajorRequirements<R>;
 };
 
-export type RequirementsJson =
-  GenericRequirementsJson<CollegeOrMajorRequirement>;
+export type RequirementsJson = GenericRequirementsJson<CollegeOrMajorRequirement>;
 
 export type DecoratedRequirementsJson = {
   readonly university: CollegeRequirements<DecoratedCollegeOrMajorRequirement>;
