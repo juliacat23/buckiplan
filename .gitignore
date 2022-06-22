@@ -26,4 +26,4 @@ pnpm-debug.log*
 *.sw?
 
 # Data
-constants/courses
+src/constants/courses/full-courses.json
