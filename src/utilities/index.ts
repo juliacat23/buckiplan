@@ -138,3 +138,37 @@ export const isCourseTaken = (
         | FirestoreSemesterCourse
         | CourseTaken
 ): element is CourseTaken => !!(element as CourseTaken).uniqueId;
+
+export const SeasonOrdinal = {
+    Winter: 0,
+    Spring: 1,
+    Summer: 2,
+    Fall: 3,
+} as const;
+
+export const sortedSemesters = (
+    semesters: readonly FirestoreSemester[],
+    orderByNewest = true
+): readonly FirestoreSemester[] =>
+    semesters.slice().sort((a, b) => {
+        // sort in increasing order iff orderByNewest is false, increasing otherwise
+        const order = orderByNewest ? -1 : 1;
+        const byYear = a.year - b.year;
+        return (
+            order *
+            (byYear === 0
+                ? SeasonOrdinal[a.season] - SeasonOrdinal[b.season]
+                : byYear)
+        );
+    });
+
+export function getCurrentSeason(): FirestoreSemesterSeason {
+    const currentMonth = new Date().getMonth();
+    if (currentMonth <= 4) return 'Spring';
+    if (currentMonth <= 7) return 'Summer';
+    return 'Fall';
+}
+
+export function getCurrentYear(): number {
+    return new Date().getFullYear();
+}
