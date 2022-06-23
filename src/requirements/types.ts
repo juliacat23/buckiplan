@@ -1,3 +1,4 @@
+export type Course = Omit<OSUCourse, 'roster'>;
 export type BaseRequirement = RequirementCommon & RequirementFulfillmentInformation;
 
 export type RequirementChecker = (course: Course) => boolean;
@@ -10,7 +11,6 @@ export type CollegeRequirements<R> = {
   readonly [collegeCode: string]: {
     readonly name: string;
     readonly requirements: readonly R[];
-    readonly advisors?: AdvisorGroup;
   };
 };
 
@@ -20,7 +20,6 @@ export type Major<R> = Readonly<{
   requirements: readonly R[];
   /** College requirements that have been "specialized" for this major */
   specializations?: readonly R[];
-  advisors?: AdvisorGroup;
 }>;
 
 export type MutableMajorRequirements<R> = {
