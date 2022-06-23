@@ -59,7 +59,6 @@ export const createAppOnboardingData = (
   entranceSem: data.entranceSem ?? '',
   college: data.colleges.length !== 0 ? data.colleges[0].acronym : undefined,
   major: data.majors.map(({ acronym }) => acronym),
-  degree: data.degrees.length !== 0 ? data.degrees[0].acronym : undefined,
   minor: data.minors.map(({ acronym }) => acronym),
   preProgram: data.prePrograms.map(({ acronym }) => acronym),
   exam: 'exam' in data ? [...data.exam] : [],

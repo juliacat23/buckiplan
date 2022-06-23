@@ -1,3 +1,53 @@
+import { RequirementsJson } from '@/types/requirementTypes';
+import universityRequirements from './university';
+
+// pre-professional programs
+import premedRequirements from './prePrograms/premed';
+
+const json: RequirementsJson = {
+  university: {
+    UNI: {
+      name: 'University',
+      requirements: universityRequirements,
+    },
+  },
+  college: {
+    ARCH1: {
+      name: 'Architecture',
+      requirements: universityRequirements,
+    },
+    ARCH2: {
+      name: 'Architecture',
+      requirements: universityRequirements,
+    },
+    ASC1: {
+      name: 'Arts and Sciences',
+      requirements: universityRequirements,
+    },
+  },
+  major: {
+    ACCT: {
+      name: 'Accounting',
+      schools: ['ASC1'],
+      requirements: universityRequirements,
+    },
+  },
+  minor: {
+    AAAS: {
+      name: 'African American and African Studies',
+      schools: ['ASC1'],
+      requirements: universityRequirements,
+    },
+  },
+  preProgram: {
+    PREMED: {
+      name: 'Pre-Medicine',
+      schools: ['ASC1'],
+      requirements: premedRequirements,
+    },
+  },
+};
+
 export const colleges = [
   'ARCHBA1',
   'ARCH2',
@@ -31,3 +81,5 @@ export const colleges = [
   'SKW2',
 ] as const;
 export type College = typeof colleges[number];
+
+export default json;

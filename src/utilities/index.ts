@@ -1,6 +1,6 @@
 import { coursesColorSet } from '@/constants/colors';
 import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
-import { CourseTaken } from '@/types/requirements';
+import { CourseTaken } from '@/types/requirementTypes';
 import requirementJSON from './requirements/typed-requirement-json';
 
 export function checkNotNull<T>(value: T | null | undefined): T {

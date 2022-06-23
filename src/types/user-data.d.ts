@@ -62,7 +62,6 @@ type FirestoreOnboardingUserData = {
   readonly entranceSem: FirestoreSemesterSeason | '';
   readonly colleges: readonly FirestoreCollegeMajorMinorOrGrad[];
   readonly majors: readonly FirestoreCollegeMajorMinorOrGrad[];
-  readonly degrees: readonly FirestoreCollegeMajorMinorOrGrad[];
   readonly minors: readonly FirestoreCollegeMajorMinorOrGrad[];
   readonly prePrograms: readonly FirestoreCollegeMajorMinorOrGrad[];
   readonly exam: readonly FirestoreAPIBExam[];
@@ -158,7 +157,6 @@ type AppOnboardingData = {
   readonly entranceSem: FirestoreSemesterSeason | '';
   readonly college?: string;
   readonly major: readonly string[];
-  readonly degree?: string;
   readonly minor: readonly string[];
   readonly preProgram: readonly string[];
   readonly exam: readonly FirestoreAPIBExam[];
