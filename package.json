@@ -6,8 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "ts-node": "ts-node -T -P tsconfig.node.json",
+    "req-gen": "npm run ts-node -- src/requirements/requirementGenerator.ts"
+
   },
   "dependencies": {
     "bootstrap": "^5.1.3",

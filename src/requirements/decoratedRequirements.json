@@ -1,0 +1,291 @@
+{
+  "university": {
+    "UNI": {
+      "name": "University",
+      "requirements": [
+        {
+          "name": "University Survey",
+          "description": "Every student at Ohio State enrolls in survey their first semester. Each college will have their own version of survey. This class is designed to introduce you to the university and its policies and procedures, as well as to your college and major.",
+          "source": "https://aschonors.osu.edu/preorient/au-preview/classroom/survey",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            1
+          ],
+          "courses": [
+            []
+          ]
+        }
+      ]
+    }
+  },
+  "college": {
+    "ARCH1": {
+      "name": "Architecture",
+      "requirements": [
+        {
+          "name": "University Survey",
+          "description": "Every student at Ohio State enrolls in survey their first semester. Each college will have their own version of survey. This class is designed to introduce you to the university and its policies and procedures, as well as to your college and major.",
+          "source": "https://aschonors.osu.edu/preorient/au-preview/classroom/survey",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            1
+          ],
+          "courses": [
+            []
+          ]
+        }
+      ]
+    },
+    "ARCH2": {
+      "name": "Architecture",
+      "requirements": [
+        {
+          "name": "University Survey",
+          "description": "Every student at Ohio State enrolls in survey their first semester. Each college will have their own version of survey. This class is designed to introduce you to the university and its policies and procedures, as well as to your college and major.",
+          "source": "https://aschonors.osu.edu/preorient/au-preview/classroom/survey",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            1
+          ],
+          "courses": [
+            []
+          ]
+        }
+      ]
+    },
+    "ASC1": {
+      "name": "Arts and Sciences",
+      "requirements": [
+        {
+          "name": "University Survey",
+          "description": "Every student at Ohio State enrolls in survey their first semester. Each college will have their own version of survey. This class is designed to introduce you to the university and its policies and procedures, as well as to your college and major.",
+          "source": "https://aschonors.osu.edu/preorient/au-preview/classroom/survey",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            1
+          ],
+          "courses": [
+            []
+          ]
+        }
+      ]
+    }
+  },
+  "major": {
+    "ACCT": {
+      "name": "Accounting",
+      "schools": [
+        "ASC1"
+      ],
+      "requirements": [
+        {
+          "name": "University Survey",
+          "description": "Every student at Ohio State enrolls in survey their first semester. Each college will have their own version of survey. This class is designed to introduce you to the university and its policies and procedures, as well as to your college and major.",
+          "source": "https://aschonors.osu.edu/preorient/au-preview/classroom/survey",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            1
+          ],
+          "courses": [
+            []
+          ]
+        }
+      ]
+    }
+  },
+  "minor": {
+    "AAAS": {
+      "name": "African American and African Studies",
+      "schools": [
+        "ASC1"
+      ],
+      "requirements": [
+        {
+          "name": "University Survey",
+          "description": "Every student at Ohio State enrolls in survey their first semester. Each college will have their own version of survey. This class is designed to introduce you to the university and its policies and procedures, as well as to your college and major.",
+          "source": "https://aschonors.osu.edu/preorient/au-preview/classroom/survey",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            1
+          ],
+          "courses": [
+            []
+          ]
+        }
+      ]
+    }
+  },
+  "preProgram": {
+    "PREMED": {
+      "name": "Pre-Medicine",
+      "schools": [
+        "ASC1"
+      ],
+      "requirements": [
+        {
+          "name": "General Chemistry",
+          "description": "Two-semester sequence of General Chemistry",
+          "source": "https://preprofessional.osu.edu/prehealth/program-prerequisites",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "General Chemistry I",
+            "General Chemistry II"
+          ],
+          "courses": [
+            [
+              105,
+              204,
+              "149724",
+              "149736",
+              "149738"
+            ],
+            [
+              "149734",
+              "149737",
+              "149749"
+            ]
+          ]
+        },
+        {
+          "name": "Organic Chemistry",
+          "description": "Two semester sequence of Organic Chemistry, with labs",
+          "source": "https://preprofessional.osu.edu/prehealth/program-prerequisites",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            2
+          ],
+          "slotNames": [
+            "Organic Chemistry I",
+            "Organic Chemistry II",
+            "Labs"
+          ],
+          "courses": [
+            [
+              "149759",
+              "149773"
+            ],
+            [
+              "149764",
+              "149774",
+              "149872"
+            ],
+            [
+              "149766",
+              "149771"
+            ]
+          ]
+        },
+        {
+          "name": "Physics",
+          "description": "Introductory two-semester Physics sequence",
+          "source": "https://preprofessional.osu.edu/prehealth/program-prerequisites",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Mechanics, Kinematics, Fluids, Waves",
+            "E&M, Optics, Modern Physics"
+          ],
+          "courses": [
+            [
+              219,
+              "147661",
+              "147687",
+              "147688",
+              "147712"
+            ],
+            [
+              219,
+              "147666",
+              "147710",
+              "147711",
+              "149641"
+            ]
+          ]
+        },
+        {
+          "name": "Biology",
+          "description": "two-semester sequence of biology for science majors",
+          "source": "https://preprofessional.osu.edu/prehealth/program-prerequisites",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Energy Transfer and Development",
+            "Form, Function, Diversity, and Ecology"
+          ],
+          "courses": [
+            [
+              101,
+              125,
+              203,
+              "149978",
+              "149989",
+              "164894"
+            ],
+            [
+              101,
+              203,
+              "149997",
+              "150021",
+              "164895"
+            ]
+          ]
+        },
+        {
+          "name": "Biochemistry",
+          "description": "Option 1: BIOCHEM 4511, Option 2: BIOCHEM 5613 + 5614",
+          "source": "https://preprofessional.osu.edu/prehealth/program-prerequisites",
+          "fulfilledBy": "toggleable",
+          "fulfillmentOptions": {
+            "Option 1": {
+              "description": "BIOCHEM 4511",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1
+              ],
+              "slotNames": [
+                "Introduction to Biochemistry"
+              ],
+              "courses": [
+                [
+                  "160454"
+                ]
+              ]
+            },
+            "Option 2": {
+              "description": "BIOCHEM 5613 and BIOCHEM 5614",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1,
+                1
+              ],
+              "slotNames": [
+                "Biochemistry and Molecular Biology I",
+                "Biochemistry and Molecular Biology II"
+              ],
+              "courses": [
+                [
+                  "160456"
+                ],
+                [
+                  "160457"
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
