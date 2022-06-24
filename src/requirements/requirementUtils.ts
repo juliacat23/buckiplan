@@ -1,6 +1,8 @@
 import specialized from './specialize';
 import featureFlagCheckers from '@/featuredFlags';
 import { examCourseIds } from './examMapping';
+import requirementJson from './typedRequirementJson';
+import { getConstraintViolationsForSingleCourse } from './requirementConstraints';
 
 /**
  * A collection of helper functions
@@ -169,6 +171,25 @@ const specializedForCollege = (collegeName: string, majorNames: readonly string[
   );
 };
 
+const fieldOfStudyReqs = (sourceType: 'Major' | 'Minor' | 'preProgram', fields: readonly string[]) => {
+  const jsonKey = sourceType.toLowerCase() as 'major' | 'minor' | 'preProgram';
+  const fieldRequirements = requirementJson[jsonKey];
+  return fields
+    .map((field) => {
+      const fieldRequirement = fieldRequirements[field];
+      return fieldRequirement?.requirements.map(
+        (it) =>
+          (({
+            ...it,
+            id: `${sourceType}-${field}-${it.name}`,
+            sourceType,
+            sourceSpecificName: field,
+          } as const) ?? [])
+      );
+    })
+    .flat();
+};
+
 export function getUserRequirements({
   college,
   major: majors,
@@ -194,7 +215,7 @@ export function getUserRequirements({
   const collegeReqs = college ? specializedForCollege(college, majors) : [];
   const majorReqs = fieldOfStudyReqs('Major', majors);
   const minorReqs = fieldOfStudyReqs('Minor', minors);
-  const preProgramReqs = fieldOfStudyReqs('preprogram', prePrograms);
+  const preProgramReqs = fieldOfStudyReqs('preProgram', prePrograms);
 
   // flatten all requirements into single array
   return [uniReqs, collegeReqs, majorReqs, minorReqs, preProgramReqs].flat();
@@ -489,7 +510,7 @@ export function fulfillmentProgressString({
 }
 
 export function getRelatedUnfulfilledRequirements(
-  { crseId: courseId, subject, catalogNbr, enrollGroups: [{ unitsMaximum: credits }] }: CornellCourseRosterCourse,
+  { crseId: courseId, subject, catalogNbr, enrollGroups: [{ unitsMaximum: credits }] }: OSUCourse,
   groupedRequirements: readonly GroupedRequirementFulfillmentReport[],
   onboardingData: AppOnboardingData,
   toggleableRequirementChoices: AppToggleableRequirementChoices,
