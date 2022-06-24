@@ -3,7 +3,7 @@
  */
 
 import { DecoratedRequirementsJson } from './types';
-import decoratedRequirementJson from './decorated-requirements.json';
+import decoratedRequirementJson from './decoratedRequirements.json';
 
 // NOTE:
 // 1. We need to use the type cast trick here,
