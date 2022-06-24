@@ -57,6 +57,7 @@ const examData: ExamData = {
           courseEquivalents: {
             [OTHER_COLLEGES]: [149980], // BIO 1110
           },
+          majorsExcluded: ['Pre-Medicine'],
         },
         {
           courseId: 125,
@@ -109,6 +110,7 @@ const examData: ExamData = {
           },
           minimumScore: 4,
           credits: 5,
+          majorsExcluded: ['Pre-Medicine'],
         },
       ],
       'Chinese Language and Culture	': [
@@ -441,6 +443,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
+          majorsExcluded: ['Pre-Medicine'],
         },
       ],
       'Physics 2': [
@@ -451,6 +454,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
+          majorsExcluded: ['Pre-Medicine'],
         },
       ],
       'Physics C: Mechanics': [
@@ -461,6 +465,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
+          majorsExcluded: ['Pre-Medicine'],
         },
       ],
       'Physics C: Electricity and Magnetism': [
@@ -471,6 +476,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
+          majorsExcluded: ['Pre-Medicine'],
         },
       ],
       Psychology: [
@@ -593,6 +599,7 @@ const examData: ExamData = {
         },
         minimumScore: 4,
         credits: 8,
+        majorsExcluded: ['Pre-Medicine'],
       },
     ],
     Chemistry: [
@@ -603,6 +610,7 @@ const examData: ExamData = {
         },
         minimumScore: 4,
         credits: 5,
+        majorsExcluded: ['Pre-Medicine'],
       },
     ],
     Economics: [
@@ -745,6 +753,7 @@ const examData: ExamData = {
         },
         minimumScore: 4,
         credits: 10,
+        majorsExcluded: ['Pre-Medicine'],
       },
     ],
     Psychology: [
