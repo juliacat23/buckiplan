@@ -2,7 +2,11 @@ import { RequirementsJson } from '../types';
 import universityRequirements from './university';
 
 // pre-professional programs
+import predentRequirements from './prePrograms/predent';
 import premedRequirements from './prePrograms/premed';
+import preoptRequirements from './prePrograms/preopt';
+import prepharmRequirements from './prePrograms/prepharm';
+import preventRequirements from './prePrograms/prevet';
 
 const json: RequirementsJson = {
   university: {
@@ -40,10 +44,26 @@ const json: RequirementsJson = {
     },
   },
   preProgram: {
+    PREDENT: { name: 'Pre-Denistry', schools: ['ASC1'], requirements: predentRequirements },
     PREMED: {
       name: 'Pre-Medicine',
       schools: ['ASC1'],
       requirements: premedRequirements,
+    },
+    PREOPT: {
+      name: 'Pre-Optometry',
+      schools: ['ASC1'],
+      requirements: preoptRequirements,
+    },
+    PREPHARM: {
+      name: 'Pre-Pharmacy',
+      schools: ['ASC1'],
+      requirements: prepharmRequirements,
+    },
+    PREVET: {
+      name: 'Pre-Veterinary Medicine',
+      schools: ['ASC1'],
+      requirements: preventRequirements,
     },
   },
 };

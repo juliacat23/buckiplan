@@ -1,4 +1,4 @@
-import { CollegeOrMajorRequirement } from '@/types/requirementTypes';
+import { CollegeOrMajorRequirement } from '@/requirements/types';
 import { includesWithSubRequirements } from '../checkers';
 
 const premedRequirements: readonly CollegeOrMajorRequirement[] = [
