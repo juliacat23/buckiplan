@@ -85,6 +85,10 @@ type RequirementCourseConditions = Record<
     readonly colleges: string[];
     /** If the user IS in one of these majors, the course id cannot fulfill the requirement. */
     readonly majorsExcluded?: string[];
+
+    readonly minorsExcluded?: string[];
+    
+    readonly preProgramsExcluded?: string[]
   }
 >;
 

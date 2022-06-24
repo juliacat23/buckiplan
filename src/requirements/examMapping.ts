@@ -7,6 +7,10 @@ type ExamRequirementsConditions = {
   collegeConditions: ExamRequirementsCollegeConditions;
   /** If the user IS in one of these majors, the course id cannot fulfill the requirement. */
   majorsExcluded?: string[];
+
+  minorsExcluded?: string[];
+
+  preProgramsExcluded?: string[];
 };
 
 const examFulfillmentList: ExamFulfillment[] = Object.values(examData)
@@ -17,7 +21,7 @@ export const examCourseIds: Set<number> = new Set(examFulfillmentList.map(({ cou
 
 export const examRequirementsMapping: Record<number, ExamRequirementsConditions> = examFulfillmentList.reduce(
   (mapping, fulfillment) => {
-    const { courseId, courseEquivalents, majorsExcluded } = fulfillment;
+    const { courseId, courseEquivalents, majorsExcluded, minorsExcluded, preProgramsExcluded } = fulfillment;
 
     if (!courseEquivalents) {
       // if no course equivalents, exam will never be looked up
@@ -44,6 +48,26 @@ export const examRequirementsMapping: Record<number, ExamRequirementsConditions>
     );
 
     if (!majorsExcluded) {
+      // if no majors excluded, just add the college conditions
+      return {
+        ...mapping,
+        [courseId]: {
+          collegeConditions,
+        },
+      };
+    }
+
+    if (!minorsExcluded) {
+      // if no majors excluded, just add the college conditions
+      return {
+        ...mapping,
+        [courseId]: {
+          collegeConditions,
+        },
+      };
+    }
+
+    if (!preProgramsExcluded) {
       // if no majors excluded, just add the college conditions
       return {
         ...mapping,

@@ -121,11 +121,13 @@ const computeConditionsForExams = (courses: readonly (readonly number[])[]) => {
     {
       colleges: string[];
       majorsExcluded?: string[];
+      minorsExcluded?: string[];
+      preProgramsExcluded?: string[];
     }
   > = {};
   const { examCourseIds, examEquivalentCourses } = generateExamCourseIdsFromEquivalentCourses(courses.flat());
   examCourseIds.forEach((exam) => {
-    const { collegeConditions, majorsExcluded } = examRequirementsMapping[exam];
+    const { collegeConditions, majorsExcluded, minorsExcluded, preProgramsExcluded } = examRequirementsMapping[exam];
     const validColleges = new Set<string>();
     examToCourseMapping[exam].forEach((course) => {
       if (examEquivalentCourses.has(course.toString()))
@@ -135,6 +137,8 @@ const computeConditionsForExams = (courses: readonly (readonly number[])[]) => {
     conditions[exam] = {
       colleges: [...validColleges].sort(),
       ...(majorsExcluded && { majorsExcluded }),
+      ...(minorsExcluded && { minorsExcluded }),
+      ...(preProgramsExcluded && { preProgramsExcluded }),
     };
   });
   return conditions;

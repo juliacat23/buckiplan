@@ -6,6 +6,8 @@ export type ExamFulfillment = {
   readonly minimumScore: number;
   readonly credits: number;
   readonly majorsExcluded?: string[];
+  readonly minorsExcluded?: string[];
+  readonly preProgramsExcluded?: string[];
 };
 
 export type ExamFulfillments = Record<string, ExamFulfillment[]>;
@@ -57,7 +59,7 @@ const examData: ExamData = {
           courseEquivalents: {
             [OTHER_COLLEGES]: [149980], // BIO 1110
           },
-          majorsExcluded: ['Pre-Medicine'],
+          preProgramsExcluded: ['Pre-Medicine'],
         },
         {
           courseId: 125,
@@ -110,7 +112,7 @@ const examData: ExamData = {
           },
           minimumScore: 4,
           credits: 5,
-          majorsExcluded: ['Pre-Medicine'],
+          preProgramsExcluded: ['Pre-Medicine'],
         },
       ],
       'Chinese Language and Culture	': [
@@ -443,7 +445,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
-          majorsExcluded: ['Pre-Medicine'],
+          preProgramsExcluded: ['Pre-Medicine'],
         },
       ],
       'Physics 2': [
@@ -454,7 +456,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
-          majorsExcluded: ['Pre-Medicine'],
+          preProgramsExcluded: ['Pre-Medicine'],
         },
       ],
       'Physics C: Mechanics': [
@@ -465,7 +467,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
-          majorsExcluded: ['Pre-Medicine'],
+          preProgramsExcluded: ['Pre-Medicine'],
         },
       ],
       'Physics C: Electricity and Magnetism': [
@@ -476,7 +478,7 @@ const examData: ExamData = {
           },
           minimumScore: 3,
           credits: 5,
-          majorsExcluded: ['Pre-Medicine'],
+          preProgramsExcluded: ['Pre-Medicine'],
         },
       ],
       Psychology: [
@@ -599,7 +601,7 @@ const examData: ExamData = {
         },
         minimumScore: 4,
         credits: 8,
-        majorsExcluded: ['Pre-Medicine'],
+        preProgramsExcluded: ['Pre-Medicine'],
       },
     ],
     Chemistry: [
@@ -610,7 +612,7 @@ const examData: ExamData = {
         },
         minimumScore: 4,
         credits: 5,
-        majorsExcluded: ['Pre-Medicine'],
+        preProgramsExcluded: ['Pre-Medicine'],
       },
     ],
     Economics: [
@@ -753,7 +755,7 @@ const examData: ExamData = {
         },
         minimumScore: 4,
         credits: 10,
-        majorsExcluded: ['Pre-Medicine'],
+        preProgramsExcluded: ['Pre-Medicine'],
       },
     ],
     Psychology: [

@@ -273,11 +273,14 @@ export function getMatchedRequirementFulfillmentSpecification(
         // allow course if there are no requirement conditions
         if (!(conditions && courseId in conditions)) return true;
         // otherwise, inspect conditions to see if we should disallow course
-        const { colleges, majorsExcluded } = conditions[courseId];
+        const { colleges, majorsExcluded, minorsExcluded, preProgramsExcluded } = conditions[courseId];
         // requirement is not in colleges list
         if (sourceType === 'College' && !colleges.includes(sourceSpecificName)) return false;
         // requirement is in majorsExcluded list
         if (majorsExcluded && sourceType === 'Major' && majorsExcluded.includes(sourceSpecificName)) return false;
+        // requirement is in minorsExcluded list
+        if (minorsExcluded && sourceType === 'Major' && minorsExcluded.includes(sourceSpecificName)) return false;
+
         // course passes all conditions
         return true;
       })
