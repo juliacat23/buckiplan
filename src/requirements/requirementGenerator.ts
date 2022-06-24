@@ -11,7 +11,7 @@ import {
 import sourceRequirements, { colleges } from './data';
 import { NO_FULFILLMENTS_COURSE_ID, SPECIAL_COURSES } from './data/constants';
 import { examRequirementsMapping, examToCourseMapping, courseToExamMapping } from './examMapping';
-import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
+import { fullCoursesArray } from '../constants/courses/typed-full-courses';
 
 const applyDecoratorsToRequirements = (
   requirements: readonly CollegeOrMajorRequirement[],
@@ -371,4 +371,4 @@ const generateDecoratedRequirementsJson = (): DecoratedRequirementsJson => {
 const decoratedRequirements = generateDecoratedRequirementsJson();
 const decoratedRequirementsString = JSON.stringify(decoratedRequirements, undefined, 2);
 
-writeFileSync('src/requirements/decorated-requirements.json', decoratedRequirementsString);
+writeFileSync('src/requirements/decoratedRequirements.json', decoratedRequirementsString);
