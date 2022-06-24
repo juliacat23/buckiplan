@@ -1,5 +1,4 @@
-import { Course, RequirementChecker } from '@/types/requirementTypes';
-
+import { Course, RequirementChecker } from '../types';
 const FLcourses: readonly string[] = [
   // 'AKKAD',
   'ARABIC',
@@ -105,8 +104,6 @@ export const courseMeetsCreditMinimum = (course: Course, minCredits: number): bo
  * @param attribute attribute the course object might have
  * @returns if course has attribute in field catalogAttribute
  */
-export const courseHasAttribute = (course: Course, attribute: string): boolean =>
-  course.catalogAttribute?.includes(attribute) ?? false;
 
 /**
  * This function returns a checker that checks whether a course satisfy a single requirement by
@@ -171,3 +168,5 @@ export const includesWithSubRequirements = (
   ...includes: readonly string[][]
 ): readonly ((course: Course) => boolean)[] =>
   includes.map((subRequirementInclude) => (course: Course) => courseMatchesCodeOptions(course, subRequirementInclude));
+
+export const courseIsSURV = (course: Course): boolean => course.catalogSatisfiesReq?.includes('SURV') ?? false;
