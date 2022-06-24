@@ -5,14 +5,24 @@ import {
   RequirementChecker,
   Course,
   MutableMajorRequirements,
+  InitialRequirementDecorator,
+  RequirementDecorator,
 } from './types';
 import sourceRequirements, { colleges } from './data';
 import { NO_FULFILLMENTS_COURSE_ID, SPECIAL_COURSES } from './data/constants';
 import { examRequirementsMapping, examToCourseMapping, courseToExamMapping } from './examMapping';
 import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
-/**
- * Special (synthetic) courses used for AP/IB fulfillment.
- */
+
+const applyDecoratorsToRequirements = (
+  requirements: readonly CollegeOrMajorRequirement[],
+  initialDecorator: InitialRequirementDecorator,
+  ...decorators: RequirementDecorator[]
+): readonly DecoratedCollegeOrMajorRequirement[] =>
+  requirements.map((requirement) => {
+    const decoratedRequirement = initialDecorator(requirement);
+    return decorators.reduce((res, decorator) => decorator(res), decoratedRequirement);
+  });
+
 const specialCourses: Course[] = Object.entries(SPECIAL_COURSES)
   .map(([name, crseId]) => ({
     subject: name,
@@ -25,9 +35,6 @@ const specialCourses: Course[] = Object.entries(SPECIAL_COURSES)
   }))
   .filter(({ crseId }) => crseId !== NO_FULFILLMENTS_COURSE_ID);
 
-type InitialRequirementDecorator = (requirement: CollegeOrMajorRequirement) => DecoratedCollegeOrMajorRequirement;
-type RequirementDecorator = (requirement: DecoratedCollegeOrMajorRequirement) => DecoratedCollegeOrMajorRequirement;
-
 const getEligibleCoursesFromRequirementCheckers = (
   checkers: readonly RequirementChecker[]
 ): readonly (readonly number[])[] =>
@@ -38,16 +45,6 @@ const getEligibleCoursesFromRequirementCheckers = (
         .map((course) => course.crseId)
     );
     return Array.from(courseIdSet);
-  });
-
-const applyDecoratorsToRequirements = (
-  requirements: readonly CollegeOrMajorRequirement[],
-  initialDecorator: InitialRequirementDecorator,
-  ...decorators: RequirementDecorator[]
-): readonly DecoratedCollegeOrMajorRequirement[] =>
-  requirements.map((requirement) => {
-    const decoratedRequirement = initialDecorator(requirement);
-    return decorators.reduce((res, decorator) => decorator(res), decoratedRequirement);
   });
 
 const decorateRequirementWithCourses: InitialRequirementDecorator = (requirement) => {
@@ -94,6 +91,7 @@ const decorateRequirementWithCourses: InitialRequirementDecorator = (requirement
 };
 
 const equivalentCourseIds = new Set(Object.keys(courseToExamMapping));
+
 const generateExamCourseIdsFromEquivalentCourses = (
   courses: readonly number[]
 ): { examCourseIds: Set<number>; examEquivalentCourses: Set<string> } => {
@@ -112,18 +110,11 @@ const generateExamCourseIdsFromEquivalentCourses = (
   };
 };
 
-/**
- * Map this function across every list of course ids and figure out which
- * exams' course ids should be added (if any).
- */
 const addCourseIdsForAssociatedExams = (courses: readonly number[]): number[] => {
   const { examCourseIds } = generateExamCourseIdsFromEquivalentCourses(courses);
   return courses.concat(...examCourseIds);
 };
 
-/**
- * Compute requirements conditions for AP/IB exams
- */
 const computeConditionsForExams = (courses: readonly (readonly number[])[]) => {
   const conditions: Record<
     number,
@@ -229,7 +220,6 @@ const decorateRequirementWithExams: RequirementDecorator = (requirement) => {
   }
 };
 
-// Sort by course ID to get a more stable ordered json
 const sortRequirementCourses: RequirementDecorator = (requirement) => {
   switch (requirement.fulfilledBy) {
     case 'self-check':
@@ -279,7 +269,7 @@ const sortRequirementCourses: RequirementDecorator = (requirement) => {
 };
 
 const generateDecoratedRequirementsJson = (): DecoratedRequirementsJson => {
-  const { university, college, major, minor, grad } = sourceRequirements;
+  const { university, college, major, minor, preProgram } = sourceRequirements;
   type MutableDecoratedJson = {
     university: {
       [key: string]: {
@@ -301,7 +291,7 @@ const generateDecoratedRequirementsJson = (): DecoratedRequirementsJson => {
         readonly requirements: readonly DecoratedCollegeOrMajorRequirement[];
       };
     };
-    grad: {
+    preProgram: {
       [key: string]: {
         readonly name: string;
         // Unsure if grad programs can be offered by multiple schools, but allows flexibility.
@@ -315,7 +305,7 @@ const generateDecoratedRequirementsJson = (): DecoratedRequirementsJson => {
     college: {},
     major: {},
     minor: {},
-    grad: {},
+    preProgram: {},
   };
   const decorateRequirements = (requirements: readonly CollegeOrMajorRequirement[]) =>
     applyDecoratorsToRequirements(
@@ -353,9 +343,9 @@ const generateDecoratedRequirementsJson = (): DecoratedRequirementsJson => {
       requirements: decorateRequirements(requirements),
     };
   });
-  Object.entries(grad).forEach(([gradName, gradRequirement]) => {
-    const { requirements, advisors, ...rest } = gradRequirement;
-    decoratedJson.grad[gradName] = {
+  Object.entries(preProgram).forEach(([preProgramName, preProgramRequirement]) => {
+    const { requirements, advisors, ...rest } = preProgramRequirement;
+    decoratedJson.preProgram[preProgramName] = {
       ...rest,
       requirements: decorateRequirements(requirements),
     };
@@ -366,7 +356,9 @@ const generateDecoratedRequirementsJson = (): DecoratedRequirementsJson => {
     ...Object.entries(decoratedJson.college).map(([code, requirements]) => ['COLLEGE', code, requirements] as const),
     ...Object.entries(decoratedJson.major).map(([code, requirements]) => ['MAJOR', code, requirements] as const),
     ...Object.entries(decoratedJson.minor).map(([code, requirements]) => ['MINOR', code, requirements] as const),
-    ...Object.entries(decoratedJson.grad).map(([code, requirements]) => ['GRAD', code, requirements] as const),
+    ...Object.entries(decoratedJson.preProgram).map(
+      ([code, requirements]) => ['PREPROGRAM', code, requirements] as const
+    ),
   ].flatMap(([category, code, { requirements }]) => requirements.map((it) => `${category}-${code}-${it.name}`));
   const idSet = new Set(allRequirementIDs);
   if (idSet.size !== allRequirementIDs.length) {

@@ -1,4 +1,4 @@
-import { RequirementsJson } from '@/types/requirementTypes';
+import { RequirementsJson } from '../types';
 import universityRequirements from './university';
 
 // pre-professional programs

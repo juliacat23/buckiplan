@@ -5,4 +5,4 @@ import {
   removeIllegalEdgesFromRequirementFulfillmentGraph,
 } from './requirementGraphBuilder';
 
-
+import { getMatchedRequirementFulfillmentSpecification } from './requirementUtils';

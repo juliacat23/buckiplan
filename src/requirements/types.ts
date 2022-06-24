@@ -1,3 +1,5 @@
+import { AdvisorGroup } from './toolTypes';
+
 export type Course = Omit<OSUCourse, 'roster'>;
 export type BaseRequirement = RequirementCommon & RequirementFulfillmentInformation;
 
@@ -11,6 +13,7 @@ export type CollegeRequirements<R> = {
   readonly [collegeCode: string]: {
     readonly name: string;
     readonly requirements: readonly R[];
+    readonly advisors?: AdvisorGroup;
   };
 };
 
@@ -20,6 +23,7 @@ export type Major<R> = Readonly<{
   requirements: readonly R[];
   /** College requirements that have been "specialized" for this major */
   specializations?: readonly R[];
+  advisors?: AdvisorGroup;
 }>;
 
 export type MutableMajorRequirements<R> = {
@@ -33,8 +37,7 @@ type GenericRequirementsJson<R> = {
   readonly college: CollegeRequirements<R>;
   readonly major: MajorRequirements<R>;
   readonly minor: MajorRequirements<R>;
-  // We are treating grad programs at the same level as a major/minor.
-  readonly grad: MajorRequirements<R>;
+  readonly preProgram: MajorRequirements<R>;
 };
 
 export type RequirementsJson = GenericRequirementsJson<CollegeOrMajorRequirement>;
@@ -44,8 +47,7 @@ export type DecoratedRequirementsJson = {
   readonly college: CollegeRequirements<DecoratedCollegeOrMajorRequirement>;
   readonly major: MajorRequirements<DecoratedCollegeOrMajorRequirement>;
   readonly minor: MajorRequirements<DecoratedCollegeOrMajorRequirement>;
-  // We are treating grad programs at the same level as a major/minor.
-  readonly grad: MajorRequirements<DecoratedCollegeOrMajorRequirement>;
+  readonly preProgram: MajorRequirements<DecoratedCollegeOrMajorRequirement>;
 };
 
 /* Type that represents a set of placeholders for a given requirement */
@@ -65,3 +67,10 @@ type PlaceholdersForRequirement = {
 };
 
 export type Template = readonly PlaceholdersForRequirement[];
+
+export type InitialRequirementDecorator = (
+  requirement: CollegeOrMajorRequirement
+) => DecoratedCollegeOrMajorRequirement;
+export type RequirementDecorator = (
+  requirement: DecoratedCollegeOrMajorRequirement
+) => DecoratedCollegeOrMajorRequirement;
