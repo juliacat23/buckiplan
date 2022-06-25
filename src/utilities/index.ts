@@ -1,5 +1,6 @@
 import { coursesColorSet } from '@/constants/colors';
 import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
+import RequirementJson from '@/requirements/typedRequirementJson';
 
 export function checkNotNull<T>(value: T | null | undefined): T {
   if (value == null) throw new Error();
@@ -90,24 +91,24 @@ export function getCollegeFullName(acronym: string | undefined): string {
   if (acronym && acronym.startsWith('SWK')) {
     return 'Social Work';
   }
-  const college = acronym ? requirementJSON.college[acronym] : null;
+  const college = acronym ? RequirementJson.college[acronym] : null;
 
   // Return empty string if college is not in requirementJSON
   return college ? college.name : '';
 }
 
 export function getMajorFullName(acronym: string): string {
-  const major = requirementJSON.major[acronym];
+  const major = RequirementJson.major[acronym];
   return major ? major.name : '';
 }
 
 export function getMinorFullName(acronym: string): string {
-  const minor = requirementJSON.minor[acronym];
+  const minor = RequirementJson.minor[acronym];
   return minor ? minor.name : '';
 }
 
 export function getPreProgramFullName(acronym: string): string {
-  const preProgram = requirementJSON.preProgram[acronym];
+  const preProgram = RequirementJson.preProgram[acronym];
   return preProgram ? preProgram.name : '';
 }
 
@@ -115,6 +116,22 @@ export function getPreProgramFullName(acronym: string): string {
 export const isPlaceholderCourse = (
   element: FirestoreSemesterPlaceholder | FirestoreSemesterCourse | CourseTaken
 ): element is FirestoreSemesterPlaceholder => !!(element as FirestoreSemesterPlaceholder).startingSemester;
+
+export const clickOutside = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  beforeMount(el: any, binding: any): void {
+    el.clickOutsideEvent = (event: Event) => {
+      if (!(el === event.target || el.contains(event.target))) {
+        binding.value(event, el);
+      }
+    };
+    document.body.addEventListener('click', el.clickOutsideEvent);
+  },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  unmounted(el: any): void {
+    document.body.removeEventListener('click', el.clickOutsideEvent);
+  },
+};
 
 // Determines whether the given element used in CourseCaution is CourseTaken
 export const isCourseTaken = (
