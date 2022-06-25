@@ -1,76 +1,53 @@
 <template>
   <div class="details">
     <div class="details-ratings-link-wrapper">
-      <a :href="CURLink" class="details-ratings-link" target="_blank" @click="clickCUReviewsLink()"
-        >Learn more on CUReviews</a
-      >
+      <a :href="CURLink" class="details-ratings-link" target="_blank" @click="clickCUReviewsLink()">Learn more on
+        CUReviews</a>
     </div>
     <div class="details-ratings-wrapper">
       <div class="details-ratings">
-        <p class="details-ratings-title">
+        <!-- <p class="details-ratings-title">
           <span class="details-ratings-title-strong">Overall: </span>
           <span class="details-ratings-strong" data-cyId="CUReviews-overall">{{
-            CUROverallRating
+              CUROverallRating
           }}</span>
-        </p>
-        <div class="progress rating">
-          <div
-            class="progress-bar"
-            role="progressbar"
-            :style="{
-              width: `${(courseObj.overallRating / 5) * 100}%`,
-              background: reviewsColor(courseObj.overallRating),
-            }"
-            aria-label="Overall Rating"
-            :aria-valuenow="(courseObj.overallRating / 5) * 100"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
+        </p> -->
+        <!-- <div class="progress rating">
+          <div class="progress-bar" role="progressbar" :style="{
+            width: `${(courseObj.overallRating / 5) * 100}%`,
+            background: reviewsColor(courseObj.overallRating),
+          }" aria-label="Overall Rating" :aria-valuenow="(courseObj.overallRating / 5) * 100" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div> -->
       </div>
       <div class="details-ratings">
-        <p class="details-ratings-title">
+        <!-- <p class="details-ratings-title">
           <span class="details-ratings-title-strong">Difficulty: </span>
           <span class="details-ratings-strong" data-cyId="CUReviews-difficulty">
-            {{ CURDifficulty }}</span
-          >
-        </p>
-        <div class="progress rating">
-          <div
-            class="progress-bar"
-            role="progressbar"
-            :style="{
-              width: `${(courseObj.difficulty / 5) * 100}%`,
-              background: reviewsColor(courseObj.difficulty, true),
-            }"
-            aria-label="Difficulty Rating"
-            :aria-valuenow="(courseObj.difficulty / 5) * 100"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
+            {{ CURDifficulty }}</span>
+        </p> -->
+        <!-- <div class="progress rating">
+          <div class="progress-bar" role="progressbar" :style="{
+            width: `${(courseObj.difficulty / 5) * 100}%`,
+            background: reviewsColor(courseObj.difficulty, true),
+          }" aria-label="Difficulty Rating" :aria-valuenow="(courseObj.difficulty / 5) * 100" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div> -->
       </div>
       <div class="details-ratings">
-        <p class="details-ratings-title">
+        <!-- <p class="details-ratings-title">
           <span class="details-ratings-title-strong">Workload: </span>
           <span class="details-ratings-strong" data-cyId="CUReviews-workload">{{
-            CURWorkload
+              CURWorkload
           }}</span>
-        </p>
-        <div class="progress rating">
-          <div
-            class="progress-bar"
-            role="progressbar"
-            :style="{
-              width: `${(courseObj.workload / 5) * 100}%`,
-              background: reviewsColor(courseObj.workload, true),
-            }"
-            aria-label="Workload Rating"
-            :aria-valuenow="(courseObj.workload / 5) * 100"
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
-        </div>
+        </p> -->
+        <!-- <div class="progress rating">
+          <div class="progress-bar" role="progressbar" :style="{
+            width: `${(courseObj.workload / 5) * 100}%`,
+            background: reviewsColor(courseObj.workload, true),
+          }" aria-label="Workload Rating" :aria-valuenow="(courseObj.workload / 5) * 100" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div> -->
       </div>
     </div>
     <div class="details-head">Prerequisites</div>
@@ -82,7 +59,7 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { reviewColors } from '@/assets/constants/colors';
+import { reviewColors } from '@/constants/colors';
 import { GTagEvent } from '@/gtag';
 
 const noneIfEmpty = (str: string): string => (str && str.length !== 0 ? str : 'None');
@@ -124,18 +101,7 @@ export default defineComponent({
       const [subject, number] = this.courseObj.code.split(' ');
       return `https://www.cureviews.org/course/${subject}/${number}`;
     },
-    CUROverallRating(): string | number {
-      if (!this.courseObj.overallRating) return 'N/A';
-      return Math.round(this.courseObj.overallRating * 10) / 10;
-    },
-    CURDifficulty(): string | number {
-      if (!this.courseObj.difficulty) return 'N/A';
-      return Math.round(this.courseObj.difficulty * 10) / 10;
-    },
-    CURWorkload(): string | number {
-      if (!this.courseObj.workload) return 'N/A';
-      return Math.round(this.courseObj.workload * 10) / 10;
-    },
+
   },
 });
 </script>
@@ -179,6 +145,7 @@ export default defineComponent({
       font-size: 14px;
       text-decoration-line: underline;
       color: $yuxuanBlue;
+
       &-wrapper {
         display: flex;
         flex-direction: row-reverse;
@@ -212,6 +179,7 @@ export default defineComponent({
   .details {
     &-ratings {
       width: 60%;
+
       &-wrapper {
         display: flex;
         flex-direction: column;
