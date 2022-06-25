@@ -1,29 +1,16 @@
 <template>
   <div>
     <div class="conflictEditor-reqs">
-      <div
-        class="conflictEditor-req"
-        v-for="([reqName, bool], index) in checkedReqs"
-        :key="reqName"
-      >
-        <input
-          type="checkbox"
-          :id="reqName"
-          :checked="bool"
-          @change="checkOrUncheckReq(reqName, index)"
-        />
+      <div class="conflictEditor-req" v-for="([reqName, bool], index) in checkedReqs" :key="reqName">
+        <input type="checkbox" :id="reqName" :checked="bool" @change="checkOrUncheckReq(reqName, index)" />
         <label v-if="!isReqSelfCheck(index)" :for="reqName" class="conflictEditor-label">{{
           getDisplayName(reqName)
         }}</label>
         <label v-else :for="reqName" class="conflictEditor-label">
           <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
-          {{ getDisplayName(reqName) }}</label
-        >
-        <span
-          class="conflictEditor-pill"
-          :style="{ color: getPillColor(reqName), 'border-color': getPillColor(reqName) }"
-          >{{ getSourceName(reqName) }}</span
-        >
+          {{ getDisplayName(reqName) }}</label>
+        <span class="conflictEditor-pill"
+          :style="{ color: getPillColor(reqName), 'border-color': getPillColor(reqName) }">{{ getSourceName(reqName) }}</span>
       </div>
     </div>
   </div>
@@ -87,7 +74,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .conflictEditor {
   &-label {

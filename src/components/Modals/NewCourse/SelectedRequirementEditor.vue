@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div
-      v-if="
-        editMode ? automaticallyFulfilledRequirements.length > 0 : chosenRequirementText.length > 0
-      "
-    >
+    <div v-if="
+      editMode ? automaticallyFulfilledRequirements.length > 0 : chosenRequirementText.length > 0
+    ">
       <div class="newCourse-title">
         This class automatically fulfills the following requirement(s):
       </div>
@@ -42,28 +40,19 @@
           }}
         </div>
         <div v-else>
-          Instead of <span class="newCourse-requirements">{{ selectedRequirementName }}</span
-          >, this class could potentially fulfill the following requirement(s):
+          Instead of <span class="newCourse-requirements">{{ selectedRequirementName }}</span>, this class could
+          potentially fulfill the following requirement(s):
         </div>
         <div v-if="potentialRequirements.length > 0" class="warning">
           <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
           We cannot accurately check the requirements marked with the warning icon, so double check
           before selecting.
         </div>
-        <requirements-dropdown
-          :relatedRequirements="relatedRequirements"
-          :potentialRequirements="potentialRequirements"
-          :selectedID="selectedRequirementID"
-          @on-selected-change="toggleSelectRequirement"
-        />
+        <requirements-dropdown :relatedRequirements="relatedRequirements" :potentialRequirements="potentialRequirements"
+          :selectedID="selectedRequirementID" @on-selected-change="toggleSelectRequirement" />
       </div>
-      <button
-        v-if="!editMode"
-        class="newCourse-link"
-        @click="toggleEditMode()"
-        @keyup.enter="toggleEditMode()"
-        data-cyId="newCourse-link"
-      >
+      <button v-if="!editMode" class="newCourse-link" @click="toggleEditMode()" @keyup.enter="toggleEditMode()"
+        data-cyId="newCourse-link">
         Select Requirements
       </button>
     </div>
@@ -143,7 +132,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
+
 .newCourse {
   &-name {
     position: relative;
@@ -152,23 +142,27 @@ export default defineComponent({
     line-height: 14px;
     color: $darkGray;
   }
+
   &-title {
     font-size: 14px;
     line-height: 17px;
     color: $lightPlaceholderGray;
     margin-bottom: 6px;
   }
+
   &-requirements {
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
     color: $emGreen;
+
     &-container {
       display: flex;
       flex-direction: row;
       margin-bottom: 10px;
     }
+
     &-edit {
       display: flex;
       flex-direction: row;
@@ -176,6 +170,7 @@ export default defineComponent({
       flex-wrap: wrap;
     }
   }
+
   &-link {
     padding: 0;
     background-color: $white;
@@ -186,17 +181,20 @@ export default defineComponent({
     line-height: 14px;
     color: $yuxuanBlue;
     cursor: pointer;
+
     &:hover {
       text-decoration-line: underline;
       color: $yuxuanBlue;
     }
   }
 }
+
 .warning {
   color: $warning;
   font-size: 14px;
   line-height: 17px;
   margin-bottom: 8px;
+
   &-icon {
     float: left;
     margin: 0.125rem 0.25rem 0 0;

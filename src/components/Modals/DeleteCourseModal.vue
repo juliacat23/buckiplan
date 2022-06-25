@@ -1,14 +1,7 @@
 <template>
-  <teleport-modal
-    title="Delete Course"
-    content-class="content-reset"
-    left-button-text="No"
-    right-button-text="Yes"
-    @left-button-clicked="closeClicked"
-    @right-button-clicked="deleteClicked"
-    @modal-closed="closeCurrentModal"
-    :rightButtonIsDisabled="false"
-  >
+  <teleport-modal title="Delete Course" content-class="content-reset" left-button-text="No" right-button-text="Yes"
+    @left-button-clicked="closeClicked" @right-button-clicked="deleteClicked" @modal-closed="closeCurrentModal"
+    :rightButtonIsDisabled="false">
     <div v-if="isTransferCredit" class="text-width">
       Are you sure you want to remove "{{ reqName }}" for this requirement? This will delete the
       selected transfer credit.
@@ -50,11 +43,12 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .content-reset {
   width: 30.5em;
   align-items: initial;
+
   button {
     width: 48px;
   }
@@ -70,6 +64,7 @@ export default defineComponent({
   &--block {
     display: block;
   }
+
   &--flex {
     display: flex;
   }
@@ -79,6 +74,7 @@ export default defineComponent({
   .content-reset {
     width: 100%;
   }
+
   .text-width {
     width: 100%;
   }

@@ -2,89 +2,46 @@
   <div>
     <div class="selectSemester">
       <div class="selectSemester-section selectSemester-type">
-        <label v-if="!isCourseModelSelectingSemester" class="selectSemester-label" for="type"
-          >Type</label
-        >
-        <div
-          :class="[{ duplicate: isDuplicate() }, { 'selectSemester-select': !isDuplicate() }]"
-          class="position-relative"
-          v-click-outside="closeSeasonDropdownIfOpen"
-        >
-          <div
-            class="selectSemester-dropdown-placeholder season-wrapper"
-            @click="showHideSeasonContent"
-            data-cyId="newSemester-seasonWrapper"
-          >
-            <div
-              class="selectSemester-dropdown-placeholder season-placeholder"
-              :style="{ color: displayOptions.season.placeholderColor }"
-            >
+        <label v-if="!isCourseModelSelectingSemester" class="selectSemester-label" for="type">Type</label>
+        <div :class="[{ duplicate: isDuplicate() }, { 'selectSemester-select': !isDuplicate() }]"
+          class="position-relative" v-click-outside="closeSeasonDropdownIfOpen">
+          <div class="selectSemester-dropdown-placeholder season-wrapper" @click="showHideSeasonContent"
+            data-cyId="newSemester-seasonWrapper">
+            <div class="selectSemester-dropdown-placeholder season-placeholder"
+              :style="{ color: displayOptions.season.placeholderColor }">
               {{ seasonPlaceholder }}
             </div>
-            <div
-              class="selectSemester-dropdown-placeholder season-arrow"
-              :style="{ borderTopColor: displayOptions.season.arrowColor }"
-            ></div>
+            <div class="selectSemester-dropdown-placeholder season-arrow"
+              :style="{ borderTopColor: displayOptions.season.arrowColor }"></div>
           </div>
-          <div
-            class="selectSemester-dropdown-content season-content position-absolute w-100"
-            v-if="displayOptions.season.shown"
-          >
-            <div
-              :class="{ warning: isDuplicate }"
-              v-for="s in seasons"
-              :key="s[1]"
-              class="selectSemester-dropdown-content-item"
-              @click="selectSeason(s[1])"
-              data-cyId="newSemester-seasonItem"
-            >
-              <img
-                :src="s[0]"
-                class="selectSemester-dropdown-content-season"
-                :alt="`${s[1]} icon`"
-              />
+          <div class="selectSemester-dropdown-content season-content position-absolute w-100"
+            v-if="displayOptions.season.shown">
+            <div :class="{ warning: isDuplicate }" v-for="s in seasons" :key="s[1]"
+              class="selectSemester-dropdown-content-item" @click="selectSeason(s[1])"
+              data-cyId="newSemester-seasonItem">
+              <img :src="s[0]" class="selectSemester-dropdown-content-season" :alt="`${s[1]} icon`" />
               {{ s[1] }}
             </div>
           </div>
         </div>
       </div>
       <div class="selectSemester-section selectSemester-year">
-        <label v-if="!isCourseModelSelectingSemester" class="selectSemester-label" for="year"
-          >Year</label
-        >
-        <div
-          :class="[{ duplicate: isDuplicate() }, { 'selectSemester-select': !isDuplicate() }]"
-          class="position-relative"
-          v-click-outside="closeYearDropdownIfOpen"
-        >
-          <div
-            class="selectSemester-dropdown-placeholder year-wrapper"
-            @click="showHideYearContent"
-            data-cyId="newSemester-yearWrapper"
-          >
-            <div
-              class="selectSemester-dropdown-placeholder year-placeholder"
-              :style="{ color: displayOptions.year.placeholderColor }"
-            >
+        <label v-if="!isCourseModelSelectingSemester" class="selectSemester-label" for="year">Year</label>
+        <div :class="[{ duplicate: isDuplicate() }, { 'selectSemester-select': !isDuplicate() }]"
+          class="position-relative" v-click-outside="closeYearDropdownIfOpen">
+          <div class="selectSemester-dropdown-placeholder year-wrapper" @click="showHideYearContent"
+            data-cyId="newSemester-yearWrapper">
+            <div class="selectSemester-dropdown-placeholder year-placeholder"
+              :style="{ color: displayOptions.year.placeholderColor }">
               {{ yearPlaceholder }}
             </div>
-            <div
-              class="selectSemester-dropdown-placeholder year-arrow"
-              :style="{ borderTopColor: displayOptions.year.arrowColor }"
-            ></div>
+            <div class="selectSemester-dropdown-placeholder year-arrow"
+              :style="{ borderTopColor: displayOptions.year.arrowColor }"></div>
           </div>
-          <div
-            class="selectSemester-dropdown-content year-content position-absolute"
-            v-if="displayOptions.year.shown"
-          >
-            <div
-              v-for="yearChoice in years"
-              :key="yearChoice"
-              :ref="`year-ref-${yearChoice}`"
-              class="selectSemester-dropdown-content-item"
-              @click="selectYear(yearChoice)"
-              data-cyId="newSemester-yearItem"
-            >
+          <div class="selectSemester-dropdown-content year-content position-absolute" v-if="displayOptions.year.shown">
+            <div v-for="yearChoice in years" :key="yearChoice" :ref="`year-ref-${yearChoice}`"
+              class="selectSemester-dropdown-content-item" @click="selectYear(yearChoice)"
+              data-cyId="newSemester-yearItem">
               {{ yearChoice }}
             </div>
           </div>
@@ -306,23 +263,27 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .duplicate-p {
   color: red;
 }
+
 .duplicate {
   border-radius: 3px;
   border: 1px solid red;
 }
+
 .selectSemester {
   display: flex;
   flex-direction: row;
+
   &-duplicate {
     color: red;
     font-size: 14px;
     margin-top: 0.5rem;
   }
+
   &-section {
     font-size: 14px;
     line-height: 15px;
@@ -365,6 +326,7 @@ export default defineComponent({
     width: 12px;
     height: 12px;
   }
+
   &-dropdown {
     &-placeholder {
       font-style: normal;
@@ -443,11 +405,13 @@ export default defineComponent({
       overflow-y: scroll;
       overflow-x: hidden;
     }
+
     &-season {
       padding-left: 0px;
       padding-right: 10px;
       height: 14px;
     }
+
     &-item {
       height: 31px;
       left: 454px;
@@ -478,12 +442,15 @@ export default defineComponent({
 select option {
   color: black;
 }
+
 select option:first-child {
   color: grey;
 }
+
 select.empty {
   color: grey;
 }
+
 /* Hidden placeholder */
 select option[disabled]:first-child {
   display: none;

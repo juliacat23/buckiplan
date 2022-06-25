@@ -1,15 +1,7 @@
 <template>
-  <teleport-modal
-    title="Edit Color"
-    content-class="edit-color"
-    left-button-text="Cancel"
-    right-button-text="OK"
-    :rightButtonIsDisabled="false"
-    rightButtonAlt="edit color"
-    @modal-closed="closeCurrentModal"
-    @left-button-clicked="closeCurrentModal"
-    @right-button-clicked="editColor(picked)"
-  >
+  <teleport-modal title="Edit Color" content-class="edit-color" left-button-text="Cancel" right-button-text="OK"
+    :rightButtonIsDisabled="false" rightButtonAlt="edit color" @modal-closed="closeCurrentModal"
+    @left-button-clicked="closeCurrentModal" @right-button-clicked="editColor(picked)">
     <div class="editColorModal-body">
       <div class="editColorModal-input">
         <div class="editColorModal-radio">
@@ -78,7 +70,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .editColorModal {
   &-input {

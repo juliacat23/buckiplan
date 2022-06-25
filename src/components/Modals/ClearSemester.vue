@@ -1,16 +1,8 @@
 <template>
-  <teleport-modal
-    title="Clear Semester"
-    content-class="content-clear"
-    left-button-text="Cancel"
-    right-button-text="Clear"
-    :rightButtonIsDisabled="false"
-    :rightButtonImage="icon"
-    rightButtonAlt="clear semester erase icon"
-    @modal-closed="closeCurrentModal"
-    @left-button-clicked="closeCurrentModal"
-    @right-button-clicked="clearSemester"
-  >
+  <teleport-modal title="Clear Semester" content-class="content-clear" left-button-text="Cancel"
+    right-button-text="Clear" :rightButtonIsDisabled="false" :rightButtonImage="icon"
+    rightButtonAlt="clear semester erase icon" @modal-closed="closeCurrentModal"
+    @left-button-clicked="closeCurrentModal" @right-button-clicked="clearSemester">
     <div class="clearSemesterModal-body">
       <div class="clearSemesterModal-body-text">{{ text }}</div>
     </div>
@@ -49,7 +41,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .content-clear {
   width: 24rem;

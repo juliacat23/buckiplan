@@ -1,33 +1,16 @@
 <template>
-  <TeleportModal
-    :title="modalTitle"
-    content-class="content-course"
-    :leftButtonText="leftButtonText"
-    :rightButtonText="rightButtonText"
-    :rightButtonIsDisabled="!canAddCourse"
-    @modal-closed="closeCurrentModal"
-    @left-button-clicked="backOrCancel"
-    @right-button-clicked="addCourse"
-  >
+  <TeleportModal :title="modalTitle" content-class="content-course" :leftButtonText="leftButtonText"
+    :rightButtonText="rightButtonText" :rightButtonIsDisabled="!canAddCourse" @modal-closed="closeCurrentModal"
+    @left-button-clicked="backOrCancel" @right-button-clicked="addCourse">
     <div class="newCourse-text">Search Course Roster</div>
-    <course-selector
-      search-box-class-name="newCourse-dropdown"
-      :key="courseSelectorKey"
-      :courseFilter="courseCanAppearInSearchResult"
-      placeholder='"CS 1110", "Multivariable Calculus", etc'
-      :autoFocus="true"
-      @on-escape="closeCurrentModal"
-      @on-select="setCourse"
-    />
+    <course-selector search-box-class-name="newCourse-dropdown" :key="courseSelectorKey"
+      :courseFilter="courseCanAppearInSearchResult" placeholder='"CS 1110", "Multivariable Calculus", etc'
+      :autoFocus="true" @on-escape="closeCurrentModal" @on-select="setCourse" />
     <div>
       <div class="newCourse-title">Add this class to the following semester</div>
       <div class="newCourse-semester-edit">
-        <select-semester
-          :season="season"
-          :year="year"
-          :isCourseModelSelectingSemester="true"
-          @updateSemProps="updateSemProps"
-        />
+        <select-semester :season="season" :year="year" :isCourseModelSelectingSemester="true"
+          @updateSemProps="updateSemProps" />
       </div>
     </div>
   </TeleportModal>
@@ -108,13 +91,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
+
 .newCourse {
   &-text {
     font-size: 14px;
     line-height: 17px;
     color: $lightPlaceholderGray;
   }
+
   &-dropdown {
     font-size: 14px;
     line-height: 17px;
@@ -123,15 +108,18 @@ export default defineComponent({
     border-radius: 3px;
     padding: 0.5rem;
     border: 0.5px solid $inactiveGray;
+
     &::placeholder {
       color: $darkPlaceholderGray;
     }
   }
+
   &-semester {
     &-edit {
       width: 50%;
     }
   }
+
   &-title {
     font-size: 14px;
     line-height: 17px;

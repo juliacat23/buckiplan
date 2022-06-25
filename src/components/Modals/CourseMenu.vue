@@ -1,49 +1,23 @@
 <template>
   <div class="courseMenu">
     <div class="courseMenu-content">
-      <div
-        class="courseMenu-section"
-        @mouseover="setDisplayColors(true)"
-        @mouseleave="setDisplayColors(false)"
-      >
+      <div class="courseMenu-section" @mouseover="setDisplayColors(true)" @mouseleave="setDisplayColors(false)">
         <div class="courseMenu-left">
-          <img
-            class="courseMenu-icon"
-            src="@/assets/images/paint.svg"
-            alt="edit course color paint icon"
-          />
+          <img class="courseMenu-icon" src="@/assets/images/paint.svg" alt="edit course color paint icon" />
           <span class="courseMenu-text">Edit Color</span>
         </div>
-        <img
-          class="courseMenu-arrow"
-          src="@/assets/images/sidearrow.svg"
-          alt="arrow to expand edit course color"
-        />
+        <img class="courseMenu-arrow" src="@/assets/images/sidearrow.svg" alt="arrow to expand edit course color" />
 
-        <div
-          v-if="displayColors"
-          class="courseMenu-content courseMenu-colors"
-          :class="{ 'courseMenu-colors--left': isLeft }"
-        >
-          <button
-            v-for="(color, index) in colors"
-            :key="index"
-            class="courseMenu-color full-opacity-on-hover"
-            @click="openEditColorModal(color.hex)"
-          >
+        <div v-if="displayColors" class="courseMenu-content courseMenu-colors"
+          :class="{ 'courseMenu-colors--left': isLeft }">
+          <button v-for="(color, index) in colors" :key="index" class="courseMenu-color full-opacity-on-hover"
+            @click="openEditColorModal(color.hex)">
             <div class="courseMenu-left">
-              <div
-                class="courseMenu-color--icon"
-                :style="{ backgroundColor: color.hex }"
+              <div class="courseMenu-color--icon" :style="{ backgroundColor: color.hex }"
                 @mouseover="setDisplayColorTooltip(true, color.text)"
-                @mouseleave="setDisplayColorTooltip(false, color.text)"
-              >
-                <img
-                  v-if="`#${courseColor}` === color.hex"
-                  class="courseMenu-color--checkmark"
-                  src="@/assets/images/checkmark-color.svg"
-                  alt="color checkmark"
-                />
+                @mouseleave="setDisplayColorTooltip(false, color.text)">
+                <img v-if="`#${courseColor}` === color.hex" class="courseMenu-color--checkmark"
+                  src="@/assets/images/checkmark-color.svg" alt="color checkmark" />
               </div>
             </div>
             <div v-if="tooltipColor === color.text" class="courseMenu-color--tooltip">
@@ -52,37 +26,19 @@
           </button>
         </div>
       </div>
-      <div
-        class="courseMenu-section"
-        @mouseover="setDisplayEditCourseCredits(true)"
+      <div class="courseMenu-section" @mouseover="setDisplayEditCourseCredits(true)"
         @mouseleave="setDisplayEditCourseCredits(false)"
-        v-if="getCreditRange && getCreditRange[0] != getCreditRange[1]"
-      >
+        v-if="getCreditRange && getCreditRange[0] != getCreditRange[1]">
         <div class="courseMenu-left">
-          <img
-            class="courseMenu-icon"
-            :class="{ 'courseMenu-icon--left': isLeft }"
-            src="@/assets/images/edit-credits.svg"
-            alt="edit course credits icon"
-          />
+          <img class="courseMenu-icon" :class="{ 'courseMenu-icon--left': isLeft }"
+            src="@/assets/images/edit-credits.svg" alt="edit course credits icon" />
           <span class="courseMenu-text">Edit Credits</span>
         </div>
-        <img
-          class="courseMenu-arrow"
-          src="@/assets/images/sidearrow.svg"
-          alt="arrow to expand edit course credits"
-        />
-        <div
-          v-if="displayEditCourseCredits"
-          class="courseMenu-content courseMenu-editCredits courseMenu-centerCredits"
-          :class="{ 'courseMenu-editCredits--left': isLeft }"
-        >
-          <div
-            v-for="credit in makeCreditArary()"
-            :key="credit"
-            class="courseMenu-section courseMenu-section--credits"
-            @click="editCourseCredit(credit)"
-          >
+        <img class="courseMenu-arrow" src="@/assets/images/sidearrow.svg" alt="arrow to expand edit course credits" />
+        <div v-if="displayEditCourseCredits" class="courseMenu-content courseMenu-editCredits courseMenu-centerCredits"
+          :class="{ 'courseMenu-editCredits--left': isLeft }">
+          <div v-for="credit in makeCreditArary()" :key="credit" class="courseMenu-section courseMenu-section--credits"
+            @click="editCourseCredit(credit)">
             <div class="courseMenu-left">
               <span class="courseMenu-text">{{ credit }}</span>
             </div>
@@ -91,11 +47,7 @@
       </div>
       <button class="courseMenu-section full-opacity-on-hover" @click="deleteCourse">
         <div class="courseMenu-left">
-          <img
-            class="courseMenu-icon"
-            src="@/assets/images/trash.svg"
-            alt="delete course trashcan icon"
-          />
+          <img class="courseMenu-icon" src="@/assets/images/trash.svg" alt="delete course trashcan icon" />
           <span class="courseMenu-text">Delete</span>
         </div>
       </button>
@@ -201,7 +153,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .courseMenu {
   position: absolute;
@@ -226,6 +178,7 @@ export default defineComponent({
     position: relative;
     cursor: pointer;
     width: 100%;
+
     &:hover,
     &:active,
     &:focus {
@@ -275,6 +228,7 @@ export default defineComponent({
       width: 16px;
       height: 16px;
       border-radius: 2px;
+
       &:hover {
         box-shadow: 0px 0px 2px black;
       }
@@ -326,6 +280,7 @@ export default defineComponent({
     &-arrow {
       display: none;
     }
+
     &-colors {
       right: 0rem;
       left: -9rem;

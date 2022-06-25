@@ -1,57 +1,33 @@
 <template>
   <div class="semesterMenu">
-    <button
-      v-if="!isOpenModal"
-      class="semesterMenu-section full-opacity-on-hover"
-      @click="openEditSemesterModal"
-      data-cyId="semesterMenu-edit"
-    >
+    <button v-if="!isOpenModal" class="semesterMenu-section full-opacity-on-hover" @click="openEditSemesterModal"
+      data-cyId="semesterMenu-edit">
       <div class="semesterMenu-content">
         <div class="semesterMenu-content">
           <div class="semesterMenu-left">
-            <img
-              class="semesterMenu-icon"
-              src="@/assets/images/edit.svg"
-              alt="edit semester pencil icon"
-            />
+            <img class="semesterMenu-icon" src="@/assets/images/edit.svg" alt="edit semester pencil icon" />
             <span class="semesterMenu-edit">Edit Semester</span>
           </div>
         </div>
       </div>
     </button>
-    <button
-      v-if="!isOpenModal"
-      class="semesterMenu-section full-opacity-on-hover"
-      @click="openClearSemesterModal"
-      data-cyId="semesterMenu-clear"
-    >
+    <button v-if="!isOpenModal" class="semesterMenu-section full-opacity-on-hover" @click="openClearSemesterModal"
+      data-cyId="semesterMenu-clear">
       <div class="semesterMenu-content">
         <div class="semesterMenu-content">
           <div class="semesterMenu-left">
-            <img
-              class="semesterMenu-icon"
-              src="@/assets/images/erase.svg"
-              alt="clear semester erase icon"
-            />
+            <img class="semesterMenu-icon" src="@/assets/images/erase.svg" alt="clear semester erase icon" />
             <span class="semesterMenu-edit">Clear Semester</span>
           </div>
         </div>
       </div>
     </button>
-    <button
-      v-if="!isOpenModal"
-      class="semesterMenu-section full-opacity-on-hover"
-      @click="openDeleteSemesterModal"
-      data-cyId="semesterMenu-delete"
-    >
+    <button v-if="!isOpenModal" class="semesterMenu-section full-opacity-on-hover" @click="openDeleteSemesterModal"
+      data-cyId="semesterMenu-delete">
       <div class="semesterMenu-content">
         <div class="semesterMenu-content">
           <div class="semesterMenu-left">
-            <img
-              class="semesterMenu-icon"
-              src="@/assets/images/trash.svg"
-              alt="delete semester trashcan icon"
-            />
+            <img class="semesterMenu-icon" src="@/assets/images/trash.svg" alt="delete semester trashcan icon" />
             <span class="semesterMenu-delete">Delete Semester</span>
           </div>
         </div>
@@ -87,7 +63,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .semesterMenu {
   background: $white;
@@ -103,40 +79,49 @@ export default defineComponent({
     width: 12;
     cursor: pointer;
   }
+
   &-section {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
     position: relative;
     width: 100%;
+
     &:hover,
     &:active,
     &:focus {
       background-color: rgba(50, 160, 242, 0.15);
     }
+
     &:first-child {
       border-top-left-radius: 9px;
       border-top-right-radius: 9px;
     }
+
     &:last-child {
       border-bottom-left-radius: 9px;
       border-bottom-right-radius: 9px;
     }
   }
+
   &-left {
     display: flex;
     align-items: center;
   }
+
   &-icon {
     margin-right: 1rem;
+
     &--color {
       width: 16px;
       height: 16px;
     }
   }
+
   &-delete {
     color: #eb6d6d;
   }
+
   &-edit,
   &-clear {
     color: black;

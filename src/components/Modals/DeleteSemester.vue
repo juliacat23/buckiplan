@@ -1,16 +1,8 @@
 <template>
-  <teleport-modal
-    title="Delete Semester"
-    content-class="content-delete"
-    left-button-text="Cancel"
-    right-button-text="Delete"
-    :rightButtonIsDisabled="false"
-    :rightButtonImage="icon"
-    rightButtonAlt="delete semester trashcan icon"
-    @modal-closed="closeCurrentModal"
-    @left-button-clicked="closeCurrentModal"
-    @right-button-clicked="deleteSemester"
-  >
+  <teleport-modal title="Delete Semester" content-class="content-delete" left-button-text="Cancel"
+    right-button-text="Delete" :rightButtonIsDisabled="false" :rightButtonImage="icon"
+    rightButtonAlt="delete semester trashcan icon" @modal-closed="closeCurrentModal"
+    @left-button-clicked="closeCurrentModal" @right-button-clicked="deleteSemester">
     <div class="deleteSemesterModal-body">
       <div class="deleteSemesterModal-body-text">{{ text }}</div>
     </div>
@@ -54,7 +46,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .content-delete {
   width: 24rem;

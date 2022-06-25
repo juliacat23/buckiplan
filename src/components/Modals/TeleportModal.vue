@@ -1,20 +1,11 @@
 <template>
   <Teleport to="#modalTarget" aria-modal="true">
-    <div
-      class="teleport"
-      :class="{
-        'teleport-simple': isSimpleModal,
-        'teleport-noBackground': hasNoBackground,
-        'teleport-transparentBackground': hasClickableTransparentBackground,
-      }"
-      @click="closeOnClickOutside"
-      ref="modalBackground"
-      data-cyId="teleportModal"
-    >
-      <div
-        :class="['modal-content', contentClass, { 'modal-simple': isSimpleModal }]"
-        :style="customPosition"
-      >
+    <div class="teleport" :class="{
+      'teleport-simple': isSimpleModal,
+      'teleport-noBackground': hasNoBackground,
+      'teleport-transparentBackground': hasClickableTransparentBackground,
+    }" @click="closeOnClickOutside" ref="modalBackground" data-cyId="teleportModal">
+      <div :class="['modal-content', contentClass, { 'modal-simple': isSimpleModal }]" :style="customPosition">
         <div v-if="!isSimpleModal" class="modal-top">
           <h1>{{ title }}</h1>
           <button @click="close" data-cyId="modal-exit">
@@ -26,22 +17,11 @@
           <button v-if="leftButtonText" class="modal-button" @click="leftButtonClicked">
             {{ leftButtonText }}
           </button>
-          <button
-            class="modal-button modal-button--add"
-            :class="{
-              'modal-button--disabled': rightButtonIsDisabled,
-              'modal-button--highlighted': rightButtonIsHighlighted,
-            }"
-            @click="rightButtonClicked"
-            data-cyId="modal-button"
-            :disabled="rightButtonIsDisabled"
-          >
-            <img
-              v-if="rightButtonImage"
-              class="modal-icon"
-              :src="rightButtonImage"
-              :alt="rightButtonAlt"
-            />
+          <button class="modal-button modal-button--add" :class="{
+            'modal-button--disabled': rightButtonIsDisabled,
+            'modal-button--highlighted': rightButtonIsHighlighted,
+          }" @click="rightButtonClicked" data-cyId="modal-button" :disabled="rightButtonIsDisabled">
+            <img v-if="rightButtonImage" class="modal-icon" :src="rightButtonImage" :alt="rightButtonAlt" />
             {{ rightButtonText }}
           </button>
         </div>
@@ -112,7 +92,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .teleport {
   position: fixed;

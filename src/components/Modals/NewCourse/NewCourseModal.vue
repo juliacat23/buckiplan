@@ -1,43 +1,24 @@
 <template>
-  <TeleportModal
-    title="Add Course"
-    content-class="content-course"
-    :leftButtonText="leftButtonText"
-    :rightButtonText="rightButtonText"
-    :rightButtonIsDisabled="selectedCourse == null"
-    @modal-closed="closeCurrentModal"
-    @left-button-clicked="backOrCancel"
-    @right-button-clicked="addItem"
-  >
+  <TeleportModal title="Add Course" content-class="content-course" :leftButtonText="leftButtonText"
+    :rightButtonText="rightButtonText" :rightButtonIsDisabled="selectedCourse == null" @modal-closed="closeCurrentModal"
+    @left-button-clicked="backOrCancel" @right-button-clicked="addItem">
     <div class="newCourse-text">
       {{ selectedCourse === null ? 'Search Course Roster' : 'Selected Course' }}
     </div>
-    <course-selector
-      v-if="selectedCourse === null"
-      search-box-class-name="newCourse-dropdown"
-      :key="courseSelectorKey"
-      placeholder='"CS 1110", "Multivariable Calculus", etc'
-      :autoFocus="true"
-      @on-escape="closeCurrentModal"
-      @on-select="selectCourse"
-      data-cyId="newCourse-dropdown"
-    />
+    <course-selector v-if="selectedCourse === null" search-box-class-name="newCourse-dropdown" :key="courseSelectorKey"
+      placeholder='"CS 1110", "Multivariable Calculus", etc' :autoFocus="true" @on-escape="closeCurrentModal"
+      @on-select="selectCourse" data-cyId="newCourse-dropdown" />
     <div v-else class="selected-course" data-cyId="newCourse-selectedCourse">
       {{ selectedCourse.subject }} {{ selectedCourse.catalogNbr }}:
       {{ selectedCourse.titleLong }}
     </div>
     <div v-if="selectedCourse != null">
       <!-- if a course is selected -->
-      <selected-requirement-editor
-        :key="courseSelectorKey"
-        :editMode="editMode"
+      <selected-requirement-editor :key="courseSelectorKey" :editMode="editMode"
         :selectedRequirementID="selectedRequirementID"
         :automaticallyFulfilledRequirements="automaticallyFulfilledRequirements"
-        :relatedRequirements="relatedRequirements"
-        :potentialRequirements="selfCheckRequirements"
-        @on-selected-change="onSelectedChange"
-        @edit-mode="toggleEditMode"
-      />
+        :relatedRequirements="relatedRequirements" :potentialRequirements="selfCheckRequirements"
+        @on-selected-change="onSelectedChange" @edit-mode="toggleEditMode" />
     </div>
   </TeleportModal>
 </template>
@@ -173,13 +154,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
+
 .newCourse {
   &-text {
     font-size: 14px;
     line-height: 17px;
     color: $lightPlaceholderGray;
   }
+
   &-dropdown {
     font-size: 14px;
     line-height: 17px;
@@ -188,10 +171,12 @@ export default defineComponent({
     border-radius: 3px;
     padding: 0.5rem;
     border: 0.5px solid $inactiveGray;
+
     &::placeholder {
       color: $darkPlaceholderGray;
     }
   }
+
   &-name {
     position: relative;
     border-radius: 11px;
@@ -200,6 +185,7 @@ export default defineComponent({
     line-height: 14px;
     color: $darkGray;
   }
+
   &-title {
     font-size: 14px;
     line-height: 17px;

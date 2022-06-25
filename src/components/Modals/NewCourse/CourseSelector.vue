@@ -1,23 +1,12 @@
 <template>
   <div class="autocomplete">
-    <input
-      :class="['search-box', searchBoxClassName]"
-      ref="dropdownInput"
-      v-model="searchText"
-      :placeholder="placeholder"
-      @keyup.esc="onEscape"
-      @keyup.enter="onEnter"
-      @keyup.up="changeFocus(currentFocus - 1)"
-      @keyup.down="changeFocus(currentFocus + 1)"
-    />
+    <input :class="['search-box', searchBoxClassName]" ref="dropdownInput" v-model="searchText"
+      :placeholder="placeholder" @keyup.esc="onEscape" @keyup.enter="onEnter" @keyup.up="changeFocus(currentFocus - 1)"
+      @keyup.down="changeFocus(currentFocus + 1)" />
     <div v-if="matches.length > 0" class="autocomplete-items">
-      <div
-        v-for="(matchingCourse, index) in matches"
-        :key="index"
+      <div v-for="(matchingCourse, index) in matches" :key="index"
         :class="['search-result', currentFocus === index ? 'autocomplete-active' : '']"
-        @click="selectCourse(matchingCourse)"
-        data-cyId="newCourse-searchResult"
-      >
+        @click="selectCourse(matchingCourse)" data-cyId="newCourse-searchResult">
         {{ matchingCourse.subject }} {{ matchingCourse.catalogNbr }}: {{ matchingCourse.titleLong }}
       </div>
     </div>
@@ -112,7 +101,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .search-box {
   border: 1px solid transparent;
@@ -120,6 +109,7 @@ export default defineComponent({
   padding: 10px;
   font-size: 16px;
 }
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
@@ -128,6 +118,7 @@ export default defineComponent({
   margin-top: 0.5rem;
   padding-bottom: 12px;
 }
+
 .autocomplete-items {
   position: absolute;
   border: 1px solid $searchBoxBorderGray;
@@ -151,6 +142,7 @@ export default defineComponent({
     }
   }
 }
+
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;

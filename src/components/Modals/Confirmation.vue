@@ -1,9 +1,5 @@
 <template>
-  <teleport-modal
-    content-class="content-confirmation"
-    :isSimpleModal="true"
-    :hasNoBackground="true"
-  >
+  <teleport-modal content-class="content-confirmation" :isSimpleModal="true" :hasNoBackground="true">
     <div class="confirmation">
       <div class="confirmation-left">
         <img class="confirmation-icon" src="@/assets/images/checkmark.svg" alt="checkmark" />
@@ -26,7 +22,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .confirmation {
   width: max-content;
@@ -108,12 +104,15 @@ export default defineComponent({
 @media only screen and (max-width: $small-breakpoint) {
   .confirmation {
     width: 75%;
+
     &-left {
       width: 15%;
     }
+
     &-text {
       width: 85%;
     }
+
     &-right {
       width: 0%;
       margin-left: 0rem;

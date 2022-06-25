@@ -1,12 +1,7 @@
 <template>
-  <TeleportModal
-    title="Fix Course Conflict"
-    content-class="content-course"
-    :rightButtonText="rightButtonText"
-    :rightButtonIsHighlighted="!conflictsFullyResolved"
-    @modal-closed="removeCourseAndCloseModal"
-    @right-button-clicked="addCourse"
-  >
+  <TeleportModal title="Fix Course Conflict" content-class="content-course" :rightButtonText="rightButtonText"
+    :rightButtonIsHighlighted="!conflictsFullyResolved" @modal-closed="removeCourseAndCloseModal"
+    @right-button-clicked="addCourse">
     <div class="courseConflict-text">Selected Course</div>
     <div class="selected-course" data-cyId="courseConflict-selectedCourse">
       {{ selectedCourse.code }}:
@@ -18,21 +13,16 @@
         This course can fulfill these requirements. Select one:
       </span>
       <div v-else>
-        <span>Please fix the following</span
-        ><span class="courseConflict--bold">{{ ` ${numTotalConflicts} ` }}</span
-        ><span>conflicts</span>
+        <span>Please fix the following</span><span
+          class="courseConflict--bold">{{ ` ${numTotalConflicts} ` }}</span><span>conflicts</span>
       </div>
     </div>
 
     <div v-for="index in numTotalConflicts" :key="index" class="courseConflict-conflict">
       <div v-if="numTotalConflicts > 1">{{ `${index}. Choose only one requirement:` }}</div>
-      <single-conflict-editor
-        :checkedReqs="selectedReqsPerConflict[index - 1]"
-        :conflictNumber="index"
-        :numSelfChecks="numSelfChecksPerConflict[index - 1]"
-        :selectedCourse="selectedCourse"
-        @conflict-changed="handleChangedConflict"
-      />
+      <single-conflict-editor :checkedReqs="selectedReqsPerConflict[index - 1]" :conflictNumber="index"
+        :numSelfChecks="numSelfChecksPerConflict[index - 1]" :selectedCourse="selectedCourse"
+        @conflict-changed="handleChangedConflict" />
       <div v-if="shouldShowSelectableWarning(index)" class="courseConflict-warning">
         <span>*Requirements with</span>
         <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
@@ -208,7 +198,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
+
 .courseConflict {
   &-text {
     font-size: 14px;

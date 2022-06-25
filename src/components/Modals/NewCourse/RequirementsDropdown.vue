@@ -1,65 +1,34 @@
 <template>
   <div v-click-outside="closeDropdownIfOpen">
-    <button
-      class="dropdown"
-      type="button"
-      @click="showDropdown = !showDropdown"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      :aria-expanded="showDropdown"
-      v-if="potentialRequirements.some(req => req.id === selectedID)"
-      data-cyId="newCourse-requirementsDropdown"
-    >
+    <button class="dropdown" type="button" @click="showDropdown = !showDropdown" data-toggle="dropdown"
+      aria-haspopup="true" :aria-expanded="showDropdown" v-if="potentialRequirements.some(req => req.id === selectedID)"
+      data-cyId="newCourse-requirementsDropdown">
       <div class="warning-row">
         <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
         {{ selected }}
       </div>
       <drop-down-arrow :isFlipped="showDropdown" :fillColor="emGreen" />
     </button>
-    <button
-      v-else
-      class="dropdown"
-      type="button"
-      @click="showDropdown = !showDropdown"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      :aria-expanded="showDropdown"
-      data-cyId="newCourse-requirementsDropdown"
-    >
+    <button v-else class="dropdown" type="button" @click="showDropdown = !showDropdown" data-toggle="dropdown"
+      aria-haspopup="true" :aria-expanded="showDropdown" data-cyId="newCourse-requirementsDropdown">
       {{ selected === '' ? 'Select one (optional)' : selected }}
       <drop-down-arrow :isFlipped="showDropdown" :fillColor="emGreen" />
     </button>
     <ul v-if="showDropdown" class="dropdown-content">
       <li v-for="option in relatedRequirements.filter(it => it.id !== selectedID)" :key="option.id">
-        <a
-          @click="toggleSelectRequirement(option.id)"
-          @keyup.enter="toggleSelectRequirement(option.id)"
-          tabindex="0"
-          data-cyId="newCourse-reqOption"
-          >{{ option.name }}</a
-        >
+        <a @click="toggleSelectRequirement(option.id)" @keyup.enter="toggleSelectRequirement(option.id)" tabindex="0"
+          data-cyId="newCourse-reqOption">{{ option.name }}</a>
       </li>
-      <li
-        v-for="option in potentialRequirements.filter(it => it.id !== selectedID)"
-        :key="option.id"
-      >
-        <a
-          @click="toggleSelectRequirement(option.id)"
-          @keyup.enter="toggleSelectRequirement(option.id)"
-          tabindex="0"
-          data-cyId="newCourse-reqOption"
-        >
+      <li v-for="option in potentialRequirements.filter(it => it.id !== selectedID)" :key="option.id">
+        <a @click="toggleSelectRequirement(option.id)" @keyup.enter="toggleSelectRequirement(option.id)" tabindex="0"
+          data-cyId="newCourse-reqOption">
           <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
           {{ option.name }}
         </a>
       </li>
       <li>
-        <a
-          @click="toggleSelectRequirement('')"
-          @keyup.enter="toggleSelectRequirement('')"
-          tabindex="0"
-          data-cyId="newCourse-reqOption"
-        >
+        <a @click="toggleSelectRequirement('')" @keyup.enter="toggleSelectRequirement('')" tabindex="0"
+          data-cyId="newCourse-reqOption">
           None
         </a>
       </li>
@@ -126,7 +95,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
+
 .dropdown {
   border: 1px solid $emGreen;
   box-sizing: border-box;
@@ -146,6 +116,7 @@ export default defineComponent({
   justify-content: space-between;
   padding: 0 10px;
   margin-bottom: 0px;
+
   &-content {
     list-style: none;
     background: $white;
@@ -156,17 +127,20 @@ export default defineComponent({
     position: absolute;
     padding-left: 0px;
     width: 93%;
+
     li {
       a {
         padding: 13px 8px 8px;
         display: block;
         width: 100%;
+
         &:active,
         &:focus,
         &:hover {
           background: rgba(50, 160, 242, 0.1);
           border: 0;
         }
+
         .warning-icon {
           float: left;
           margin: 0.125rem 0.25rem 0 0;
@@ -176,6 +150,7 @@ export default defineComponent({
       }
     }
   }
+
   .warning {
     &-icon {
       float: left;
@@ -183,6 +158,7 @@ export default defineComponent({
       width: 14px;
       height: 14px;
     }
+
     &-row {
       display: flex;
       flex-direction: row;

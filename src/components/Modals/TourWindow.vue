@@ -4,25 +4,12 @@
       <div class="intropage">
         <div class="top">
           <div class="dtiLogoWrapper">
-            <img
-              class="dtiLogo"
-              src="@/assets/images/walkthrough/dti-wordmark.png"
-              alt="dti logo"
-            />
+            <img class="dtiLogo" src="@/assets/images/walkthrough/dti-wordmark.png" alt="dti logo" />
           </div>
           <div class="picture">
-            <img
-              v-if="!isFinalStep"
-              class="image"
-              src="@/assets/images/walkthrough/walkthrough-start.png"
-              alt="person planning"
-            />
-            <img
-              v-else
-              class="image"
-              src="@/assets/images/walkthrough/walkthrough-end.png"
-              alt="person planning"
-            />
+            <img v-if="!isFinalStep" class="image" src="@/assets/images/walkthrough/walkthrough-start.png"
+              alt="person planning" />
+            <img v-else class="image" src="@/assets/images/walkthrough/walkthrough-end.png" alt="person planning" />
           </div>
         </div>
         <div class="content">
@@ -94,7 +81,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .tour {
   display: flex;
@@ -111,6 +98,7 @@ export default defineComponent({
   border-radius: 9px;
   padding: 0px;
 }
+
 .top {
   width: 100%;
   height: 25.25rem;
@@ -121,16 +109,20 @@ export default defineComponent({
   border-top-right-radius: 9px;
   padding: 1rem 1.5rem;
 }
+
 .dtiLogoWrapper {
   margin-bottom: 1rem;
 }
+
 .picture {
   display: flex;
   justify-content: center;
 }
+
 .image {
   height: 100%;
 }
+
 .content {
   width: 100%;
   min-height: 15.25rem;
@@ -141,12 +133,14 @@ export default defineComponent({
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
+
   .title {
     font-weight: 600;
     font-size: 24px;
     line-height: 24px;
     color: $primaryGray;
   }
+
   .body {
     font-size: 0.9em;
     text-align: center;
@@ -163,6 +157,7 @@ export default defineComponent({
       margin-bottom: 1.25rem;
     }
   }
+
   .startButton {
     background-color: $sangBlue;
     color: $white;
@@ -175,6 +170,7 @@ export default defineComponent({
     font-weight: normal;
     border-radius: 3px;
   }
+
   .skipButton {
     background: none;
     color: inherit;
@@ -183,6 +179,7 @@ export default defineComponent({
     font-weight: normal;
     color: $sangBlue;
   }
+
   a {
     font-weight: normal;
     color: $sangBlue;
