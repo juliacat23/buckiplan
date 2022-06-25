@@ -4,7 +4,7 @@
       <div class="conflictEditor-req" v-for="([reqName, bool], index) in checkedReqs" :key="reqName">
         <input type="checkbox" :id="reqName" :checked="bool" @change="checkOrUncheckReq(reqName, index)" />
         <label v-if="!isReqSelfCheck(index)" :for="reqName" class="conflictEditor-label">{{
-          getDisplayName(reqName)
+            getDisplayName(reqName)
         }}</label>
         <label v-else :for="reqName" class="conflictEditor-label">
           <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
@@ -18,7 +18,7 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { toggleRequirementChoice } from '@/global-firestore-data';
+import { toggleRequirementChoice } from '@/firebase';
 import store from '@/store';
 import { getReqColor } from '@/utilities';
 

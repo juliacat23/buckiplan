@@ -41,7 +41,7 @@ import { PropType, defineComponent } from 'vue';
 
 import { clickOutside } from '@/utilities';
 import DropDownArrow from '@/components/DropDownArrow.vue';
-import { emGreen } from '@/assets/constants/scss-variables';
+import { emGreen } from '@/constants/scss-variables';
 
 type Data = {
   showDropdown: boolean;
@@ -53,11 +53,11 @@ export default defineComponent({
   props: {
     selectedID: { type: String, required: true },
     relatedRequirements: {
-      type: Array as PropType<readonly { readonly id: string; readonly name: string }[]>,
+      type: Array as PropType<readonly { readonly id: string; readonly name: string; }[]>,
       required: true,
     },
     potentialRequirements: {
-      type: Array as PropType<readonly { readonly id: string; readonly name: string }[]>,
+      type: Array as PropType<readonly { readonly id: string; readonly name: string; }[]>,
       required: true,
     },
   },

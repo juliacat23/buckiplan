@@ -162,6 +162,38 @@ export function getCurrentSeason(): FirestoreSemesterSeason {
   return 'Fall';
 }
 
+const reqGroupColorList = ['4D7D92', '148481', '105351'];
+
+export function getReqColor(groupName: string, onboardingData: AppOnboardingData): string {
+  // college will always be the first color
+  if (groupName === 'College') {
+    return reqGroupColorList[0];
+  }
+  // if the user has major(s), it must be the second group in the requirements bar
+  if (groupName === 'Major') {
+    return reqGroupColorList[1];
+  }
+  // if the user has minors, use the second color if the majors section does not display, otherwise use the third color
+  if (groupName === 'Minor') {
+    if (onboardingData.major.length === 0) {
+      return reqGroupColorList[1];
+    }
+    return reqGroupColorList[2];
+  }
+  // if the user has a grad program, display the first color if no college present, second color if no majors and minors,
+  // the third color if one of them, or wrap around if all are present
+  if (!onboardingData.college) {
+    return reqGroupColorList[0];
+  }
+  if (onboardingData.major.length === 0 && onboardingData.minor.length === 0) {
+    return reqGroupColorList[1];
+  }
+  if (onboardingData.minor.length === 0 || onboardingData.major.length === 0) {
+    return reqGroupColorList[2];
+  }
+  return reqGroupColorList[0];
+}
+
 export function getCurrentYear(): number {
   return new Date().getFullYear();
 }

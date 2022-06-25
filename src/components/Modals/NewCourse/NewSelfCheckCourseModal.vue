@@ -22,7 +22,7 @@ import TeleportModal from '@/components/Modals/TeleportModal.vue';
 import SelectSemester from '@/components/Modals/SelectSemester.vue';
 import CourseSelector from '@/components/Modals/NewCourse/CourseSelector.vue';
 import store from '@/store';
-import { getFilterForRequirementFulfillment } from '@/requirements/requirement-frontend-utils';
+import { getFilterForRequirementFulfillment } from '@/requirements/requirementUtils';
 
 export default defineComponent({
   components: { CourseSelector, TeleportModal, SelectSemester },
