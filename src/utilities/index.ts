@@ -2,21 +2,112 @@ import { coursesColorSet } from '@/constants/colors';
 import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
 import RequirementJson from '@/requirements/typedRequirementJson';
 
+/** Enumerated type to define seasons as integers in season order
+ * where the seasons are defined chronologically */
+export const SeasonOrdinal = {
+  Spring: 0,
+  Summer: 1,
+  Fall: 2,
+} as const;
+
+/**
+ * Returns given semesters sorted in either increasing or decreasing order of date
+ * @param semesters the semesters to return sorted
+ * @param orderByNewest whether to sort the semesters in decreasing order
+ * @returns semesters sorted according to orderByNewest
+ */
+export const sortedSemesters = (
+  semesters: readonly FirestoreSemester[],
+  orderByNewest = true
+): readonly FirestoreSemester[] =>
+  semesters.slice().sort((a, b) => {
+    // sort in increasing order iff orderByNewest is false, increasing otherwise
+    const order = orderByNewest ? -1 : 1;
+    const byYear = a.year - b.year;
+    return order * (byYear === 0 ? SeasonOrdinal[a.season] - SeasonOrdinal[b.season] : byYear);
+  });
+
 export function checkNotNull<T>(value: T | null | undefined): T {
   if (value == null) throw new Error();
   return value;
 }
 
-/** Retrieve a list of all subjects from the course data */
+export function getCurrentSeason(): FirestoreSemesterSeason {
+  const currentMonth = new Date().getMonth();
+  if (currentMonth <= 4) return 'Spring';
+  if (currentMonth <= 7) return 'Summer';
+  return 'Fall';
+}
+
+export function getCurrentYear(): number {
+  return new Date().getFullYear();
+}
+
+// the number of year options to include in entrance year dropdown before and after the current year
+// ex. if the current year is 2022, and yearRange is 6, then the entrance year options are 2016-2028
+export const entranceYearRange = 6;
+
+// the number of year options to include in graduation year dropdown after the entrance year
+// ex. if the entrance year is 2022, and yearRange is 6, then the entrance year options are 2022-2034
+export const gradYearRange = entranceYearRange * 2;
+
+export function computeGradYears(entranceYear: string): Readonly<Record<string, string>> {
+  const semsDict: Record<string, string> = {};
+  let entranceYearNum = parseInt(entranceYear, 10);
+  if (!entranceYear) {
+    entranceYearNum = getCurrentYear();
+  }
+  for (let i = 0; i <= gradYearRange; i += 1) {
+    const yr = String(entranceYearNum + i);
+    semsDict[yr] = yr;
+  }
+  return semsDict;
+}
+
+export function computeEntranceYears(): Readonly<Record<string, string>> {
+  const semsDict: Record<string, string> = {};
+  const curYear = getCurrentYear();
+  for (let i = -entranceYearRange; i <= entranceYearRange; i += 1) {
+    const yr = String(curYear + i);
+    semsDict[yr] = yr;
+  }
+  return semsDict;
+}
+
+export function getCollegeFullName(acronym: string | undefined): string {
+  // return Arts and Sciences for AS, AS1, or AS2
+  if (acronym && acronym.startsWith('AS')) {
+    return 'Arts and Sciences';
+  }
+  const college = acronym ? RequirementJson.college[acronym] : null;
+
+  // Return empty string if college is not in requirementJSON
+  return college ? college.name : '';
+}
+
+export function getMajorFullName(acronym: string): string {
+  // Return empty string if major is not in requirementJSON
+  const major = RequirementJson.major[acronym];
+  return major ? major.name : '';
+}
+
+export function getMinorFullName(acronym: string): string {
+  // Return empty string if minor is not in requirementJSON
+  const minor = RequirementJson.minor[acronym];
+  return minor ? minor.name : '';
+}
+
+export function getPreProgramFullName(acronym: string | undefined): string {
+  // Return empty string if grad is not in requirementJSON
+  const preProgram = acronym ? RequirementJson.preProgram[acronym] : null;
+  return preProgram ? preProgram.name : '';
+}
+
 function getAllSubjects(): ReadonlySet<string> {
   const set = new Set<string>();
   fullCoursesArray.forEach((it) => set.add(it.subject));
   return set;
 }
-
-/** Map the list of colors defined in '@constants/colors' to the subjects
- * retrieved in the getAllSubjects() function above
- */
 
 export function allocateAllSubjectColor(subjectColors: Record<string, string>): Record<string, string> {
   const subjectsColorsCopy = { ...subjectColors };
@@ -27,7 +118,6 @@ export function allocateAllSubjectColor(subjectColors: Record<string, string>): 
   return subjectsColorsCopy;
 }
 
-/** Allow user to manually update the subject or course color */
 export function updateSubjectColor(
   subjectColors: Record<string, string>,
   color: string,
@@ -41,81 +131,6 @@ export function updateSubjectColor(
   });
   return subjectsColorsCopy;
 }
-
-/** Allows for there to be two GE requirements for each college
- * pre-fall 2022 (legacy GE) and fall 2022 - forward (new GE)
- */
-export function getCollegeFullName(acronym: string | undefined): string {
-  if (acronym && acronym.startsWith('ARCH')) {
-    return 'Architecture';
-  }
-  if (acronym && acronym.startsWith('ASC')) {
-    return 'Arts and Sciences';
-  }
-  if (acronym && acronym.startsWith('BUS')) {
-    return 'Fisher College of Business';
-  }
-  if (acronym && acronym.startsWith('DENT')) {
-    return 'Dentistry';
-  }
-  if (acronym && acronym.startsWith('EHE')) {
-    return 'Education and Human Ecology';
-  }
-  if (acronym && acronym.startsWith('ENG')) {
-    return 'Engineering';
-  }
-  if (acronym && acronym.startsWith('ENR')) {
-    return 'Environment and Natural Resources';
-  }
-  if (acronym && acronym.startsWith('FAES')) {
-    return 'Food, Agricultural and Environmental Sciences';
-  }
-  if (acronym && acronym.startsWith('HRS')) {
-    return 'Health and Rehabilitation Sciences';
-  }
-  if (acronym && acronym.startsWith('MED')) {
-    return 'Medicine';
-  }
-  if (acronym && acronym.startsWith('NUR')) {
-    return 'Nursing';
-  }
-  if (acronym && acronym.startsWith('PHR')) {
-    return 'Pharmacy';
-  }
-  if (acronym && acronym.startsWith('PBAF')) {
-    return 'John Glenn College of Public Affairs';
-  }
-  if (acronym && acronym.startsWith('PUBH')) {
-    return 'Public Health';
-  }
-  if (acronym && acronym.startsWith('SWK')) {
-    return 'Social Work';
-  }
-  const college = acronym ? RequirementJson.college[acronym] : null;
-
-  // Return empty string if college is not in requirementJSON
-  return college ? college.name : '';
-}
-
-export function getMajorFullName(acronym: string): string {
-  const major = RequirementJson.major[acronym];
-  return major ? major.name : '';
-}
-
-export function getMinorFullName(acronym: string): string {
-  const minor = RequirementJson.minor[acronym];
-  return minor ? minor.name : '';
-}
-
-export function getPreProgramFullName(acronym: string): string {
-  const preProgram = RequirementJson.preProgram[acronym];
-  return preProgram ? preProgram.name : '';
-}
-
-// Determines whether the given element in a FirestoreSemester list is a Placeholder or not
-export const isPlaceholderCourse = (
-  element: FirestoreSemesterPlaceholder | FirestoreSemesterCourse | CourseTaken
-): element is FirestoreSemesterPlaceholder => !!(element as FirestoreSemesterPlaceholder).startingSemester;
 
 export const clickOutside = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -133,37 +148,11 @@ export const clickOutside = {
   },
 };
 
-// Determines whether the given element used in CourseCaution is CourseTaken
-export const isCourseTaken = (
-  element: FirestoreSemesterPlaceholder | FirestoreSemesterCourse | CourseTaken
-): element is CourseTaken => !!(element as CourseTaken).uniqueId;
-
-export const SeasonOrdinal = {
-  Spring: 0,
-  Summer: 1,
-  Fall: 2,
-} as const;
-
-export const sortedSemesters = (
-  semesters: readonly FirestoreSemester[],
-  orderByNewest = true
-): readonly FirestoreSemester[] =>
-  semesters.slice().sort((a, b) => {
-    // sort in increasing order iff orderByNewest is false, increasing otherwise
-    const order = orderByNewest ? -1 : 1;
-    const byYear = a.year - b.year;
-    return order * (byYear === 0 ? SeasonOrdinal[a.season] - SeasonOrdinal[b.season] : byYear);
-  });
-
-export function getCurrentSeason(): FirestoreSemesterSeason {
-  const currentMonth = new Date().getMonth();
-  if (currentMonth <= 4) return 'Spring';
-  if (currentMonth <= 7) return 'Summer';
-  return 'Fall';
-}
-
+// reqGroupColorList determines the colors of the first 3 types of requirements the user has in their plan
+// if they have 4 - wraps around
 const reqGroupColorList = ['4D7D92', '148481', '105351'];
 
+// get the color for a given requirement type in the requirements sidebar
 export function getReqColor(groupName: string, onboardingData: AppOnboardingData): string {
   // college will always be the first color
   if (groupName === 'College') {
@@ -194,6 +183,12 @@ export function getReqColor(groupName: string, onboardingData: AppOnboardingData
   return reqGroupColorList[0];
 }
 
-export function getCurrentYear(): number {
-  return new Date().getFullYear();
-}
+// Determines whether the given element in a FirestoreSemester list is a Placeholder or not
+export const isPlaceholderCourse = (
+  element: FirestoreSemesterPlaceholder | FirestoreSemesterCourse | CourseTaken
+): element is FirestoreSemesterPlaceholder => !!(element as FirestoreSemesterPlaceholder).startingSemester;
+
+// Determines whether the given element used in CourseCaution is CourseTaken
+export const isCourseTaken = (
+  element: FirestoreSemesterPlaceholder | FirestoreSemesterCourse | CourseTaken
+): element is CourseTaken => !!(element as CourseTaken).uniqueId;

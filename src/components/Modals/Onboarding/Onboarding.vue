@@ -3,57 +3,27 @@
     <div class="onboarding-main">
       <div v-if="isEditingProfile" class="onboarding-cancel">
         <button data-cyId="onboarding-cancel" @click="cancel">
-          <img
-            class="onboarding-cancel-icon"
-            src="@/assets/images/x.svg"
-            alt="x to close onboarding modal"
-          />
+          <img class="onboarding-cancel-icon" src="@/assets/images/x.svg" alt="x to close onboarding modal" />
         </button>
       </div>
       <div class="onboarding-content" :class="{ editing: isEditingProfile }">
         <div class="onboarding-top">
           <div v-if="!isEditingProfile" class="onboarding-header">
-            <span
-              ><img
-                class="onboarding-header-emoji"
-                src="@/assets/images/waveEmoji.svg"
-                alt="wave"
-              />
-              Welcome to CoursePlan</span
-            >
+            <span><img class="onboarding-header-emoji" src="@/assets/images/waveEmoji.svg" alt="wave" />
+              Welcome to CoursePlan</span>
           </div>
           <div v-if="isEditingProfile" class="onboarding-header">
-            <span
-              ><img
-                class="onboarding-header-emoji"
-                src="@/assets/images/clapEmoji.svg"
-                alt="clap"
-              />
-              Hi {{ name.firstName }}</span
-            >
+            <span><img class="onboarding-header-emoji" src="@/assets/images/clapEmoji.svg" alt="clap" />
+              Hi {{ name.firstName }}</span>
           </div>
           <div v-if="!isEditingProfile" class="onboarding-description">
             Let's get to know you first!
           </div>
           <div v-if="isEditingProfile" class="onboarding-description">Let's edit your profile!</div>
-          <onboarding-basic
-            v-if="currentPage == 1"
-            :userName="name"
-            :onboardingData="onboarding"
-            :isEditingProfile="isEditingProfile"
-            @updateBasic="updateBasic"
-          />
-          <onboarding-transfer
-            v-if="currentPage == 2"
-            :onboardingData="onboarding"
-            @updateTransfer="updateTransfer"
-          />
-          <onboarding-review
-            v-if="currentPage == 3"
-            :userName="name"
-            :onboardingData="onboarding"
-            @setPage="setPage"
-          />
+          <onboarding-basic v-if="currentPage == 1" :userName="name" :onboardingData="onboarding"
+            :isEditingProfile="isEditingProfile" @updateBasic="updateBasic" />
+          <onboarding-transfer v-if="currentPage == 2" :onboardingData="onboarding" @updateTransfer="updateTransfer" />
+          <onboarding-review v-if="currentPage == 3" :userName="name" :onboardingData="onboarding" @setPage="setPage" />
         </div>
         <div class="onboarding-error" data-cyId="onboarding-error" v-if="isError">
           {{ errorText }}
@@ -78,11 +48,7 @@
           </div> -->
           <div class="onboarding-bottom--contents">
             <button class="onboarding-button-previous" @click="goBack">&lt; Previous</button>
-            <button
-              class="onboarding-button"
-              @click="submitOnboarding"
-              data-cyId="onboarding-finishButton"
-            >
+            <button class="onboarding-button" @click="submitOnboarding" data-cyId="onboarding-finishButton">
               Finish
             </button>
           </div>
@@ -92,13 +58,8 @@
             <button v-if="currentPage != 1" class="onboarding-button-previous" @click="goBack">
               &lt; Previous
             </button>
-            <button
-              class="onboarding-button"
-              @click="goNext"
-              :disabled="!canProgress()"
-              :class="{ 'onboarding-button--disabled': !canProgress() }"
-              data-cyId="onboarding-nextButton"
-            >
+            <button class="onboarding-button" @click="goNext" :disabled="!canProgress()"
+              :class="{ 'onboarding-button--disabled': !canProgress() }" data-cyId="onboarding-nextButton">
               Next &gt;
             </button>
           </div>
@@ -113,17 +74,17 @@ import { PropType, defineComponent } from 'vue';
 import OnboardingBasic from '@/components/Modals/Onboarding/OnboardingBasic.vue';
 import OnboardingTransfer from '@/components/Modals/Onboarding/OnboardingTransfer.vue';
 import OnboardingReview from '@/components/Modals/Onboarding/OnboardingReview.vue';
-import { setAppOnboardingData, populateSemesters } from '@/global-firestore-data';
+import { setAppOnboardingData, populateSemesters } from '@/firebase';
 import {
   getMajorFullName,
   getMinorFullName,
-  getGradFullName,
+  getPreProgramFullName,
   computeGradYears,
   SeasonOrdinal,
 } from '@/utilities';
 import timeline1Text from '@/assets/images/timeline1text.svg';
 import timeline2Text from '@/assets/images/timeline2text.svg';
-import timeline3Text from '@/assets/images/timeline3text.svg';
+import timeline3Text from 'src/assets/images/timeline3text.svg';
 
 const timelineTexts = [timeline1Text, timeline2Text, timeline3Text];
 
@@ -164,7 +125,7 @@ export default defineComponent({
         !this.onboarding.gradSem ||
         this.onboarding.entranceYear === '' ||
         !this.onboarding.entranceSem ||
-        (this.onboarding.college === '' && this.onboarding.grad === '')
+        (this.onboarding.college === '')
       );
     },
     timelineTextImage(): string {
@@ -185,7 +146,10 @@ export default defineComponent({
         this.onboarding.minor
           .map(getMinorFullName)
           .some((minorFullName: string) => minorFullName === '') ||
-        (this.onboarding.grad ? getGradFullName(this.onboarding.grad) === '' : false)
+        this.onboarding.preProgram
+          .map(getPreProgramFullName)
+          .some((preProgramFullName: string) => preProgramFullName === '')
+
       );
     },
     /**
@@ -213,8 +177,8 @@ export default defineComponent({
      */
     errorText(): string {
       const messages = [];
-      if (this.onboarding.college === '' && this.onboarding.grad === '') {
-        messages.push('at least one undergraduate or graduate degree');
+      if (this.onboarding.college === '') {
+        messages.push('at least one undergraduate degree');
       }
       if (this.name.firstName === '') {
         messages.push('a first name');
@@ -248,7 +212,6 @@ export default defineComponent({
   methods: {
     submitOnboarding() {
       const revised = this.setASCollegeReqs();
-      this.clearTransferCreditIfGraduate();
       setAppOnboardingData(this.name, revised);
       // indicates first time user onboarding
       if (!this.isEditingProfile) populateSemesters(revised);
@@ -256,8 +219,8 @@ export default defineComponent({
     },
     goBack() {
       // special case: if the user has a graduate program (and not an undergrad program), skip the transfer page
-      if (this.onboarding.grad !== '' && !this.onboarding.college && this.currentPage > 1) {
-        this.currentPage = 1;
+      if (!this.onboarding.college && this.currentPage > 1) {
+        this.currentPage = this.currentPage - 1 === 0 ? 0 : this.currentPage - 1;
       } else {
         this.currentPage = this.currentPage - 1 === 0 ? 0 : this.currentPage - 1;
       }
@@ -278,7 +241,7 @@ export default defineComponent({
         !(this.isError || this.isInvalidMajorMinorGradError || this.isInvalidGraduationSemester)
       ) {
         // special case: if the user has a graduate program (and not an undergrad program), skip the transfer page
-        if (this.onboarding.grad !== '' && !this.onboarding.college && this.currentPage === 1) {
+        if (!this.onboarding.college && this.currentPage === 1) {
           this.currentPage += 2;
         } else {
           this.currentPage = this.currentPage === FINAL_PAGE ? FINAL_PAGE : this.currentPage + 1;
@@ -293,7 +256,7 @@ export default defineComponent({
       college: string,
       major: readonly string[],
       minor: readonly string[],
-      grad: string,
+      preProgram: readonly string[],
       name: FirestoreUserName
     ) {
       this.name = name;
@@ -306,15 +269,11 @@ export default defineComponent({
         college,
         major,
         minor,
-        grad,
+        preProgram,
       };
     },
     // clear transfer credits if the student is only in a graduate program, but previously set transfer credits
-    clearTransferCreditIfGraduate() {
-      if (this.onboarding.grad !== '' && this.onboarding.college === '') {
-        this.updateTransfer([], 'no');
-      }
-    },
+
     updateTransfer(exams: readonly FirestoreAPIBExam[], tookSwim: 'yes' | 'no') {
       const userExams = exams.filter(
         ({ subject, score }) => score !== 0 && subject !== placeholderText
@@ -322,18 +281,17 @@ export default defineComponent({
       this.onboarding = {
         ...this.onboarding,
         exam: userExams,
-        tookSwim,
       };
     },
     cancel() {
-      if (this.onboardingData.college !== '' || this.onboardingData.grad !== '') {
+      if (this.onboardingData.college !== '') {
         this.$emit('cancelOnboarding');
       }
     },
     checkClickOutside(e: MouseEvent) {
       if (
         e.target === this.$refs.modalBackground &&
-        (this.onboardingData.college !== '' || this.onboardingData.grad !== '')
+        (this.onboardingData.college !== '')
       ) {
         this.cancel();
       }
