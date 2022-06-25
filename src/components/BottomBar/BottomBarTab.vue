@@ -1,18 +1,11 @@
 <template>
-  <button
-    class="bottombartab full-opacity-on-hover"
-    :style="{ background: `#${color}` }"
-    @click="$emit('on-change-focus')"
-  >
+  <button class="bottombartab full-opacity-on-hover" :style="{ background: `#${color}` }"
+    @click="$emit('on-change-focus')">
     <div class="bottombartab-wrapper">
       <div class="bottombartab-name">{{ courseObj.code }}</div>
     </div>
     <button @click.stop="$emit('on-delete')">
-      <img
-        class="bottombartab-delete"
-        src="@/assets/images/x-white.svg"
-        alt="x to delete bottom bar tab"
-      />
+      <img class="bottombartab-delete" src="@/assets/images/x-white.svg" alt="x to delete bottom bar tab" />
     </button>
   </button>
 </template>
@@ -33,7 +26,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .bottombartab {
   position: relative;

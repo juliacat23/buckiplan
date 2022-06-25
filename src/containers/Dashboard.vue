@@ -1,82 +1,34 @@
 <template>
   <div class="dashboard">
-    <onboarding
-      class="dashboard-onboarding"
-      v-if="isOnboarding"
-      :isEditingProfile="isEditingProfile"
-      :userName="userName"
-      :onboardingData="onboardingData"
-      @onboard="endOnboarding"
-      @cancelOnboarding="cancelOnboarding"
-    />
+    <onboarding class="dashboard-onboarding" v-if="isOnboarding" :isEditingProfile="isEditingProfile"
+      :userName="userName" :onboardingData="onboardingData" @onboard="endOnboarding"
+      @cancelOnboarding="cancelOnboarding" />
     <div class="dashboard-mainView">
       <div class="dashboard-menus">
-        <nav-bar
-          class="dashboard-nav"
-          data-cyId="navbar"
-          :isDisplayingRequirementsMobile="requirementsIsDisplayedMobile"
-          @openPlan="openPlan"
-          @openTools="openTools"
-          @openProfile="openProfile"
-          @toggleRequirementsMobile="toggleRequirementsMobile"
-        />
-        <requirement-side-bar
-          class="dashboard-reqs"
-          data-cyId="reqsSidebar"
-          v-if="loaded && !showToolsPage && !isProfileOpen"
-          :isMobile="isTablet"
-          :isDisplayingMobile="requirementsIsDisplayedMobile"
-          :isMinimized="requirementsIsMinimized"
-          @toggleMinimized="toggleMinimizeRequirements"
-          :startTour="startTour"
-          @showTourEndWindow="showTourEnd"
-        />
-        <bottom-bar
-          v-if="!(isTablet && requirementsIsDisplayedMobile) && !showToolsPage && !isProfileOpen"
-          :isNavbarWide="requirementsIsMinimized"
-          :isExpanded="bottomBarIsExpanded"
-          :maxBottomBarTabs="maxBottomBarTabs"
-        />
+        <nav-bar class="dashboard-nav" data-cyId="navbar"
+          :isDisplayingRequirementsMobile="requirementsIsDisplayedMobile" @openPlan="openPlan" @openTools="openTools"
+          @openProfile="openProfile" @toggleRequirementsMobile="toggleRequirementsMobile" />
+        <requirement-side-bar class="dashboard-reqs" data-cyId="reqsSidebar"
+          v-if="loaded && !showToolsPage && !isProfileOpen" :isMobile="isTablet"
+          :isDisplayingMobile="requirementsIsDisplayedMobile" :isMinimized="requirementsIsMinimized"
+          @toggleMinimized="toggleMinimizeRequirements" :startTour="startTour" @showTourEndWindow="showTourEnd" />
+        <bottom-bar v-if="!(isTablet && requirementsIsDisplayedMobile) && !showToolsPage && !isProfileOpen"
+          :isNavbarWide="requirementsIsMinimized" :isExpanded="bottomBarIsExpanded"
+          :maxBottomBarTabs="maxBottomBarTabs" />
       </div>
-      <semester-view
-        v-if="
-          loaded && !(isTablet && requirementsIsDisplayedMobile) && !showToolsPage && !isProfileOpen
-        "
-        ref="semesterview"
-        :compact="compactVal"
-        :startTour="startTour"
-        :isBottomBarExpanded="bottomBarIsExpanded"
-        :isBottomBar="hasBottomCourses"
-        :isMobile="isMobile"
-        @compact-updated="compactUpdated"
-      />
+      <semester-view v-if="
+        loaded && !(isTablet && requirementsIsDisplayedMobile) && !showToolsPage && !isProfileOpen
+      " ref="semesterview" :compact="compactVal" :startTour="startTour" :isBottomBarExpanded="bottomBarIsExpanded"
+        :isBottomBar="hasBottomCourses" :isMobile="isMobile" @compact-updated="compactUpdated" />
       <tools-container class="toolsPage" v-if="showToolsPage" />
-      <profile-editor
-        class="profilePage"
-        :onboardingData="onboardingData"
-        :userName="userName"
-        v-if="isProfileOpen"
-      />
+      <profile-editor class="profilePage" :onboardingData="onboardingData" :userName="userName" v-if="isProfileOpen" />
     </div>
-    <tour-window
-      title="Welcome to CoursePlan!"
-      text="View your college requirements, plan your semesters and courses, and more."
-      exit="No, I want to skip this"
-      button-text="Start Tutorial"
-      @startTour="startWelcomeTour"
-      @closeTourWindow="closeWelcome"
-      v-if="welcomeHidden"
-    />
-    <tour-window
-      title="Let's get CoursePlanning!"
-      text="There's more to explore as you start planning! CoursePlan is continously improving, so please use it as a guide and
-      also consult your advisors for more up to date information!"
-      :isFinalStep="true"
-      exit=""
-      button-text="Get Started"
-      @closeTourWindow="closeTour"
-      v-if="showTourEndWindow"
-    />
+    <tour-window title="Welcome to CoursePlan!"
+      text="View your college requirements, plan your semesters and courses, and more." exit="No, I want to skip this"
+      button-text="Start Tutorial" @startTour="startWelcomeTour" @closeTourWindow="closeWelcome" v-if="welcomeHidden" />
+    <tour-window title="Let's get CoursePlanning!" text="There's more to explore as you start planning! CoursePlan is continously improving, so please use it as a guide and
+      also consult your advisors for more up to date information!" :isFinalStep="true" exit=""
+      button-text="Get Started" @closeTourWindow="closeTour" v-if="showTourEndWindow" />
   </div>
 </template>
 
@@ -277,7 +229,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .dashboard {
   display: flex;
@@ -295,16 +247,24 @@ export default defineComponent({
 
   /* The Modal (background) */
   &-onboarding {
-    position: fixed; /* Stay in place */
-    z-index: 4; /* Sit on top */
+    position: fixed;
+    /* Stay in place */
+    z-index: 4;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
   }
+
   .emoji-text {
     height: 14px;
   }

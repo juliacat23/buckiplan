@@ -29,12 +29,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .toolsContainer {
   @media only screen and (max-width: $medium-breakpoint) {
     padding: 5rem 4rem;
   }
+
   background-color: #f6fafc;
   padding: 3rem 7rem;
 

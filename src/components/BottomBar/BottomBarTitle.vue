@@ -1,18 +1,10 @@
 <template>
   <div class="bottombartitle" :style="{ background: `#${color}` }">
     <div class="bottombar-square-title">{{ name }}</div>
-    <img
-      v-if="!isExpanded"
-      class="bottombartitle-arrow"
-      src="@/assets/images/uparrow-white.svg"
-      alt="collapse bottom bar"
-    />
-    <img
-      v-if="isExpanded"
-      class="bottombartitle-arrow"
-      src="@/assets/images/downarrow-white.svg"
-      alt="expand bottom bar"
-    />
+    <img v-if="!isExpanded" class="bottombartitle-arrow" src="@/assets/images/uparrow-white.svg"
+      alt="collapse bottom bar" />
+    <img v-if="isExpanded" class="bottombartitle-arrow" src="@/assets/images/downarrow-white.svg"
+      alt="expand bottom bar" />
   </div>
 </template>
 
@@ -29,7 +21,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
+
 .bottombartitle {
   padding-left: 0.5rem;
   line-height: 40px;

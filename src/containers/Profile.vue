@@ -9,57 +9,34 @@
       </div>
     </div>
     <div class="profileContainer-buttonGroup">
-      <button
-        :class="{
-          'profileContainer-button': currentPage != 1,
-          'profileContainer-selectedButton': currentPage === 1,
-        }"
-        @click="openBasicInfo"
-      >
+      <button :class="{
+        'profileContainer-button': currentPage != 1,
+        'profileContainer-selectedButton': currentPage === 1,
+      }" @click="openBasicInfo">
         Basic Information
       </button>
-      <button
-        :class="{
-          'profileContainer-button': currentPage != 2,
-          'profileContainer-selectedButton': currentPage === 2,
-        }"
-        @click="openTransferCredit"
-      >
+      <button :class="{
+        'profileContainer-button': currentPage != 2,
+        'profileContainer-selectedButton': currentPage === 2,
+      }" @click="openTransferCredit">
         Transfer Credit
       </button>
     </div>
     <div class="profileContainer-editPage">
-      <onboarding-basic
-        v-if="currentPage === 1"
-        :userName="name"
-        :onboardingData="onboarding"
-        :isEditingProfile="true"
-        @updateBasic="updateBasic"
-      />
-      <onboarding-transfer
-        v-if="currentPage == 2"
-        :onboardingData="onboarding"
-        @updateTransfer="updateTransfer"
-      />
+      <onboarding-basic v-if="currentPage === 1" :userName="name" :onboardingData="onboarding" :isEditingProfile="true"
+        @updateBasic="updateBasic" />
+      <onboarding-transfer v-if="currentPage == 2" :onboardingData="onboarding" @updateTransfer="updateTransfer" />
     </div>
     <div class="profileContainer-error" data-cyId="onboarding-error" v-if="isError">
       {{ errorText }}
     </div>
     <div>
-      <button
-        class="profileContainer-finishButton"
-        @click="openConfirmation"
-        data-cyId="onboarding-finishButton"
-        :disabled="isError"
-      >
+      <button class="profileContainer-finishButton" @click="openConfirmation" data-cyId="onboarding-finishButton"
+        :disabled="isError">
         Save
       </button>
     </div>
-    <profile-confirmation
-      @close-modal="closeConfirmation"
-      v-if="isConfirmOpen"
-      @submit-onboarding="submitOnboarding"
-    />
+    <profile-confirmation @close-modal="closeConfirmation" v-if="isConfirmOpen" @submit-onboarding="submitOnboarding" />
   </div>
 </template>
 
@@ -264,7 +241,7 @@ export default defineComponent({
 });
 </script>
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .profileContainer {
   background-color: #ffffff;

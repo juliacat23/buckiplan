@@ -1,56 +1,28 @@
 <template>
   <div class="bottombartabview">
     <div class="bottombartabview-bottomCourseWrapper">
-      <div
-        v-for="(bottomCourse, index) in firstFewCourses"
-        :key="index"
-        class="bottombartabview-courseWrapper"
-      >
-        <bottom-bar-tab
-          :color="bottomCourse.color"
-          :courseObj="bottomCourse"
-          :tabIndex="index"
-          :bottomCourseFocus="bottomCourseFocus"
-          :isExpanded="isExpanded"
+      <div v-for="(bottomCourse, index) in firstFewCourses" :key="index" class="bottombartabview-courseWrapper">
+        <bottom-bar-tab :color="bottomCourse.color" :courseObj="bottomCourse" :tabIndex="index"
+          :bottomCourseFocus="bottomCourseFocus" :isExpanded="isExpanded"
           @on-change-focus="() => changeBottomBarCourseFocus(index)"
-          @on-delete="() => deleteBottomBarCourse(index, $gtag)"
-        />
+          @on-delete="() => deleteBottomBarCourse(index, $gtag)" />
       </div>
     </div>
     <div v-if="seeMoreCourses.length > 0" class="bottombartabview-seeMoreWrapper">
       <div class="bottombarSeeMoreTab" @click="bottomBarSeeMoreToggle">
         <div class="bottombarSeeMoreTab-name">See More</div>
-        <img
-          v-if="!seeMoreOpen"
-          class="bottombarSeeMoreTab-arrow"
-          src="@/assets/images/uparrow-white.svg"
-          alt="expand see more bottom bar tabs"
-        />
-        <img
-          v-if="seeMoreOpen"
-          class="bottombarSeeMoreTab-arrow"
-          src="@/assets/images/downarrow-white.svg"
-          alt="collapse see more bottom bar tabs"
-        />
+        <img v-if="!seeMoreOpen" class="bottombarSeeMoreTab-arrow" src="@/assets/images/uparrow-white.svg"
+          alt="expand see more bottom bar tabs" />
+        <img v-if="seeMoreOpen" class="bottombarSeeMoreTab-arrow" src="@/assets/images/downarrow-white.svg"
+          alt="collapse see more bottom bar tabs" />
       </div>
       <div v-if="seeMoreOpen" class="bottombarSeeMoreOptions">
         <div class="seeMoreCourse-content">
-          <div
-            v-for="(seeMoreCourse, index) in seeMoreCourses"
-            :key="index"
-            class="seeMoreCourse-option"
-          >
-            <span
-              class="seeMoreCourse-option-text"
-              @click="moveBottomBarCourseToFirst(index + maxBottomBarTabs)"
-              >{{ seeMoreCourse.code }}</span
-            >
-            <img
-              class="seeMoreCourse-option-delete"
-              src="@/assets/images/x-blue.svg"
-              @click="deleteBottomBarCourse(index + maxBottomBarTabs, $gtag)"
-              alt="x to delete bottom bar tab"
-            />
+          <div v-for="(seeMoreCourse, index) in seeMoreCourses" :key="index" class="seeMoreCourse-option">
+            <span class="seeMoreCourse-option-text"
+              @click="moveBottomBarCourseToFirst(index + maxBottomBarTabs)">{{ seeMoreCourse.code }}</span>
+            <img class="seeMoreCourse-option-delete" src="@/assets/images/x-blue.svg"
+              @click="deleteBottomBarCourse(index + maxBottomBarTabs, $gtag)" alt="x to delete bottom bar tab" />
           </div>
         </div>
       </div>
@@ -110,7 +82,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .bottombartabview {
   width: 100%;
@@ -132,6 +104,7 @@ export default defineComponent({
     display: flex;
     flex-direction: column;
     margin-right: 1%;
+
     .bottombarSeeMoreTab {
       color: $white;
       width: 9rem;
@@ -146,6 +119,7 @@ export default defineComponent({
       padding-left: 8px;
       padding-right: 8px;
       cursor: pointer;
+
       &-arrow {
         width: 14px;
         height: 50%;
@@ -160,6 +134,7 @@ export default defineComponent({
     border: 1px solid rgba(218, 218, 218, 0.2);
     max-height: 6.81rem;
     overflow-y: scroll;
+
     .seeMoreCourse {
       &-option {
         border: 1px solid rgba(218, 218, 218, 0.2);
@@ -198,6 +173,7 @@ export default defineComponent({
     }
   }
 }
+
 @media only screen and (max-width: $small-medium-breakpoint) {
   .bottombartabview {
     &-seeMoreWrapper {
@@ -206,8 +182,10 @@ export default defineComponent({
         height: fit-content;
       }
     }
+
     .bottombarSeeMoreOptions {
       width: 100%;
+
       .seeMoreCourse {
         &-option {
           width: 100%;

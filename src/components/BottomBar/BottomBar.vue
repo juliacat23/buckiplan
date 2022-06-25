@@ -1,23 +1,12 @@
 <template>
-  <div
-    class="bottombar"
-    data-cyId="bottombar"
-    :class="{ wideBar: isNavbarWide }"
-    v-if="hasBottomBarCourses"
-  >
+  <div class="bottombar" data-cyId="bottombar" :class="{ wideBar: isNavbarWide }" v-if="hasBottomBarCourses">
     <div class="bottombar-tabview" :class="{ expandedTabView: isExpanded }">
       <bottom-bar-tab-view :maxBottomBarTabs="maxBottomBarTabs" />
     </div>
-    <button
-      class="bottombar-title full-opacity-on-hover"
-      :class="{ expandedBottomBarTitle: isExpanded }"
-      @click="toggleBottomBar($gtag)"
-    >
-      <bottom-bar-title
-        :color="focusedBottomBarCourse.color"
-        :name="focusedBottomBarCourse.name"
-        :isExpanded="isExpanded"
-      />
+    <button class="bottombar-title full-opacity-on-hover" :class="{ expandedBottomBarTitle: isExpanded }"
+      @click="toggleBottomBar($gtag)">
+      <bottom-bar-title :color="focusedBottomBarCourse.color" :name="focusedBottomBarCourse.name"
+        :isExpanded="isExpanded" />
     </button>
     <div v-if="isExpanded" class="bottombar-course">
       <bottom-bar-course :courseObj="focusedBottomBarCourse" />
@@ -60,7 +49,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/assets/scss/_variables.scss';
+@import '@/scss/variables';
 
 .bottombar {
   display: flex;
@@ -103,6 +92,7 @@ export default defineComponent({
   position: fixed;
   bottom: 19rem;
 }
+
 .expandedBottomBarTitle {
   position: fixed;
   bottom: 16.5rem;
@@ -113,6 +103,7 @@ export default defineComponent({
     width: calc(100vw - 25.5rem);
     margin-left: 25.5rem;
   }
+
   .wideBar {
     width: calc(100vw - 4.5rem);
     margin-left: 4.5rem;
@@ -121,6 +112,7 @@ export default defineComponent({
 
 @media only screen and (max-width: $medium-breakpoint) {
   .bottombar {
+
     &-tabview,
     &-title,
     &-course {
