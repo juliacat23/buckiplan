@@ -1,67 +1,33 @@
 <template>
   <div class="onboarding">
-    <onboarding-transfer-swimming
-      :tookSwimTest="tookSwimTest === 'yes'"
-      @update-swim="updateSwim"
-    />
+    <onboarding-transfer-swimming :tookSwimTest="tookSwimTest === 'yes'" @update-swim="updateSwim" />
     <div class="onboarding-section">
       <div class="onboarding-subHeader">
         <span class="onboarding-subHeader--font"> Transfer Credits (Optional)</span>
       </div>
       <div class="onboarding-transferCredits onboarding-inputs">
         <div>
-          <img
-            class="onboarding-warningIcon"
-            src="@/assets/images/warning.svg"
-            alt="warning icon"
-          />
+          <img class="onboarding-warningIcon" src="@/assets/images/warning.svg" alt="warning icon" />
           <div class="onboarding-transferCreditDescription onboarding-transferCreditWarning">
             Some transfer credits may incorrectly apply to requirements. We are working to fix these
             bugs, so please double check transfer credits!
           </div>
         </div>
-        <div
-          class="onboarding-inputWrapper onboarding-inputWrapper--college onboarding-inputWrapper--description"
-        >
-          <onboarding-transfer-credits-source
-            examType="AP"
-            :exams="exams.AP"
-            :subjects="subjectsAP"
-            :scores="scores.AP"
-            :placeholderText="placeholderText"
-            @on-subject-select="selectAPSubject"
-            @on-score-select="selectAPScore"
-            @on-remove="removeExam"
-            @on-add="addExam"
-          />
-          <onboarding-transfer-credits-source
-            examType="IB"
-            :exams="exams.IB"
-            :subjects="subjectsIB"
-            :scores="scores.IB"
-            :placeholderText="placeholderText"
-            @on-subject-select="selectIBSubject"
-            @on-score-select="selectIBScore"
-            @on-remove="removeExam"
-            @on-add="addExam"
-          />
-          <onboarding-transfer-credits-source
-            v-if="caseEnabled"
-            examType="CASE"
-            :exams="exams.CASE"
-            :subjects="subjectsCASE"
-            :placeholderText="placeholderText"
-            @on-subject-select="selectCASESubject"
-            @on-remove="removeExam"
-            @on-add="addExam"
-          />
+        <div class="onboarding-inputWrapper onboarding-inputWrapper--college onboarding-inputWrapper--description">
+          <onboarding-transfer-credits-source examType="AP" :exams="exams.AP" :subjects="subjectsAP" :scores="scores.AP"
+            :placeholderText="placeholderText" @on-subject-select="selectAPSubject" @on-score-select="selectAPScore"
+            @on-remove="removeExam" @on-add="addExam" />
+          <onboarding-transfer-credits-source examType="IB" :exams="exams.IB" :subjects="subjectsIB" :scores="scores.IB"
+            :placeholderText="placeholderText" @on-subject-select="selectIBSubject" @on-score-select="selectIBScore"
+            @on-remove="removeExam" @on-add="addExam" />
+          <onboarding-transfer-credits-source v-if="caseEnabled" examType="CASE" :exams="exams.CASE"
+            :subjects="subjectsCASE" :placeholderText="placeholderText" @on-subject-select="selectCASESubject"
+            @on-remove="removeExam" @on-add="addExam" />
         </div>
         <div class="onboarding-transferCreditDescription">
           *To add credit from external institutions, please add the equivalent Cornell course to
           your schedule later. Learn more about Transfer Credits
-          <a target="_blank" href="https://courses.cornell.edu/content.php?catoid=41&navoid=11629"
-            >here</a
-          >.
+          <a target="_blank" href="https://courses.cornell.edu/content.php?catoid=41&navoid=11629">here</a>.
         </div>
       </div>
     </div>
@@ -78,7 +44,7 @@ import OnboardingTransferCreditsSource from './OnboardingTransferCreditsSource.v
 type TransferClassWithOptionalCourse = {
   class: string;
   credits: number;
-  course?: CornellCourseRosterCourse;
+  course?: OSUCourse;
 };
 
 type Data = {
@@ -216,7 +182,7 @@ export default defineComponent({
         this.tookSwimTest
       );
     },
-    onCourseSelection(id: number, course: CornellCourseRosterCourse) {
+    onCourseSelection(id: number, course: OSUCourse) {
       const courseCode = `${course.subject} ${course.catalogNbr}`;
       const creditsC = course.enrollGroups[0].unitsMaximum;
       const classes = [...this.classes];
@@ -273,10 +239,12 @@ export default defineComponent({
     border: 0.5px solid $darkPlaceholderGray;
     border-radius: 0px;
     background-color: $white;
+
     &::placeholder {
       color: $lightPlaceholderGray;
     }
   }
+
   &-onboarding-empty {
     &::placeholder {
       color: $darkPlaceholderGray;

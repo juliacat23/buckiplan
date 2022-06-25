@@ -33,19 +33,19 @@ import store from '@/store';
 import {
   getRelatedRequirementIdsForCourseOptOut,
   getRelatedUnfulfilledRequirements,
-} from '@/requirements/requirement-frontend-utils';
+} from '@/requirements/requirementUtils';
 
 export default defineComponent({
   components: { CourseSelector, TeleportModal, SelectedRequirementEditor },
   emits: {
     'close-course-modal': () => true,
-    'select-course': (course: CornellCourseRosterCourse) => typeof course === 'object',
-    'add-course': (course: CornellCourseRosterCourse, choice: FirestoreCourseOptInOptOutChoices) =>
+    'select-course': (course: OSUCourse) => typeof course === 'object',
+    'add-course': (course: OSUCourse, choice: FirestoreCourseOptInOptOutChoices) =>
       typeof course === 'object' && typeof choice === 'object',
   },
   data() {
     return {
-      selectedCourse: null as CornellCourseRosterCourse | null,
+      selectedCourse: null as OSUCourse | null,
       selectedRequirementID: '',
       automaticallyFulfilledRequirements: [] as readonly string[],
       // relatedRequirements : the requirements that don't allow double counting
@@ -66,7 +66,7 @@ export default defineComponent({
     },
   },
   methods: {
-    selectCourse(result: CornellCourseRosterCourse) {
+    selectCourse(result: OSUCourse) {
       this.selectedCourse = result;
       this.$emit('select-course', this.selectedCourse);
       this.getReqsRelatedToCourse(result);
@@ -74,7 +74,7 @@ export default defineComponent({
     closeCurrentModal() {
       this.$emit('close-course-modal');
     },
-    getReqsRelatedToCourse(selectedCourse: CornellCourseRosterCourse) {
+    getReqsRelatedToCourse(selectedCourse: OSUCourse) {
       const {
         relatedRequirements,
         selfCheckRequirements,
@@ -84,7 +84,7 @@ export default defineComponent({
         store.state.groupedRequirementFulfillmentReport,
         store.state.onboardingData,
         store.state.toggleableRequirementChoices,
-        store.state.overriddenFulfillmentChoices,
+        store.state.overridenFulfilmentChoices,
         store.state.userRequirementsMap
       );
       const automaticallyFulfilledRequirementIds = new Set(

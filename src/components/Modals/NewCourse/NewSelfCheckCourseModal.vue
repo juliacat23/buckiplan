@@ -33,14 +33,14 @@ export default defineComponent({
   emits: {
     'close-course-modal': () => true,
     'add-course': (
-      selected: CornellCourseRosterCourse,
+      selected: OSUCourse,
       season: FirestoreSemesterSeason,
       year: number
     ) => typeof selected === 'object' && typeof season === 'string' && typeof year === 'number',
   },
   data() {
     return {
-      selectedCourse: null as CornellCourseRosterCourse | null,
+      selectedCourse: null as OSUCourse | null,
       courseSelectorKey: 0,
       season: '' as FirestoreSemesterSeason,
       year: 0,
@@ -59,7 +59,7 @@ export default defineComponent({
     canAddCourse(): boolean {
       return this.selectedCourse != null && this.year > 0 && String(this.season) !== 'Select';
     },
-    courseCanAppearInSearchResult(): (course: CornellCourseRosterCourse) => boolean {
+    courseCanAppearInSearchResult(): (course: OSUCourse) => boolean {
       return getFilterForRequirementFulfillment(
         store.state.userRequirementsMap,
         store.state.toggleableRequirementChoices,
@@ -71,7 +71,7 @@ export default defineComponent({
     closeCurrentModal() {
       this.$emit('close-course-modal');
     },
-    setCourse(result: CornellCourseRosterCourse) {
+    setCourse(result: OSUCourse) {
       this.selectedCourse = result;
     },
     addCourse() {
