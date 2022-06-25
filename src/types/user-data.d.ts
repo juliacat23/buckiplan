@@ -32,10 +32,7 @@ type FirestoreSemesterSeason = 'Fall' | 'Spring' | 'Summer';
 type FirestoreSemester = {
   readonly year: number;
   readonly season: FirestoreSemesterSeason;
-  readonly courses: readonly (
-    | FirestoreSemesterCourse
-    | FirestoreSemesterPlaceholder
-  )[];
+  readonly courses: readonly (FirestoreSemesterCourse | FirestoreSemesterPlaceholder)[];
 };
 
 type FirestoreCollegeOrMajorOrMinor = { readonly acronym: string };
@@ -171,7 +168,6 @@ type AppBottomBarCourse = {
   readonly semesters: readonly string[];
   description: string;
   prereqs: string;
-  attributes: readonly string[];
 };
 
 type AppToggleableRequirementChoices = Readonly<Record<string, string>>;

@@ -1,26 +1,64 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { Router, createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 
-const routes: Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        name: 'home',
-        component: HomePage,
-    },
-    {
-        path: '/about',
-        name: 'about',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () =>
-            import(/* webpackChunkName: "about" */ '../views/AboutView.vue'),
-    },
-];
+import Login from '@/containers/Login.vue';
+import Dashboard from '@/containers/Dashboard.vue';
+import Policy from '@/containers/Policy.vue';
+import Analytics from '@/containers/Analytics.vue';
+import Page404 from '@/containers/404.vue';
 
-const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes,
+import store from '@/store';
+
+const router: Router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+    },
+    {
+      path: '/',
+      name: 'Dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/policy',
+      name: 'Policy',
+      component: Policy,
+    },
+    {
+      path: '/analytics',
+      name: 'Analytics',
+      component: Analytics,
+      meta: {
+        requiresAuth: true,
+      },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      component: Page404,
+    },
+  ],
+});
+
+router.beforeEach((to, from, next) => {
+  const { matched } = to;
+
+  const requiresAuth = matched.some((x) => x.meta.requiresAuth);
+  const { currentFirebaseUser } = store.state;
+
+  if (requiresAuth && !currentFirebaseUser) {
+    next('/login');
+  } else if (requiresAuth && currentFirebaseUser) {
+    next();
+  } else {
+    next();
+  }
 });
 
 export default router;

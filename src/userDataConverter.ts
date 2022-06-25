@@ -1,8 +1,6 @@
 import type { TypedVuexStore } from './store';
 
-const createCourseCreditRange = (
-  course: OSUCourse
-): readonly [number, number] => {
+const createCourseCreditRange = (course: OSUCourse): readonly [number, number] => {
   const courseCreditRange: number[] = [];
   course.enrollGroups.forEach((enrollGroup) => {
     courseCreditRange.push(enrollGroup.unitsMinimum);
@@ -48,10 +46,39 @@ export const osuCourseToFirebaseSemesterCourse = (
     store.state.subjectColors[course.subject]
   );
 
+export const firestoreSemesterCourseToBottomBarCourse = ({
+  code,
+  name,
+  credits,
+  color,
+  semesters,
+  uniqueID,
+}: FirestoreSemesterCourse): AppBottomBarCourse => ({
+  code,
+  name,
+  credits,
+  color,
+  semesters,
+  prereqs: '',
+  description: '',
+  uniqueID,
+});
+
+export const osuCourseDetailedInformationToPartialBottomCourseInformation = (
+  course: OSUCourseFullDetail
+): Pick<AppBottomBarCourse, 'description' | 'prereqs'> => {
+  // Get prereqs of course as string (). '' if neither available because '' is interpreted as false
+  const description = course.catalogDescription || '';
+  const prereqs = course.catalogPreReqs || '';
+
+  // Distribution of course (e.g. MQR-AS)
+  // alternateDistributions option in case catalogDistr for the course is null, undef, ''
+
+  return { description, prereqs };
+};
+
 // set entranceSem to fall and gradSem to spring by default locally, saved to Firestore when Onboarding finished
-export const createAppOnboardingData = (
-  data: FirestoreOnboardingUserData
-): AppOnboardingData => ({
+export const createAppOnboardingData = (data: FirestoreOnboardingUserData): AppOnboardingData => ({
   // TODO: take into account multiple colleges
   gradYear: data.gradYear ?? '',
   gradSem: data.gradSem ?? '',
