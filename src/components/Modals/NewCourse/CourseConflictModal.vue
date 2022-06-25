@@ -37,8 +37,8 @@
 import { PropType, defineComponent } from 'vue';
 import TeleportModal from '@/components/Modals/TeleportModal.vue';
 import SingleConflictEditor from '@/components/Modals/NewCourse/SingleConflictEditor.vue';
-import { getConstraintViolationsForSingleCourse } from '@/requirements/requirement-constraints-utils';
-import { allowCourseDoubleCountingBetweenRequirements } from '@/requirements/requirement-frontend-utils';
+import { getConstraintViolationsForSingleCourse } from '@/requirements/requirementConstraints';
+import { allowCourseDoubleCountingBetweenRequirements } from '@/requirements/requirementUtils';
 import store from '@/store';
 
 export default defineComponent({
