@@ -15,17 +15,17 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { fullCoursesArray } from '@/assets/courses/typed-full-courses';
+import { fullCoursesArray } from '@/constants/courses/typed-full-courses';
 
 const getMatchingCourses = (
   searchText: string,
-  filter?: (course: CornellCourseRosterCourse) => boolean
-): readonly CornellCourseRosterCourse[] => {
+  filter?: (course: OSUCourse) => boolean
+): readonly OSUCourse[] => {
   // search after value length of 2 to reduce search times of courses
   if (!searchText || searchText.length < 2) return [];
   /* code array for results that contain course code and title array for results that contain title */
-  const code: CornellCourseRosterCourse[] = [];
-  const title: CornellCourseRosterCourse[] = [];
+  const code: OSUCourse[] = [];
+  const title: OSUCourse[] = [];
   const filteredCourses = filter != null ? fullCoursesArray.filter(filter) : fullCoursesArray;
   for (const course of filteredCourses) {
     const courseCode = `${course.subject} ${course.catalogNbr}`;
@@ -50,7 +50,7 @@ export default defineComponent({
     placeholder: { type: String, required: true },
     courseFilter: {
       type: (Function as unknown) as PropType<
-        ((course: CornellCourseRosterCourse) => boolean) | undefined
+        ((course: OSUCourse) => boolean) | undefined
       >,
       default: undefined,
     },
@@ -58,7 +58,7 @@ export default defineComponent({
   },
   emits: {
     'on-escape': () => true,
-    'on-select': (result: CornellCourseRosterCourse) => typeof result === 'object',
+    'on-select': (result: OSUCourse) => typeof result === 'object',
   },
   data() {
     return {
@@ -67,7 +67,7 @@ export default defineComponent({
     };
   },
   computed: {
-    matches(): readonly CornellCourseRosterCourse[] {
+    matches(): readonly OSUCourse[] {
       return getMatchingCourses(this.searchText.toUpperCase(), this.courseFilter);
     },
   },
@@ -87,7 +87,7 @@ export default defineComponent({
       const wraparoundLimit = this.matches.length;
       this.currentFocus = ((newFocusIndex % wraparoundLimit) + wraparoundLimit) % wraparoundLimit;
     },
-    selectCourse(result: CornellCourseRosterCourse) {
+    selectCourse(result: OSUCourse) {
       this.$emit('on-select', result);
       this.searchText = `${result.subject} ${result.catalogNbr}: ${result.titleLong}`;
       this.currentFocus = -1;
