@@ -66,16 +66,26 @@
         <!-- <p :style="{'color': minor.display ? `#${reqGroupColorMap[req.group][0]}` : ''}" class="minor-title-bottom">({{user.collegeFN}})</p> Change for multiple colleges -->
       </button>
     </div>
-    <div v-if="req.groupName === 'preProgram'" class="grad">
+    <div
+      v-if="reqIndex == numOfColleges + onboardingData.major.length + onboardingData.minor.length && req.groupName === 'preProgram'"
+      class="minor">
       <button :style="{
-        'border-bottom': `2px solid #${getReqColor(req.groupName, onboardingData)}`,
-      }" class="grad-title-button grad-title full-opacity-on-hover" :disabled="true">
+        'border-bottom':
+          id === displayPreProgramIndex
+            ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
+            : '',
+      }" @click="activatePreProgram(id)" :class="[
+  { 'full-opacity-on-hover': onboardingData.preProgram.length === 1 },
+  'major-title major-title-button',
+]" v-for="(preProgram, id) in onboardingData.preProgram" :key="id" :disabled="id === displayPreProgramIndex">
         <p :style="{
-          'font-weight': 500,
-          color: `#${getReqColor(req.groupName, onboardingData)}`,
-        }" class="grad-title-top">
+          'font-weight': id === displayPreProgramIndex ? 500 : undefined,
+          color:
+            id === displayPreProgramIndex ? `#${getReqColor(req.groupName, onboardingData)}` : '',
+        }" class="minor-title-top">
           {{ getPreProgramFullName(preProgram) }}
         </p>
+        <!-- <p :style="{'color': minor.display ? `#${reqGroupColorMap[req.group][0]}` : ''}" class="minor-title-bottom">({{user.collegeFN}})</p> Change for multiple colleges -->
       </button>
     </div>
 
@@ -133,6 +143,7 @@ export default defineComponent({
     displayDetails: { type: Boolean, required: true },
     displayedMajorIndex: { type: Number, required: true },
     displayedMinorIndex: { type: Number, required: true },
+    displayPreProgramIndex: { type: Number, required: true },
     req: { type: Object as PropType<GroupedRequirementFulfillmentReport>, required: true },
     onboardingData: { type: Object as PropType<AppOnboardingData>, required: true },
     showMajorOrMinorRequirements: { type: Boolean, required: true },
@@ -143,6 +154,9 @@ export default defineComponent({
       return typeof id === 'number';
     },
     activateMinor(id: number) {
+      return typeof id === 'number';
+    },
+    activatePreProgram(id: number) {
       return typeof id === 'number';
     },
     toggleDetails() {
@@ -257,6 +271,9 @@ export default defineComponent({
     },
     activateMinor(id: number) {
       this.$emit('activateMinor', id);
+    },
+    activatePreProgram(id: number) {
+      this.$emit('activatePreProgram', id);
     },
   },
 });
@@ -438,3 +455,5 @@ button.view {
   margin-right: 0.2rem;
 }
 </style>
+
+

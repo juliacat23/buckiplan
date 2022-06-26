@@ -28,10 +28,12 @@
           <div class="req" v-for="(req, index) in groupedRequirementFulfillmentReports" :key="index">
             <requirement-group :req="req" :reqIndex="index" :toggleableRequirementChoices="toggleableRequirementChoices"
               :displayedMajorIndex="displayedMajorIndex" :displayedMinorIndex="displayedMinorIndex"
+              :displayPreProgramIndex="displayPreProgramIndex"
               :showMajorOrMinorRequirements="showMajorOrMinorRequirements(index, req.groupName)"
               :numOfColleges="numOfColleges" :tourStep="tourStep"
               @changeToggleableRequirementChoice="chooseToggleableRequirementOption" @activateMajor="activateMajor"
-              @activateMinor="activateMinor" @onShowAllCourses="onShowAllCourses" />
+              @activateMinor="activateMinor" @activePreProgram="activatePreProgram"
+              @onShowAllCourses="onShowAllCourses" />
           </div>
         </div>
       </div>
@@ -80,7 +82,7 @@
 import draggable from 'vuedraggable';
 import { defineComponent } from 'vue';
 import introJs from 'intro.js';
-import featureFlagCheckers from '@/feature-flags';
+import featureFlagCheckers from '@/featuredFlags';
 
 import Course from '@/components/Course/Course.vue';
 import TeleportModal from '@/components/Modals/TeleportModal.vue';
@@ -91,7 +93,7 @@ import DropDownArrow from '@/components/DropDownArrow.vue';
 import clipboard from '@/assets/images/clipboard.svg';
 import warning from '@/assets/images/warning.svg';
 import store from '@/store';
-import { chooseToggleableRequirementOption, incrementUniqueID } from '@/global-firestore-data';
+import { chooseToggleableRequirementOption, incrementUniqueID } from '@/firebase';
 
 export type ShowAllCourses = {
   readonly name: string;
@@ -103,6 +105,7 @@ type Data = {
   displayDebugger: boolean;
   displayedMajorIndex: number;
   displayedMinorIndex: number;
+  displayPreProgramIndex: number;
   numOfColleges: number;
   showAllCourses: ShowAllCourses;
   shouldShowAllCourses: boolean;
@@ -141,6 +144,7 @@ export default defineComponent({
       displayDebugger: false,
       displayedMajorIndex: 0,
       displayedMinorIndex: 0,
+      displayPreProgramIndex: 0,
       numOfColleges: 1,
       showAllCourses: { name: '', shownCourses: [], allCourses: [] },
       shouldShowAllCourses: false,
@@ -204,12 +208,16 @@ export default defineComponent({
     // TODO CHANGE FOR MULTIPLE COLLEGES & GRAD PROGRAMS
     showMajorOrMinorRequirements(id: number, group: string): boolean {
       // colleges and programs should always be shown as there can only be 1
-      if (group === 'College' || group === 'Grad') {
+      if (group === 'College') {
         return true;
       }
       // majors should be shown only if the id matches the index of the displayed major
       if (group === 'Major') {
         return id === this.displayedMajorIndex + this.numOfColleges;
+      }
+
+      if (group === 'preProgram') {
+        return id === this.displayPreProgramIndex + this.numOfColleges + this.onboardingData.major.length + this.onboardingData.minor.length;
       }
       // minors should be shown depending on index and number of college and majors selected
       return (
@@ -224,6 +232,9 @@ export default defineComponent({
     },
     activateMinor(id: number) {
       this.displayedMinorIndex = id;
+    },
+    activatePreProgram(id: number) {
+      this.displayPreProgramIndex = id;
     },
     getRequirementsTooltipText() {
       return `<div class="introjs-tooltipTop"><div class="introjs-customTitle">Meet your Requirements Bar <img src="${clipboard}" class = "introjs-emoji introjs-emoji-text" alt="clipboard icon"/>

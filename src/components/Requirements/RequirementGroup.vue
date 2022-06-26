@@ -1,9 +1,10 @@
 <template>
   <div class="requirementview">
     <requirement-header :reqIndex="reqIndex" :displayDetails="displayDetails" :displayedMajorIndex="displayedMajorIndex"
-      :displayedMinorIndex="displayedMinorIndex" :req="req" :onboardingData="onboardingData"
-      :showMajorOrMinorRequirements="showMajorOrMinorRequirements" :numOfColleges="numOfColleges"
-      @activateMajor="activateMajor" @activateMinor="activateMinor" @toggleDetails="toggleDetails" />
+      :displayedMinorIndex="displayedMinorIndex" :displayPreProgramIndex="displayPreProgramIndex" :req="req"
+      :onboardingData="onboardingData" :showMajorOrMinorRequirements="showMajorOrMinorRequirements"
+      :numOfColleges="numOfColleges" @activateMajor="activateMajor" @activateMinor="activateMinor"
+      @activatePreProgram="activatePreProgram" @toggleDetails="toggleDetails" />
     <div v-if="showMajorOrMinorRequirements">
       <!--Show more of completed requirements -->
       <div v-if="displayDetails || tourStep === 1">
@@ -48,7 +49,7 @@
       </div>
 
       <!-- Add separator if additional completed requirements -->
-      <div class="separator"></div>
+      <!-- <div class="separator"></div> -->
     </div>
   </div>
 </template>
@@ -78,6 +79,7 @@ export default defineComponent({
     },
     displayedMajorIndex: { type: Number, required: true },
     displayedMinorIndex: { type: Number, required: true },
+    displayPreProgramIndex: { type: Number, required: true },
     showMajorOrMinorRequirements: { type: Boolean, required: true },
     numOfColleges: { type: Number, required: true },
     tourStep: { type: Number, required: true },
@@ -85,6 +87,7 @@ export default defineComponent({
   emits: {
     activateMajor: (id: number) => typeof id === 'number',
     activateMinor: (id: number) => typeof id === 'number',
+    activatePreProgram: (id: number) => typeof id === 'number',
     onShowAllCourses: (courses: {
       requirementName: string;
       subReqCoursesArray: readonly FirestoreSemesterCourse[];
@@ -132,6 +135,9 @@ export default defineComponent({
     },
     activateMinor(id: number) {
       this.$emit('activateMinor', id);
+    },
+    activatePreProgram(id: number) {
+      this.$emit('activatePreProgram', id);
     },
     onShowAllCourses(courses: {
       requirementName: string;
@@ -231,3 +237,4 @@ button.view {
   background-color: $inactiveGray;
 }
 </style>
+
