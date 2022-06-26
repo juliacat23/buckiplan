@@ -6,9 +6,9 @@ export const updateRequirementChoice = (
   choiceUpdater: (choice: FirestoreCourseOptInOptOutChoices) => FirestoreCourseOptInOptOutChoices
 ): void => {
   overriddenFulfillmentChoicesCollection.doc(store.state.currentFirebaseUser.email).set({
-    ...store.state.overridenFulfilmentChoices,
+    ...store.state.overriddenFulfillmentChoices,
     [courseUniqueID]: choiceUpdater(
-      store.state.overridenFulfilmentChoices[courseUniqueID] || {
+      store.state.overriddenFulfillmentChoices[courseUniqueID] || {
         arbitraryOptIn: {},
         acknowledgedCheckerWarningOptIn: [],
         optOut: [],
@@ -44,7 +44,7 @@ export const updateRequirementChoices = (
 ): void => {
   overriddenFulfillmentChoicesCollection
     .doc(store.state.currentFirebaseUser.email)
-    .set(updater(store.state.overridenFulfilmentChoices));
+    .set(updater(store.state.overriddenFulfillmentChoices));
 };
 
 export const deleteCourseFromRequirementChoices = (courseUniqueID: string | number): void =>
@@ -56,7 +56,7 @@ export const deleteCoursesFromRequirementChoices = (courseUniqueIds: readonly (s
     .doc(store.state.currentFirebaseUser.email)
     .set(
       Object.fromEntries(
-        Object.entries(store.state.overridenFulfilmentChoices).filter(
+        Object.entries(store.state.overriddenFulfillmentChoices).filter(
           ([uniqueId]) => !courseUniqueIdStrings.has(uniqueId)
         )
       )

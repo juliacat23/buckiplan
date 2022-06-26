@@ -1,37 +1,20 @@
 <template>
-  <div
-    :class="columnWide ? 'onboarding-select--columnWide' : 'onboarding-select--column'"
-    :style="{ borderColor: boxBorder }"
-    v-click-outside="closeDropdownIfOpen"
-  >
+  <div :class="columnWide ? 'onboarding-select--columnWide' : 'onboarding-select--column'"
+    :style="{ borderColor: boxBorder }" v-click-outside="closeDropdownIfOpen">
     <label class="onboarding-label">{{ propertyName }}</label>
     <div class="onboarding-select onboarding-input">
-      <div
-        class="onboarding-dropdown-placeholder college-major-minor-wrapper"
-        @click="showHideContent()"
-      >
-        <div
-          class="onboarding-dropdown-placeholder college-major-minor-placeholder"
-          :style="{ color: placeholderColor }"
-        >
+      <div class="onboarding-dropdown-placeholder college-major-minor-wrapper" @click="showHideContent()">
+        <div class="onboarding-dropdown-placeholder college-major-minor-placeholder"
+          :style="{ color: placeholderColor }">
           {{ choice }}
         </div>
-        <div
-          class="onboarding-dropdown-placeholder college-test-credits-arrow"
-          :style="{ borderTopColor: arrowColor }"
-        ></div>
-        <div
-          class="onboarding-dropdown-placeholder college-arrow"
-          :style="{ borderTopColor: arrowColor }"
-        ></div>
+        <div class="onboarding-dropdown-placeholder college-test-credits-arrow" :style="{ borderTopColor: arrowColor }">
+        </div>
+        <div class="onboarding-dropdown-placeholder college-arrow" :style="{ borderTopColor: arrowColor }"></div>
       </div>
       <div class="onboarding-dropdown-content college-content" v-if="shown">
-        <div
-          v-for="(option, index) in availableOptions"
-          :key="index"
-          class="onboarding-dropdown-content-item"
-          @click="selectChoice(option)"
-        >
+        <div v-for="(option, index) in availableOptions" :key="index" class="onboarding-dropdown-content-item"
+          @click="selectChoice(option)">
           {{ option }}
         </div>
       </div>
@@ -42,7 +25,7 @@
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
 import { clickOutside } from '@/utilities';
-import { inactiveGray, yuxuanBlue, lightPlaceholderGray } from '@/assets/constants/scss-variables';
+import { inactiveGray, yuxuanBlue, lightPlaceholderGray } from '@/constants/scss-variables';
 
 const placeholderText = 'Select one';
 

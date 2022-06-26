@@ -59,9 +59,8 @@ import store from '@/store';
 
 import fall from '@/assets/images/fallEmoji.svg';
 import spring from '@/assets/images/springEmoji.svg';
-import winter from '@/assets/images/winterEmoji.svg';
 import summer from '@/assets/images/summerEmoji.svg';
-import { inactiveGray, yuxuanBlue, darkPlaceholderGray } from '@/assets/constants/scss-variables';
+import { inactiveGray, yuxuanBlue, darkPlaceholderGray } from '@/constants/scss-variables';
 
 type DisplayOption = {
   shown: boolean;
@@ -105,7 +104,6 @@ export default defineComponent({
       [fall, 'Fall'],
       [spring, 'Spring'],
       [summer, 'Summer'],
-      [winter, 'Winter'],
     ] as const;
     const years = [];
     let startYear = currentYear - entranceYearRange;
@@ -141,7 +139,6 @@ export default defineComponent({
   },
   computed: {
     seasonPlaceholder(): string {
-      // set current season to winter in january, spring from february to may, summer from june to august, and fall from september to december
       let defaultSeason: string = getCurrentSeason();
       if (this.isCourseModelSelectingSemester) {
         defaultSeason = 'Select';

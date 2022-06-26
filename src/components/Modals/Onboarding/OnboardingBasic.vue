@@ -6,92 +6,56 @@
       </div>
       <div class="onboarding-inputs onboarding-inputs--name">
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font"
-              >First Name<span class="onboarding-required-star">*</span>
-            </span></label
-          >
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">First Name<span
+                class="onboarding-required-star">*</span>
+            </span></label>
           <input class="onboarding-input" v-model="firstName" @input="updateBasic()" />
         </div>
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font">Middle Name</span></label
-          >
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">Middle Name</span></label>
           <input class="onboarding-input" v-model="middleName" @input="updateBasic()" />
         </div>
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font"
-              >Last Name<span class="onboarding-required-star">*</span>
-            </span></label
-          >
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">Last Name<span
+                class="onboarding-required-star">*</span>
+            </span></label>
           <input class="onboarding-input" v-model="lastName" @input="updateBasic()" />
         </div>
-        <div
-          class="onboarding-inputWrapper onboarding-inputWrapper--name onboarding-inputWrapper--description"
-        >
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font"
-              >Entrance Season<span class="onboarding-required-star">*</span>
-            </span></label
-          >
+        <div class="onboarding-inputWrapper onboarding-inputWrapper--name onboarding-inputWrapper--description">
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">Entrance Season<span
+                class="onboarding-required-star">*</span>
+            </span></label>
           <div class="onboarding-selectWrapper">
-            <onboarding-basic-single-dropdown
-              :availableChoices="seasons"
-              :correspondingImages="seasonImgs"
-              :choice="entranceSemChoice"
-              :cannotBeRemoved="true"
-              @on-select="selectEntranceSem"
-            />
+            <onboarding-basic-single-dropdown :availableChoices="seasons" :correspondingImages="seasonImgs"
+              :choice="entranceSemChoice" :cannotBeRemoved="true" @on-select="selectEntranceSem" />
           </div>
         </div>
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font"
-              >Entrance Year<span class="onboarding-required-star">*</span>
-            </span></label
-          >
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">Entrance Year<span
+                class="onboarding-required-star">*</span>
+            </span></label>
           <div class="onboarding-selectWrapper">
-            <onboarding-basic-single-dropdown
-              :availableChoices="entranceYears"
-              :choice="entranceYear"
-              :cannotBeRemoved="true"
-              :scrollBottomToElement="suggestedEntranceSem"
-              @on-select="selectEntranceYear"
-            />
+            <onboarding-basic-single-dropdown :availableChoices="entranceYears" :choice="entranceYear"
+              :cannotBeRemoved="true" :scrollBottomToElement="suggestedEntranceSem" @on-select="selectEntranceYear" />
           </div>
         </div>
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name"></div>
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font"
-              >Graduation Season<span class="onboarding-required-star">*</span>
-            </span></label
-          >
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">Graduation Season<span
+                class="onboarding-required-star">*</span>
+            </span></label>
           <div class="onboarding-selectWrapper">
-            <onboarding-basic-single-dropdown
-              :availableChoices="seasons"
-              :correspondingImages="seasonImgs"
-              :choice="gradSemChoice"
-              :cannotBeRemoved="true"
-              @on-select="selectGraduationSem"
-            />
+            <onboarding-basic-single-dropdown :availableChoices="seasons" :correspondingImages="seasonImgs"
+              :choice="gradSemChoice" :cannotBeRemoved="true" @on-select="selectGraduationSem" />
           </div>
         </div>
         <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
-          <label class="onboarding-label"
-            ><span class="onboarding-subHeader--font"
-              >Graduation Year<span class="onboarding-required-star">*</span>
-            </span></label
-          >
+          <label class="onboarding-label"><span class="onboarding-subHeader--font">Graduation Year<span
+                class="onboarding-required-star">*</span>
+            </span></label>
           <div class="onboarding-selectWrapper">
-            <onboarding-basic-single-dropdown
-              :availableChoices="gradYears"
-              :choice="gradYear"
-              :cannotBeRemoved="true"
-              :scrollBottomToElement="suggestedGradSem"
-              @on-select="selectGraduationYear"
-            />
+            <onboarding-basic-single-dropdown :availableChoices="gradYears" :choice="gradYear" :cannotBeRemoved="true"
+              :scrollBottomToElement="suggestedGradSem" @on-select="selectGraduationYear" />
           </div>
         </div>
       </div>
@@ -110,25 +74,15 @@
             <div class="onboarding-inputWrapper onboarding-inputWrapper--college">
               <label class="onboarding-label">College</label>
               <div class="onboarding-selectWrapper">
-                <onboarding-basic-single-dropdown
-                  :availableChoices="colleges"
-                  :choice="collegeAcronym"
-                  :cannotBeRemoved="collegeAcronym.length <= 0"
-                  @on-select="selectCollege"
-                  @on-remove="removeCollege"
-                />
+                <onboarding-basic-single-dropdown :availableChoices="colleges" :choice="collegeAcronym"
+                  :cannotBeRemoved="collegeAcronym.length <= 0" @on-select="selectCollege" @on-remove="removeCollege" />
               </div>
             </div>
             <div class="onboarding-inputWrapper onboarding-inputWrapper--college">
               <label class="onboarding-label">Major</label>
-              <onboarding-basic-multi-dropdown
-                :availableChoices="majors"
-                :dropdownChoices="majorAcronyms"
-                add-dropdown-text="+ another major"
-                @on-select="selectMajor"
-                @on-remove="removeMajor"
-                @on-add="addMajor"
-              />
+              <onboarding-basic-multi-dropdown :availableChoices="majors" :dropdownChoices="majorAcronyms"
+                add-dropdown-text="+ another major" @on-select="selectMajor" @on-remove="removeMajor"
+                @on-add="addMajor" />
               <div class="requestForm">
                 *Don't see your major/minor? We are working hard to add them soon! Get updated when
                 we add it by signing up
@@ -142,42 +96,43 @@
           <div class="onboarding-inputs onboarding-inputs--small">
             <div class="onboarding-inputWrapper">
               <label class="onboarding-label">Minor</label>
-              <onboarding-basic-multi-dropdown
-                :availableChoices="minors"
-                :dropdownChoices="minorAcronyms"
-                add-dropdown-text="+ another minor"
-                @on-select="selectMinor"
-                @on-remove="removeMinor"
-                @on-add="addMinor"
-              />
+              <onboarding-basic-multi-dropdown :availableChoices="minors" :dropdownChoices="minorAcronyms"
+                add-dropdown-text="+ another minor" @on-select="selectMinor" @on-remove="removeMinor"
+                @on-add="addMinor" />
+            </div>
+          </div>
+          <div class="onboarding-subHeader">
+            <span class="onboarding-subHeader--font">Pre-Professional Program</span>
+          </div>
+          <div class="onboarding-inputs onboarding-inputs--small">
+            <div class="onboarding-inputWrapper">
+              <label class="onboarding-label">Program</label>
+              <onboarding-basic-multi-dropdown :availableChoices="prePrograms" :dropdownChoices="preProgramAcronyms"
+                add-dropdown-text="+ another pre-professional program" @on-select="selectPreProgram"
+                @on-remove="removePreProgram" @on-add="addPreProgram" />
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="onboarding-section">
+    <!-- <div class="onboarding-section">
       <div class="onboarding-subHeader onboarding-subHeader--indent">
         <span class="onboarding-subHeader--font">Graduate Degree</span>
       </div>
       <div class="onboarding-inputs">
         <div class="onboarding-inputWrapper">
           <label class="onboarding-label">Program</label>
-          <onboarding-basic-single-dropdown
-            :availableChoices="gradPrograms"
-            :choice="gradAcronym"
-            :cannotBeRemoved="gradAcronym.length <= 0"
-            @on-select="selectGrad"
-            @on-remove="removeGrad"
-          />
+          <onboarding-basic-single-dropdown :availableChoices="prePrograms" :choice="preProgramAcronym"
+            :cannotBeRemoved="gradAcronym.length <= 0" @on-select="selectGrad" @on-remove="removePreProgram" />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import reqsData from '@/requirements/typed-requirement-json';
+import reqsData from '@/requirements/typedRequirementJson';
 import {
   clickOutside,
   getCurrentYear,
@@ -190,7 +145,6 @@ import OnboardingBasicSingleDropdown from './OnboardingBasicSingleDropdown.vue';
 
 import fall from '@/assets/images/fallEmoji.svg';
 import spring from '@/assets/images/springEmoji.svg';
-import winter from '@/assets/images/winterEmoji.svg';
 import summer from '@/assets/images/summerEmoji.svg';
 
 const placeholderText = 'Select one';
@@ -214,7 +168,7 @@ export default defineComponent({
       collegeAcronym: string,
       majorAcronyms: readonly string[],
       minorAcronyms: readonly string[],
-      gradAcronym: string,
+      preProgramAcronyms: readonly string[],
       name: FirestoreUserName
     ) {
       return (
@@ -225,7 +179,7 @@ export default defineComponent({
         typeof collegeAcronym === 'string' &&
         Array.isArray(majorAcronyms) &&
         Array.isArray(minorAcronyms) &&
-        typeof gradAcronym === 'string' &&
+        Array.isArray(preProgramAcronyms) &&
         typeof name === 'object'
       );
     },
@@ -233,8 +187,10 @@ export default defineComponent({
   data() {
     const majorAcronyms = [...this.onboardingData.major];
     const minorAcronyms = [...this.onboardingData.minor];
+    const preProgramAcronyms = [...this.onboardingData.preProgram];
     if (majorAcronyms.length === 0) majorAcronyms.push('');
     if (minorAcronyms.length === 0) minorAcronyms.push('');
+    if (preProgramAcronyms.length === 0) preProgramAcronyms.push('');
 
     // convert AS1/AS2 acronym in firebase to AS for the frontend
     let collegeAcronym = this.onboardingData.college ?? '';
@@ -262,7 +218,7 @@ export default defineComponent({
       collegeAcronym,
       majorAcronyms,
       minorAcronyms,
-      gradAcronym: this.onboardingData.grad ? this.onboardingData.grad : '',
+      preProgramAcronyms,
     };
   },
   directives: {
@@ -304,11 +260,19 @@ export default defineComponent({
       });
       return minors;
     },
-    gradPrograms(): Readonly<Record<string, string>> {
-      return Object.fromEntries(
-        Object.entries(reqsData.grad).map(([key, { name }]) => [key, name])
-      );
+
+    prePrograms(): Readonly<Record<string, string>> {
+      const prePrograms: Record<string, string> = {};
+      const preProgramJSON = reqsData.minor;
+      Object.keys(preProgramJSON).forEach(key => {
+        // show no minors if the user is not in a college
+        if (this.collegeAcronym) {
+          prePrograms[key] = preProgramJSON[key].name;
+        }
+      });
+      return prePrograms;
     },
+
     suggestedEntranceSem(): Readonly<number> {
       return getCurrentYear();
     },
@@ -328,7 +292,6 @@ export default defineComponent({
         Fall: fall,
         Spring: spring,
         Summer: summer,
-        Winter: winter,
       };
     },
     gradSemChoice(): string {
@@ -349,7 +312,8 @@ export default defineComponent({
         this.collegeAcronym,
         this.majorAcronyms.filter(it => it !== ''),
         this.minorAcronyms.filter(it => it !== ''),
-        this.gradAcronym,
+        this.preProgramAcronyms.filter(it => it !== ''),
+
         {
           firstName: this.firstName,
           middleName: this.middleName,
@@ -415,8 +379,10 @@ export default defineComponent({
       );
       this.updateBasic();
     },
-    selectGrad(acronym: string) {
-      this.gradAcronym = acronym;
+    selectPreProgram(acronym: string, i: number) {
+      this.preProgramAcronyms = this.preProgramAcronyms.map((dropdown, index) =>
+        index === i ? acronym : dropdown
+      );
       this.updateBasic();
     },
     // remove college and all current majors
@@ -424,6 +390,7 @@ export default defineComponent({
       this.collegeAcronym = '';
       this.majorAcronyms = [''];
       this.minorAcronyms = [''];
+      this.preProgramAcronyms = [''];
       this.updateBasic();
     },
     removeMajor(index: number) {
@@ -440,8 +407,11 @@ export default defineComponent({
       }
       this.updateBasic();
     },
-    removeGrad() {
-      this.gradAcronym = '';
+    removePreProgram(index: number) {
+      this.preProgramAcronyms.splice(index, 1);
+      if (this.preProgramAcronyms.length === 0) {
+        this.addPreProgram();
+      }
       this.updateBasic();
     },
     addMajor() {
@@ -449,6 +419,9 @@ export default defineComponent({
     },
     addMinor() {
       this.minorAcronyms.push('');
+    },
+    addPreProgram() {
+      this.preProgramAcronyms.push('');
     },
   },
 });

@@ -5,9 +5,9 @@ import RequirementJson from '@/requirements/typedRequirementJson';
 /** Enumerated type to define seasons as integers in season order
  * where the seasons are defined chronologically */
 export const SeasonOrdinal = {
-  Spring: 0,
-  Summer: 1,
-  Fall: 2,
+  Spring: 1,
+  Summer: 2,
+  Fall: 3,
 } as const;
 
 /**

@@ -14,17 +14,21 @@ import {
   allocateAllSubjectColor,
 } from './utilities';
 import featureFlagCheckers from './featuredFlags';
-import { RequirementWithIDSourceType, CourseTaken, GroupedRequirementFulfillmentReport } from './types/requirementTypes';
+import RequirementFulfillmentGraph from './requirements/requirementGraph';
+import computeGroupedRequirementFulfillmentReports from './requirements/requirementComputation';
 
+type SimplifiedFirebaseUser = { readonly displayName: string; readonly email: string };
+
+/**
+ * Some course data that can be derived from semesters, but added to the global store for efficiency
+ * and ease of access.
+ */
 type DerivedCoursesData = {
   readonly duplicatedCourseCodeSet: ReadonlySet<string>;
+  // Mapping from course's unique ID to the full course object.
   readonly courseMap: Readonly<Record<number, FirestoreSemesterCourse>>;
+  // Mapping from course's unique ID to the semester object.
   readonly courseToSemesterMap: Readonly<Record<number, FirestoreSemester>>;
-};
-
-type SimplifiedFirebaseUser = {
-  readonly displayName: string;
-  readonly email: string;
 };
 
 export type VuexStoreState = {
@@ -32,28 +36,32 @@ export type VuexStoreState = {
   userName: FirestoreUserName;
   onboardingData: AppOnboardingData;
   semesters: readonly FirestoreSemester[];
-  dervivedCoursesData: DerivedCoursesData;
   orderByNewest: boolean;
-  subjectColors: Readonly<Record<string, string>>;
+  derivedCoursesData: DerivedCoursesData;
   toggleableRequirementChoices: AppToggleableRequirementChoices;
-  overridenFulfilmentChoices: FirestoreOverriddenFulfillmentChoices;
+  overriddenFulfillmentChoices: FirestoreOverriddenFulfillmentChoices;
   userRequirementsMap: Readonly<Record<string, RequirementWithIDSourceType>>;
-  dangerousRequirementFulfillmentGraph: RequirementFulfilmentGraph<String, CourseTaken>;
-  safeRequirementFulfilmentGraph: RequirementFilfilmentGraph<string, CourseTaken>;
+  dangerousRequirementFulfillmentGraph: RequirementFulfillmentGraph<string, CourseTaken>;
+  safeRequirementFulfillmentGraph: RequirementFulfillmentGraph<string, CourseTaken>;
   courseToRequirementsInConstraintViolations: ReadonlyMap<string | number, Set<string[]>>;
   doubleCountedCourseUniqueIDSet: ReadonlySet<string | number>;
   groupedRequirementFulfillmentReport: readonly GroupedRequirementFulfillmentReport[];
-  uniqueIncrememner: number;
+  subjectColors: Readonly<Record<string, string>>;
+  uniqueIncrementer: number;
   isTeleportModalOpen: boolean;
 };
 
 export class TypedVuexStore extends Store<VuexStoreState> {}
 
 const store: TypedVuexStore = new TypedVuexStore({
+  strict: process.env.NODE_ENV !== 'production',
   state: {
+    // We allow the initial value to be null, so that the value can be read non-null elsewhere.
+    // It is only null when the application has not authenticated the user yet, which is a scanario
+    // only need to be considered in Login component.
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     currentFirebaseUser: null!,
     userName: { firstName: '', middleName: '', lastName: '' },
-    subjectColors: {},
     onboardingData: {
       gradYear: '',
       gradSem: '',
@@ -65,22 +73,26 @@ const store: TypedVuexStore = new TypedVuexStore({
       preProgram: [],
       exam: [],
     },
-    orderByNewest: false,
+    orderByNewest: true,
     semesters: [],
-    dervivedCoursesData: {
+    derivedCoursesData: {
       duplicatedCourseCodeSet: new Set(),
       courseMap: {},
       courseToSemesterMap: {},
     },
     toggleableRequirementChoices: {},
-    overridenFulfilmentChoices: {},
+    overriddenFulfillmentChoices: {},
     userRequirementsMap: {},
-    dangerousRequirementFulfillmentGraph: null,
-    safeRequirementFulfilmentGraph: null,
+    // It won't be null once the app loads.
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    dangerousRequirementFulfillmentGraph: null!,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    safeRequirementFulfillmentGraph: null!,
     courseToRequirementsInConstraintViolations: new Map(),
     doubleCountedCourseUniqueIDSet: new Set(),
     groupedRequirementFulfillmentReport: [],
-    uniqueIncrememner: 0,
+    subjectColors: {},
+    uniqueIncrementer: 0,
     isTeleportModalOpen: false,
   },
   actions: {},
@@ -94,19 +106,14 @@ const store: TypedVuexStore = new TypedVuexStore({
     setOnboardingData(state: VuexStoreState, onboardingData: AppOnboardingData) {
       state.onboardingData = onboardingData;
     },
-
     setOrderByNewest(state: VuexStoreState, orderByNewest: boolean) {
       state.orderByNewest = orderByNewest;
     },
     setSemesters(state: VuexStoreState, semesters: readonly FirestoreSemester[]) {
       state.semesters = sortedSemesters(semesters, state.orderByNewest);
     },
-
     setDerivedCourseData(state: VuexStoreState, data: DerivedCoursesData) {
-      state.dervivedCoursesData = data;
-    },
-    setSubjectColors(state: VuexStoreState, colors: Readonly<Record<string, string>>) {
-      state.subjectColors = colors;
+      state.derivedCoursesData = data;
     },
     setToggleableRequirementChoices(
       state: VuexStoreState,
@@ -116,9 +123,9 @@ const store: TypedVuexStore = new TypedVuexStore({
     },
     setOverriddenFulfillmentChoices(
       state: VuexStoreState,
-      overridenFulfilmentChoices: FirestoreOverriddenFulfillmentChoices
+      overriddenFulfillmentChoices: FirestoreOverriddenFulfillmentChoices
     ) {
-      state.overridenFulfilmentChoices = overridenFulfilmentChoices;
+      state.overriddenFulfillmentChoices = overriddenFulfillmentChoices;
     },
     setRequirementData(
       state: VuexStoreState,
@@ -126,7 +133,7 @@ const store: TypedVuexStore = new TypedVuexStore({
         VuexStoreState,
         | 'userRequirementsMap'
         | 'dangerousRequirementFulfillmentGraph'
-        | 'safeRequirementFulfilmentGraph'
+        | 'safeRequirementFulfillmentGraph'
         | 'courseToRequirementsInConstraintViolations'
         | 'doubleCountedCourseUniqueIDSet'
         | 'groupedRequirementFulfillmentReport'
@@ -134,13 +141,16 @@ const store: TypedVuexStore = new TypedVuexStore({
     ) {
       state.userRequirementsMap = data.userRequirementsMap;
       state.dangerousRequirementFulfillmentGraph = data.dangerousRequirementFulfillmentGraph;
-      state.safeRequirementFulfilmentGraph = data.safeRequirementFulfilmentGraph;
+      state.safeRequirementFulfillmentGraph = data.safeRequirementFulfillmentGraph;
       state.courseToRequirementsInConstraintViolations = data.courseToRequirementsInConstraintViolations;
       state.doubleCountedCourseUniqueIDSet = data.doubleCountedCourseUniqueIDSet;
       state.groupedRequirementFulfillmentReport = data.groupedRequirementFulfillmentReport;
     },
-    setUniqueIncrementer(state: VuexStoreState, newIncrementeralue: number) {
-      state.uniqueIncrememner = newIncrementeralue;
+    setSubjectColors(state: VuexStoreState, colors: Readonly<Record<string, string>>) {
+      state.subjectColors = colors;
+    },
+    setUniqueIncrementer(state: VuexStoreState, newIncrementerValue: number) {
+      state.uniqueIncrementer = newIncrementerValue;
     },
     setIsTeleportModalOpen(state: VuexStoreState, newTeleportModalValue: boolean) {
       state.isTeleportModalOpen = newTeleportModalValue;
@@ -196,7 +206,7 @@ const autoRecomputeDerivedData = (): (() => void) =>
             state.semesters,
             state.onboardingData,
             state.toggleableRequirementChoices,
-            state.overridenFulfilmentChoices
+            state.overriddenFulfillmentChoices
           )
         );
       }
@@ -353,7 +363,5 @@ fb.auth.onAuthStateChanged((user) => {
     store.commit('setCurrentFirebaseUser', simplifiedUser);
   }
 });
-
-export default store;
 
 export default store;

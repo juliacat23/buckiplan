@@ -43,7 +43,7 @@ type FirestoreAPIBExam = {
 };
 
 /** Represents the name of an exam a student can take for transfer credit */
-type TransferExamType = 'AP' | 'IB' | 'DEPT';
+type TransferExamType = 'AP' | 'IB';
 
 type FirestoreTransferExam = {
   readonly examType: TransferExamType;

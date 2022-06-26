@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { coursesColorSet } from '@/assets/constants/colors';
+import { coursesColorSet } from '@/constants/colors';
 
 export default defineComponent({
   props: {

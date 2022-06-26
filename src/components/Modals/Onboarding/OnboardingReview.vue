@@ -16,50 +16,36 @@
         <div class="onboarding-selectWrapperRow-review">
           <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
             <label class="onboarding-label"><span> First Name</span></label>
-            <label class="onboarding-label--review"
-              ><span> {{ userName.firstName }}</span></label
-            >
+            <label class="onboarding-label--review"><span> {{ userName.firstName }}</span></label>
           </div>
           <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
             <label class="onboarding-label"><span> Middle Name</span></label>
-            <label class="onboarding-label--review"
-              ><span> {{ userName.middleName }}</span></label
-            >
+            <label class="onboarding-label--review"><span> {{ userName.middleName }}</span></label>
           </div>
           <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
             <label class="onboarding-label"><span>Last Name</span></label>
-            <label class="onboarding-label--review"
-              ><span> {{ userName.lastName }}</span></label
-            >
+            <label class="onboarding-label--review"><span> {{ userName.lastName }}</span></label>
           </div>
-          <div
-            class="onboarding-inputWrapper onboarding-inputWrapper--name onboarding-inputWrapper--description"
-          >
+          <div class="onboarding-inputWrapper onboarding-inputWrapper--name onboarding-inputWrapper--description">
             <label class="onboarding-label"><span>Entrance Season</span></label>
-            <label class="onboarding-label--review"
-              ><span data-cyId="onboarding-entranceSeason">{{ entranceSemText }}</span></label
-            >
+            <label class="onboarding-label--review"><span
+                data-cyId="onboarding-entranceSeason">{{ entranceSemText }}</span></label>
           </div>
           <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
             <label class="onboarding-label"><span>Entrance Year</span></label>
-            <label class="onboarding-label--review"
-              ><span data-cyId="onboarding-entranceYear">{{ entranceYearText }}</span></label
-            >
+            <label class="onboarding-label--review"><span
+                data-cyId="onboarding-entranceYear">{{ entranceYearText }}</span></label>
           </div>
           <div class="onboarding-inputWrapper onboarding-inputWrapper--name"></div>
-          <div
-            class="onboarding-inputWrapper onboarding-inputWrapper--name onboarding-inputWrapper--noMargin"
-          >
+          <div class="onboarding-inputWrapper onboarding-inputWrapper--name onboarding-inputWrapper--noMargin">
             <label class="onboarding-label"><span>Graduation Season</span></label>
-            <label class="onboarding-label--review"
-              ><span data-cyId="onboarding-gradSeason">{{ gradSemText }}</span></label
-            >
+            <label class="onboarding-label--review"><span
+                data-cyId="onboarding-gradSeason">{{ gradSemText }}</span></label>
           </div>
           <div class="onboarding-inputWrapper onboarding-inputWrapper--name">
             <label class="onboarding-label"><span>Graduation Year</span></label>
-            <label class="onboarding-label--review"
-              ><span data-cyId="onboarding-gradYear">{{ gradYearText }}</span></label
-            >
+            <label class="onboarding-label--review"><span
+                data-cyId="onboarding-gradYear">{{ gradYearText }}</span></label>
           </div>
         </div>
         <div class="onboarding-subHeader2-fillRow">
@@ -69,11 +55,7 @@
           <div class="onboarding-selectWrapper-review">
             <label class="onboarding-label">College</label>
             <div>
-              <label
-                class="onboarding-label--review"
-                v-if="onboardingData.college"
-                data-cyId="onboarding-college"
-              >
+              <label class="onboarding-label--review" v-if="onboardingData.college" data-cyId="onboarding-college">
                 {{ collegeText }}
               </label>
             </div>
@@ -82,7 +64,7 @@
             <label class="onboarding-label">Major</label>
             <div v-for="(major, index) in onboardingData.major" :key="index">
               <label class="onboarding-label--review" data-cyId="onboarding-major">{{
-                getMajorFullName(major)
+                  getMajorFullName(major)
               }}</label>
             </div>
           </div>
@@ -92,21 +74,16 @@
               <label class="onboarding-label--review">{{ getMinorFullName(minor) }}</label>
             </div>
           </div>
-        </div>
-        <div class="onboarding-subHeader2-fillRow">
-          <span class="onboarding-subHeader2-review"> Your Graduate Degree</span>
-        </div>
-        <div class="onboarding-selectWrapper-review">
-          <label class="onboarding-label">Program</label>
-          <div>
-            <label class="onboarding-label--review" v-if="onboardingData.grad">
-              {{ gradText }}
-            </label>
+          <div class="onboarding-selectWrapper-review">
+            <label class="onboarding-label">Pre-Programs</label>
+            <div v-for="(preProgram, index) in onboardingData.preProgram" :key="index">
+              <label class="onboarding-label--review">{{ getPreProgramFullName(preProgram) }}</label>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="onboarding-section" v-if="!isGraduateOnly">
+    <div class="onboarding-section">
       <!-- TODO: Multiple colleges -->
       <div class="onboarding-subHeader">
         <span class="onboarding-subHeader--font"> Transfer Credits</span>
@@ -118,21 +95,6 @@
       </div>
       <div class="onboarding-inputs onboarding-inputs">
         <div class="onboarding-subHeader2-fillRow">
-          <span class="onboarding-subHeader2-review"> Cornell Swimming Test</span>
-        </div>
-        <div class="onboarding-selectWrapper">
-          <div class="onboarding-selectWrapper-review">
-            <label class="onboarding-label">
-              <img
-                class="checkmark"
-                src="@/assets/images/checkmark-onboarding.svg"
-                alt="checkmark"
-              />
-              {{ onboardingData.tookSwim === 'yes' ? 'Yes' : 'No' }}
-            </label>
-          </div>
-        </div>
-        <div class="onboarding-subHeader2-fillRow">
           <span class="onboarding-subHeader2-review"> Test Credits</span>
         </div>
         <div class="onboarding-selectWrapper">
@@ -142,16 +104,14 @@
               <label class="onboarding-label--subject">Subject</label>
               <div v-for="(exam, index) in onboardingData.exam" :key="'AP' + index">
                 <label v-if="exam.type == 'AP'" class="onboarding-label--review">{{
-                  exam.subject
+                    exam.subject
                 }}</label>
               </div>
-              <label class="onboarding-label addSpaceTop onboarding-label--header"
-                >IB Credits</label
-              >
+              <label class="onboarding-label addSpaceTop onboarding-label--header">IB Credits</label>
               <label class="onboarding-label--subject">Subject</label>
               <div v-for="(exam, index) in onboardingData.exam" :key="'IB' + index">
                 <label v-if="exam.type == 'IB'" class="onboarding-label--review">{{
-                  exam.subject
+                    exam.subject
                 }}</label>
               </div>
             </div>
@@ -159,13 +119,13 @@
               <label class="onboarding-label--subject">Score</label>
               <div v-for="(exam, index) in onboardingData.exam" :key="'APScore' + index">
                 <label v-if="exam.type == 'AP'" class="onboarding-label--review">{{
-                  exam.score
+                    exam.score
                 }}</label>
               </div>
               <label class="onboarding-label addSpaceTop--score">Score</label>
               <div v-for="(exam, index) in onboardingData.exam" :key="'IBScore' + index">
                 <label v-if="exam.type == 'IB'" class="onboarding-label--review">{{
-                  exam.score
+                    exam.score
                 }}</label>
               </div>
             </div>
@@ -186,12 +146,12 @@
 
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
-import { getExamCredit } from '@/requirements/requirement-exam-utils';
+import { getExamCredit } from '@/requirements/examUtils';
 import {
   getCollegeFullName,
   getMajorFullName,
   getMinorFullName,
-  getGradFullName,
+  getPreProgramFullName,
 } from '@/utilities';
 import { GTagEvent } from '@/gtag';
 
@@ -210,9 +170,6 @@ export default defineComponent({
   computed: {
     collegeText(): string {
       return getCollegeFullName(this.onboardingData.college);
-    },
-    gradText(): string {
-      return getGradFullName(this.onboardingData.grad);
     },
     gradYearText(): string {
       return this.onboardingData.gradYear !== '' ? this.onboardingData.gradYear : placeholderText;
@@ -235,9 +192,6 @@ export default defineComponent({
       });
       return count;
     },
-    isGraduateOnly(): boolean {
-      return this.onboardingData.grad !== '' && this.onboardingData.college === '';
-    },
   },
   methods: {
     editBasicInformation(): void {
@@ -250,6 +204,7 @@ export default defineComponent({
     },
     getMajorFullName,
     getMinorFullName,
+    getPreProgramFullName,
     setPage(page: number): void {
       this.$emit('setPage', page);
     },

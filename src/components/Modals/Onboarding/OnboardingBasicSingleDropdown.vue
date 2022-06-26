@@ -1,44 +1,17 @@
 <template>
-  <div
-    class="onboarding-selectWrapperRow"
-    :style="{ borderColor: boxBorder }"
-    v-click-outside="closeDropdownIfOpen"
-  >
+  <div class="onboarding-selectWrapperRow" :style="{ borderColor: boxBorder }" v-click-outside="closeDropdownIfOpen">
     <div class="onboarding-select onboarding-input" data-cyId="onboarding-dropdown">
-      <div
-        class="onboarding-dropdown-placeholder college-major-minor-wrapper"
-        @click="showHideDropdown()"
-      >
-        <input
-          type="text"
-          class="onboarding-dropdown-placeholder college-major-minor-placeholder"
-          :style="{ color: placeholderColor, border: 'none', outline: 'none' }"
-          :placeholder="prevQuery || 'Select one'"
-          v-model="curQuery"
-          tabindex="-1"
-          ref="selectbox"
-          @keyup="onKeyUp"
-        />
-        <div
-          class="onboarding-dropdown-placeholder college-major-minor-arrow"
-          :style="{ borderTopColor: arrowColor }"
-        ></div>
+      <div class="onboarding-dropdown-placeholder college-major-minor-wrapper" @click="showHideDropdown()">
+        <input type="text" class="onboarding-dropdown-placeholder college-major-minor-placeholder"
+          :style="{ color: placeholderColor, border: 'none', outline: 'none' }" :placeholder="prevQuery || 'Select one'"
+          v-model="curQuery" tabindex="-1" ref="selectbox" @keyup="onKeyUp" />
+        <div class="onboarding-dropdown-placeholder college-major-minor-arrow" :style="{ borderTopColor: arrowColor }">
+        </div>
       </div>
       <div class="onboarding-dropdown-content" v-if="shown">
-        <div
-          v-for="[key, fullName] in foundChoices"
-          :key="key"
-          class="onboarding-dropdown-content-item"
-          :ref="`scroll-ref-${key}`"
-          @click="onSelect([key, fullName])"
-          data-cyId="onboarding-dropdownItem"
-        >
-          <img
-            v-if="correspondingImages"
-            class="season-emoji"
-            :src="correspondingImages[fullName]"
-            alt=""
-          />
+        <div v-for="[key, fullName] in foundChoices" :key="key" class="onboarding-dropdown-content-item"
+          :ref="`scroll-ref-${key}`" @click="onSelect([key, fullName])" data-cyId="onboarding-dropdownItem">
+          <img v-if="correspondingImages" class="season-emoji" :src="correspondingImages[fullName]" alt="" />
           {{ fullName }}
         </div>
       </div>
@@ -52,7 +25,7 @@
 <script lang="ts">
 import { PropType, defineComponent } from 'vue';
 import { clickOutside } from '@/utilities';
-import { inactiveGray, yuxuanBlue, lightPlaceholderGray } from '@/assets/constants/scss-variables';
+import { inactiveGray, yuxuanBlue, lightPlaceholderGray } from '@/constants/scss-variables';
 
 export default defineComponent({
   props: {

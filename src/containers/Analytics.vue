@@ -16,7 +16,7 @@
 import { defineComponent } from 'vue';
 import CustomFooter from '@/components/Footer.vue';
 import TopBar from '@/components/TopBar.vue';
-import { retrieveAnalytics } from '@/global-firestore-data';
+import { retrieveAnalytics } from '@/firebase';
 
 export default defineComponent({
   components: { CustomFooter, TopBar },
@@ -57,18 +57,22 @@ export default defineComponent({
   margin-bottom: 10rem;
   margin-top: 6rem;
   height: 100px;
+
   @media (max-width: 1154px) {
     margin-bottom: 3rem;
   }
+
   @media (max-width: 800px) {
     margin-top: 8%;
     font-size: 8vw;
     margin-bottom: 0;
   }
 }
+
 a.back_to_home_link {
   color: #7b7d7e;
 }
+
 .body-container {
   min-height: 100vh;
 }
