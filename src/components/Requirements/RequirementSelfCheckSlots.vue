@@ -4,12 +4,10 @@
       <completed-sub-req-course :slotName="`Course ${id + 1}`" :courseTaken="selfCheckCourse" />
     </div>
     <div v-if="!isCompleted">
-      <incomplete-self-check
-        :subReqId="requirementFulfillment.requirement.id"
+      <incomplete-self-check :subReqId="requirementFulfillment.requirement.id"
         :subReqName="requirementFulfillment.requirement.name"
         :subReqFulfillment="requirementFulfillment.fulfillment.fulfilledBy"
-        :subReqCourseId="requirementFulfillment.fulfillment.safeMinCountFulfilled"
-      />
+        :subReqCourseId="requirementFulfillment.fulfillment.safeMinCountFulfilled" />
     </div>
   </div>
 </template>
@@ -23,7 +21,7 @@ import store from '@/store';
 import {
   getMatchedRequirementFulfillmentSpecification,
   courseIsAPIB,
-} from '@/requirements/requirement-frontend-utils';
+} from '@/requirements/requirementUtils';
 
 export default defineComponent({
   components: { CompletedSubReqCourse, IncompleteSelfCheck },

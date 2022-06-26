@@ -84,7 +84,7 @@ export default defineComponent({
         store.state.groupedRequirementFulfillmentReport,
         store.state.onboardingData,
         store.state.toggleableRequirementChoices,
-        store.state.overridenFulfilmentChoices,
+        store.state.overriddenFulfillmentChoices,
         store.state.userRequirementsMap
       );
       const automaticallyFulfilledRequirementIds = new Set(
