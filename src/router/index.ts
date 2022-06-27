@@ -2,9 +2,9 @@ import { Router, createRouter, createWebHistory, RouteRecordRaw } from 'vue-rout
 // import HomePage from '../views/HomePage.vue';
 
 import Login from '@/containers/Login.vue';
-// import Dashboard from '@/containers/Dashboard.vue';
+import Dashboard from '@/containers/Dashboard.vue';
 import Policy from '@/containers/Policy.vue';
-// import Analytics from '@/containers/Analytics.vue';
+import Analytics from '@/containers/Analytics.vue';
 import Page404 from '@/containers/404.vue';
 
 import store from '@/store';
@@ -17,27 +17,27 @@ const router: Router = createRouter({
       name: 'Login',
       component: Login,
     },
-    // {
-    //   path: '/',
-    //   name: 'Dashboard',
-    //   component: Dashboard,
-    //   meta: {
-    //     requiresAuth: true,
-    //   },
-    // },
+    {
+      path: '/',
+      name: 'Dashboard',
+      component: Dashboard,
+      meta: {
+        requiresAuth: true,
+      },
+    },
     {
       path: '/policy',
       name: 'Policy',
       component: Policy,
     },
-    // {
-    //   path: '/analytics',
-    //   name: 'Analytics',
-    //   component: Analytics,
-    //   meta: {
-    //     requiresAuth: true,
-    //   },
-    // },
+    {
+      path: '/analytics',
+      name: 'Analytics',
+      component: Analytics,
+      meta: {
+        requiresAuth: true,
+      },
+    },
     {
       path: '/:pathMatch(.*)*',
       name: '404',
