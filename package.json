@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint",
     "ts-node": "ts-node -T -P tsconfig.node.json",
     "migrate:color": "npm run ts-node -- src/requirements/admin/colorMigration.ts",
+    "migrate:sem": "npm run ts-node -- /Users/julia/Projects/buckiplan/src/requirements/admin/semesterSeasonMigration.ts",
     "req-gen": "npm run ts-node -- src/requirements/requirementGenerator.ts"
 
   },
