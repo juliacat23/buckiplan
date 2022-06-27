@@ -1,9 +1,8 @@
 <template>
   <div class="requirementheader">
     <!-- TODO change for multiple colleges -->
-    <h1 v-if="
-  reqIndex <= numOfColleges ||
-  reqIndex == numOfColleges + onboardingData.major.length ||
+    <h1 v-if="reqIndex <= numOfColleges ||
+      reqIndex == numOfColleges + onboardingData.major.length
     " class="col top p-0">
       {{ req.groupName }} Requirements
     </h1>

@@ -44,7 +44,7 @@ import Onboarding from '@/components/Modals/Onboarding/Onboarding.vue';
 import TourWindow from '@/components/Modals/TourWindow.vue';
 import ToolsContainer from '@/containers/Tools.vue';
 import ProfileEditor from '@/containers/Profile.vue';
-import featureFlagCheckers from '@/feature-flags';
+import featureFlagCheckers from '@/featuredFlags';
 
 import store, { initializeFirestoreListeners } from '@/store';
 import { immutableBottomBarState } from '@/components/BottomBar/BottomBarState';
@@ -52,7 +52,7 @@ import {
   smallBreakpoint,
   mediumBreakpoint,
   veryLargeBreakpoint,
-} from '@/assets/constants/scss-variables';
+} from '@/constants/scss-variables';
 
 const smallBreakpointPixels = parseInt(
   smallBreakpoint.substring(0, smallBreakpoint.length - 2),
@@ -81,7 +81,7 @@ tour.setOption('nextLabel', 'Next');
 tour.setOption('exitOnOverlayClick', 'false');
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-let listenerUnsubscriber = (): void => {};
+let listenerUnsubscriber = (): void => { };
 
 export default defineComponent({
   components: {

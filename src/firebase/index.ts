@@ -25,3 +25,5 @@ export {
   deleteCourseFromSemesters,
   populateSemesters,
 } from './semesters';
+
+export { default as retrieveAnalytics } from './analytics';

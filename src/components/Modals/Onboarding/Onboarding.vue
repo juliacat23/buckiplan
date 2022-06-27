@@ -87,7 +87,7 @@ import {
 } from '@/utilities';
 import timeline1Text from '@/assets/images/timeline1text.svg';
 import timeline2Text from '@/assets/images/timeline2text.svg';
-import timeline3Text from 'src/assets/images/timeline3text.svg';
+import timeline3Text from '@/assets/images/timeline3text.svg';
 
 const timelineTexts = [timeline1Text, timeline2Text, timeline3Text];
 

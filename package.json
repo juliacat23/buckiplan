@@ -21,7 +21,7 @@
     "vue-class-component": "^8.0.0-0",
     "vue-gtag-next": "^1.14.0",
     "vue-router": "^4.0.3",
-    "vuedraggable": "^2.24.3",
+    "vuedraggable": "^4.0.0",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
@@ -33,6 +33,7 @@
     "@typescript-eslint/parser": "^5.29.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.0.1",
+    "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
     "concurrently": "^7.2.2",
     "css-loader": "^6.7.1",
@@ -48,6 +49,7 @@
     "vite-plugin-environment": "^1.1.1",
     "vite-svg-loader": "^3.4.0",
     "vue-loader": "^16.8.3",
-    "vue-tsc": "^0.3.0"
+    "vue-tsc": "^0.3.0",
+    "wait-on": "^6.0.1"
   }
 }
