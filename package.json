@@ -10,11 +10,13 @@
     "req-gen": "npm run ts-node -- src/requirements/requirementGenerator.ts"
   },
   "dependencies": {
+    "@firebase/analytics": "^0.6.6",
     "@vitejs/plugin-vue": "^2.3.3",
     "bootstrap": "^5.1.3",
     "bootstrap-vue": "^2.22.0",
     "core-js": "^3.8.3",
     "firebase": "^8.3.1",
+    "firebase-admin": "^11.0.0",
     "intro.js": "^5.1.0",
     "vite": "^2.9.13",
     "vue": "^3.2.13",
