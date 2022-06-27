@@ -1,6 +1,12 @@
 import { RequirementsJson } from '../types';
 import universityRequirements from './university';
 
+// colleges
+import businessRequirements from './colleges/bu2022';
+
+// majors
+import accountRequirements from './majors/account';
+
 // pre-professional programs
 import predentRequirements from './prePrograms/predent';
 import premedRequirements from './prePrograms/premed';
@@ -16,31 +22,23 @@ const json: RequirementsJson = {
     },
   },
   college: {
-    ARCH1: {
-      name: 'Architecture',
-      requirements: universityRequirements,
-    },
-    ARCH2: {
-      name: 'Architecture',
-      requirements: universityRequirements,
-    },
-    ASC1: {
-      name: 'Arts and Sciences',
-      requirements: universityRequirements,
+    BUS1: {
+      name: 'Fisher College of Business',
+      requirements: businessRequirements,
     },
   },
   major: {
     ACCT: {
       name: 'Accounting',
-      schools: ['ASC1'],
-      requirements: universityRequirements,
+      schools: ['BUS1'],
+      requirements: accountRequirements,
     },
   },
   minor: {
-    AAAS: {
-      name: 'African American and African Studies',
-      schools: ['ASC1'],
-      requirements: universityRequirements,
+    ACCT: {
+      name: 'Accounting',
+      schools: ['BUS1'],
+      requirements: accountRequirements,
     },
   },
   preProgram: {
