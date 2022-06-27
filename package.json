@@ -7,7 +7,9 @@
     "build": "vite build",
     "lint": "vue-cli-service lint",
     "ts-node": "ts-node -T -P tsconfig.node.json",
+    "migrate:color": "npm run ts-node -- src/requirements/admin/colorMigration.ts",
     "req-gen": "npm run ts-node -- src/requirements/requirementGenerator.ts"
+
   },
   "dependencies": {
     "@firebase/analytics": "^0.6.6",
