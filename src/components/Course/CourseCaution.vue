@@ -177,7 +177,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@scss/variables.scss';
+@import '@/scss/variables.scss';
 
 ul.warning-list {
   list-style-type: circle;

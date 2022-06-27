@@ -1,3 +1,6 @@
+/* eslint-disable vue/first-attribute-linebreak */
+/* eslint-disable vue/first-attribute-linebreak */
+/* eslint-disable vue/first-attribute-linebreak */
 <template>
   <div class="onboarding" @click="checkClickOutside" ref="modalBackground" data-cyId="onboarding">
     <div class="onboarding-main">
@@ -125,7 +128,7 @@ export default defineComponent({
         !this.onboarding.gradSem ||
         this.onboarding.entranceYear === '' ||
         !this.onboarding.entranceSem ||
-        (this.onboarding.college === '')
+        this.onboarding.college === ''
       );
     },
     timelineTextImage(): string {
@@ -274,7 +277,7 @@ export default defineComponent({
     },
     // clear transfer credits if the student is only in a graduate program, but previously set transfer credits
 
-    updateTransfer(exams: readonly FirestoreAPIBExam[], tookSwim: 'yes' | 'no') {
+    updateTransfer(exams: readonly FirestoreAPIBExam[]) {
       const userExams = exams.filter(
         ({ subject, score }) => score !== 0 && subject !== placeholderText
       );

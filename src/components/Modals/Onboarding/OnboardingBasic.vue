@@ -101,32 +101,9 @@
                 @on-add="addMinor" />
             </div>
           </div>
-          <div class="onboarding-subHeader">
-            <span class="onboarding-subHeader--font">Pre-Professional Program</span>
-          </div>
-          <div class="onboarding-inputs onboarding-inputs--small">
-            <div class="onboarding-inputWrapper">
-              <label class="onboarding-label">Program</label>
-              <onboarding-basic-multi-dropdown :availableChoices="prePrograms" :dropdownChoices="preProgramAcronyms"
-                add-dropdown-text="+ another pre-professional program" @on-select="selectPreProgram"
-                @on-remove="removePreProgram" @on-add="addPreProgram" />
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <!-- <div class="onboarding-section">
-      <div class="onboarding-subHeader onboarding-subHeader--indent">
-        <span class="onboarding-subHeader--font">Graduate Degree</span>
-      </div>
-      <div class="onboarding-inputs">
-        <div class="onboarding-inputWrapper">
-          <label class="onboarding-label">Program</label>
-          <onboarding-basic-single-dropdown :availableChoices="prePrograms" :choice="preProgramAcronym"
-            :cannotBeRemoved="gradAcronym.length <= 0" @on-select="selectGrad" @on-remove="removePreProgram" />
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -168,7 +145,7 @@ export default defineComponent({
       collegeAcronym: string,
       majorAcronyms: readonly string[],
       minorAcronyms: readonly string[],
-      preProgramAcronyms: readonly string[],
+      preProgramAcronyms: string,
       name: FirestoreUserName
     ) {
       return (
@@ -178,8 +155,8 @@ export default defineComponent({
         typeof entranceSem === 'string' &&
         typeof collegeAcronym === 'string' &&
         Array.isArray(majorAcronyms) &&
-        Array.isArray(minorAcronyms) &&
         Array.isArray(preProgramAcronyms) &&
+        Array.isArray(minorAcronyms) &&
         typeof name === 'object'
       );
     },
@@ -218,14 +195,16 @@ export default defineComponent({
       collegeAcronym,
       majorAcronyms,
       minorAcronyms,
-      preProgramAcronyms,
+      preProgramAcronyms
     };
   },
   directives: {
     'click-outside': clickOutside,
   },
   computed: {
-    entranceYears: computeEntranceYears,
+    entranceYears(): Readonly<Record<string, string>> {
+      return computeEntranceYears();
+    },
     gradYears(): Readonly<Record<string, string>> {
       return computeGradYears(this.entranceYear);
     },
@@ -249,6 +228,7 @@ export default defineComponent({
       });
       return majors;
     },
+
     minors(): Readonly<Record<string, string>> {
       const minors: Record<string, string> = {};
       const minorJSON = reqsData.minor;
@@ -260,7 +240,6 @@ export default defineComponent({
       });
       return minors;
     },
-
     prePrograms(): Readonly<Record<string, string>> {
       const prePrograms: Record<string, string> = {};
       const preProgramJSON = reqsData.minor;
@@ -272,7 +251,6 @@ export default defineComponent({
       });
       return prePrograms;
     },
-
     suggestedEntranceSem(): Readonly<number> {
       return getCurrentYear();
     },
@@ -284,7 +262,6 @@ export default defineComponent({
         Fall: 'Fall',
         Spring: 'Spring',
         Summer: 'Summer',
-        Winter: 'Winter',
       };
     },
     seasonImgs(): Readonly<Record<FirestoreSemesterSeason, string>> {
@@ -319,6 +296,8 @@ export default defineComponent({
           middleName: this.middleName,
           lastName: this.lastName,
         }
+
+
       );
     },
     // Clear a major if a new college is selected and the major is not in it
@@ -373,14 +352,14 @@ export default defineComponent({
       );
       this.updateBasic();
     },
-    selectMinor(acronym: string, i: number) {
-      this.minorAcronyms = this.minorAcronyms.map((dropdown, index) =>
+    selectPreProgram(acronym: string, i: number) {
+      this.preProgramAcronyms = this.preProgramAcronyms.map((dropdown, index) =>
         index === i ? acronym : dropdown
       );
       this.updateBasic();
     },
-    selectPreProgram(acronym: string, i: number) {
-      this.preProgramAcronyms = this.preProgramAcronyms.map((dropdown, index) =>
+    selectMinor(acronym: string, i: number) {
+      this.minorAcronyms = this.minorAcronyms.map((dropdown, index) =>
         index === i ? acronym : dropdown
       );
       this.updateBasic();

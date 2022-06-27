@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": true,
     "importsNotUsedAsValues": "preserve",
     "resolveJsonModule": true,
     "skipLibCheck": true,
