@@ -1,5 +1,4 @@
-import { Course, CollegeOrMajorRequirement } from '@/types/requirementTypes';
-
+import { Course, CollegeOrMajorRequirement } from '@/requirements/types';
 const universityRequirements: readonly CollegeOrMajorRequirement[] = [
   {
     name: 'University Survey',

@@ -1,18 +1,18 @@
 /* eslint-disable no-undef */
 import firebase from 'firebase/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import 'firebase/auth';
+import 'firebase/firestore';
 
 import { getTypedFirestoreDataConverter, SemesterDocumentData, UniqueIncrementerDocumentData } from './fbTypes';
 
 let config;
 config = {
-  apiKey: process.env.VUE_APP_API_KEY,
-  authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-  projectId: process.env.VUE_APP_PROJECT_ID,
-  messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
-  appId: process.env.VUE_APP_APP_ID,
-  measurementId: process.env.VUE_APP_MEASUREMENT_ID,
+  apiKey: process.env.VITE_API_KEY,
+  authDomain: process.env.VITE_AUTH_DOMAIN,
+  projectId: process.env.VITE_PROJECT_ID,
+  messagingSenderId: process.env.VITE_MESSAGING_SENDER_ID,
+  appId: process.env.VITE_APP_ID,
+  measurementId: process.env.VITE_MEASUREMENT_ID,
 };
 
 firebase.initializeApp(config);

@@ -114,13 +114,14 @@ import firebase from 'firebase/app';
 import CustomFooter from '@/components/Footer.vue';
 
 import { GTagLoginEvent } from '@/gtag';
-import * as fb from '@/firebase-frontend-config';
+import * as fb from '@/config/fbConfig';
+
 import store from '@/store';
 import { checkNotNull } from '@/utilities';
 
 type Data = {
-  loginForm: { email: string; password: string };
-  waitlist: { email: string; major: string; time: string };
+  loginForm: { email: string; password: string; };
+  waitlist: { email: string; major: string; time: string; };
   performingRequest: boolean;
   errorMsg?: string;
 };
