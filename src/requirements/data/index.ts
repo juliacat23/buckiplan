@@ -7,6 +7,10 @@ import businessRequirements from './colleges/bu2022';
 // majors
 import accountRequirements from './majors/account';
 
+// minors
+import medanthRequirements from './minors/medanth';
+import flmstdRequirements from './minors/flmstd';
+
 // pre-professional programs
 import predentRequirements from './prePrograms/predent';
 import premedRequirements from './prePrograms/premed';
@@ -35,10 +39,15 @@ const json: RequirementsJson = {
     },
   },
   minor: {
-    ACCT: {
-      name: 'Accounting',
-      schools: ['BUS1'],
-      requirements: accountRequirements,
+    FLMSTD: {
+      name: 'Film Studies',
+      schools: ['ASC1'],
+      requirements: flmstdRequirements,
+    },
+    MEDANTH: {
+      name: 'Medical Anthropology',
+      schools: ['ASC1'],
+      requirements: medanthRequirements,
     },
   },
   preProgram: {
