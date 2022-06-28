@@ -194,7 +194,7 @@ export function getUserRequirements({
   college,
   major: majors,
   minor: minors,
-  preProgram: prePrograms,
+  preProgram,
 }: AppOnboardingData): readonly RequirementWithIDSourceType[] {
   // check university & college & major & minor requirements
   if (college && !(college in requirementJson.college)) throw new Error(`College ${college} not found.`);
@@ -215,8 +215,17 @@ export function getUserRequirements({
   const collegeReqs = college ? specializedForCollege(college, majors) : [];
   const majorReqs = fieldOfStudyReqs('Major', majors);
   const minorReqs = fieldOfStudyReqs('Minor', minors);
-  const preProgramReqs = fieldOfStudyReqs('preProgram', prePrograms);
-
+  const preProgramReqs = preProgram
+    ? requirementJson.preProgram[preProgram].requirements.map(
+        (it) =>
+          ({
+            ...it,
+            id: `preProgram-${preProgram}-${it.name}`,
+            sourceType: 'preProgram',
+            sourceSpecificName: preProgram,
+          } as const)
+      )
+    : [];
   // flatten all requirements into single array
   return [uniReqs, collegeReqs, majorReqs, minorReqs, preProgramReqs].flat();
 }

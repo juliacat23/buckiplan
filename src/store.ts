@@ -70,7 +70,7 @@ const store: TypedVuexStore = new TypedVuexStore({
       college: '',
       major: [],
       minor: [],
-      preProgram: [],
+      preProgram: '',
       exam: [],
     },
     orderByNewest: true,

@@ -128,7 +128,7 @@ export default defineComponent({
         !this.onboarding.gradSem ||
         this.onboarding.entranceYear === '' ||
         !this.onboarding.entranceSem ||
-        this.onboarding.college === ''
+        (this.onboarding.college === '' && this.onboarding.preProgram === '')
       );
     },
     timelineTextImage(): string {
@@ -149,9 +149,8 @@ export default defineComponent({
         this.onboarding.minor
           .map(getMinorFullName)
           .some((minorFullName: string) => minorFullName === '') ||
-        this.onboarding.preProgram
-          .map(getPreProgramFullName)
-          .some((preProgramFullName: string) => preProgramFullName === '')
+        (this.onboarding.preProgram ? getPreProgramFullName(this.onboarding.preProgram) === '' : false)
+
 
       );
     },
@@ -259,7 +258,7 @@ export default defineComponent({
       college: string,
       major: readonly string[],
       minor: readonly string[],
-      preProgram: readonly string[],
+      preProgram: string,
       name: FirestoreUserName
     ) {
       this.name = name;

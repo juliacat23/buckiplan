@@ -97,9 +97,9 @@ export function getMinorFullName(acronym: string): string {
   return minor ? minor.name : '';
 }
 
-export function getPreProgramFullName(acronym: string): string {
-  // Return empty string if minor is not in requirementJSON
-  const preProgram = RequirementJson.preProgram[acronym];
+export function getPreProgramFullName(acronym: string | undefined): string {
+  // Return empty string if grad is not in requirementJSON
+  const preProgram = acronym ? RequirementJson.preProgram[acronym] : null;
   return preProgram ? preProgram.name : '';
 }
 
@@ -148,9 +148,9 @@ export const clickOutside = {
   },
 };
 
-// reqGroupColorList determines the colors of the first 3 types of requirements the user has in their plan
+/// reqGroupColorList determines the colors of the first 3 types of requirements the user has in their plan
 // if they have 4 - wraps around
-const reqGroupColorList = ['4D7D92', '148481', '105351', '105735'];
+const reqGroupColorList = ['4D7D92', '148481', '105351'];
 
 // get the color for a given requirement type in the requirements sidebar
 export function getReqColor(groupName: string, onboardingData: AppOnboardingData): string {
@@ -168,13 +168,6 @@ export function getReqColor(groupName: string, onboardingData: AppOnboardingData
       return reqGroupColorList[1];
     }
     return reqGroupColorList[2];
-  }
-
-  if (groupName === 'preProgram') {
-    if (onboardingData.minor.length === 0) {
-      return reqGroupColorList[2];
-    }
-    return reqGroupColorList[3];
   }
   // if the user has a grad program, display the first color if no college present, second color if no majors and minors,
   // the third color if one of them, or wrap around if all are present

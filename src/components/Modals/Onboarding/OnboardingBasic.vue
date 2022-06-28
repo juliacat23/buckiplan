@@ -104,6 +104,19 @@
         </div>
       </div>
     </div>
+    <div class="onboarding-section">
+      <div class="onboarding-subHeader onboarding-subHeader--indent">
+        <span class="onboarding-subHeader--font">Graduate Degree</span>
+      </div>
+      <div class="onboarding-inputs">
+        <div class="onboarding-inputWrapper">
+          <label class="onboarding-label">Program</label>
+          <onboarding-basic-single-dropdown :availableChoices="prePrograms" :choice="preProgramAcronym"
+            :cannotBeRemoved="preProgramAcronym.length <= 0" @on-select="selectPreProgram"
+            @on-remove="removePreProgram" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -145,7 +158,7 @@ export default defineComponent({
       collegeAcronym: string,
       majorAcronyms: readonly string[],
       minorAcronyms: readonly string[],
-      preProgramAcronyms: string,
+      preProgramAcronym: string,
       name: FirestoreUserName
     ) {
       return (
@@ -155,8 +168,8 @@ export default defineComponent({
         typeof entranceSem === 'string' &&
         typeof collegeAcronym === 'string' &&
         Array.isArray(majorAcronyms) &&
-        Array.isArray(preProgramAcronyms) &&
         Array.isArray(minorAcronyms) &&
+        typeof preProgramAcronym === 'string' &&
         typeof name === 'object'
       );
     },
@@ -164,10 +177,8 @@ export default defineComponent({
   data() {
     const majorAcronyms = [...this.onboardingData.major];
     const minorAcronyms = [...this.onboardingData.minor];
-    const preProgramAcronyms = [...this.onboardingData.preProgram];
     if (majorAcronyms.length === 0) majorAcronyms.push('');
     if (minorAcronyms.length === 0) minorAcronyms.push('');
-    if (preProgramAcronyms.length === 0) preProgramAcronyms.push('');
 
     // convert AS1/AS2 acronym in firebase to AS for the frontend
     let collegeAcronym = this.onboardingData.college ?? '';
@@ -195,7 +206,7 @@ export default defineComponent({
       collegeAcronym,
       majorAcronyms,
       minorAcronyms,
-      preProgramAcronyms
+      preProgramAcronym: this.onboardingData.preProgram ? this.onboardingData.preProgram : '',
     };
   },
   directives: {
@@ -240,16 +251,11 @@ export default defineComponent({
       });
       return minors;
     },
+
     prePrograms(): Readonly<Record<string, string>> {
-      const prePrograms: Record<string, string> = {};
-      const preProgramJSON = reqsData.minor;
-      Object.keys(preProgramJSON).forEach(key => {
-        // show no minors if the user is not in a college
-        if (this.collegeAcronym) {
-          prePrograms[key] = preProgramJSON[key].name;
-        }
-      });
-      return prePrograms;
+      return Object.fromEntries(
+        Object.entries(reqsData.preProgram).map(([key, { name }]) => [key, name])
+      );
     },
     suggestedEntranceSem(): Readonly<number> {
       return getCurrentYear();
@@ -289,8 +295,7 @@ export default defineComponent({
         this.collegeAcronym,
         this.majorAcronyms.filter(it => it !== ''),
         this.minorAcronyms.filter(it => it !== ''),
-        this.preProgramAcronyms.filter(it => it !== ''),
-
+        this.preProgramAcronym,
         {
           firstName: this.firstName,
           middleName: this.middleName,
@@ -352,16 +357,14 @@ export default defineComponent({
       );
       this.updateBasic();
     },
-    selectPreProgram(acronym: string, i: number) {
-      this.preProgramAcronyms = this.preProgramAcronyms.map((dropdown, index) =>
-        index === i ? acronym : dropdown
-      );
-      this.updateBasic();
-    },
     selectMinor(acronym: string, i: number) {
       this.minorAcronyms = this.minorAcronyms.map((dropdown, index) =>
         index === i ? acronym : dropdown
       );
+      this.updateBasic();
+    },
+    selectPreProgram(acronym: string) {
+      this.preProgramAcronym = acronym;
       this.updateBasic();
     },
     // remove college and all current majors
@@ -369,7 +372,7 @@ export default defineComponent({
       this.collegeAcronym = '';
       this.majorAcronyms = [''];
       this.minorAcronyms = [''];
-      this.preProgramAcronyms = [''];
+      this.preProgramAcronym = '';
       this.updateBasic();
     },
     removeMajor(index: number) {
@@ -386,11 +389,8 @@ export default defineComponent({
       }
       this.updateBasic();
     },
-    removePreProgram(index: number) {
-      this.preProgramAcronyms.splice(index, 1);
-      if (this.preProgramAcronyms.length === 0) {
-        this.addPreProgram();
-      }
+    removePreProgram() {
+      this.preProgramAcronym = '';
       this.updateBasic();
     },
     addMajor() {
@@ -398,9 +398,6 @@ export default defineComponent({
     },
     addMinor() {
       this.minorAcronyms.push('');
-    },
-    addPreProgram() {
-      this.preProgramAcronyms.push('');
     },
   },
 });

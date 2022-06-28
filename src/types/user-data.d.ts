@@ -155,7 +155,7 @@ type AppOnboardingData = {
   readonly college?: string;
   readonly major: readonly string[];
   readonly minor: readonly string[];
-  readonly preProgram: readonly string[];
+  readonly preProgram?: string;
   readonly exam: readonly FirestoreAPIBExam[];
 };
 

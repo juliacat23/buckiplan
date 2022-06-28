@@ -87,6 +87,6 @@ export const createAppOnboardingData = (data: FirestoreOnboardingUserData): AppO
   college: data.colleges.length !== 0 ? data.colleges[0].acronym : undefined,
   major: data.majors.map(({ acronym }) => acronym),
   minor: data.minors.map(({ acronym }) => acronym),
-  preProgram: data.prePrograms.map(({ acronym }) => acronym),
+  preProgram: 'prePrograms' in data && data.prePrograms.length !== 0 ? data.prePrograms[0].acronym : undefined,
   exam: 'exam' in data ? [...data.exam] : [],
 });
