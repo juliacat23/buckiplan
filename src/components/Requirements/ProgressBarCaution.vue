@@ -30,7 +30,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/scss/variables.scss';
+@import '@/scss/_variables.scss';
 
 .progress-bar-caution {
   font-size: 14px;

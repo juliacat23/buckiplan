@@ -27,9 +27,9 @@
             ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
             : '',
       }" @click="activateMajor(id)" :class="[
-  { 'full-opacity-on-hover': onboardingData.major.length === 1 },
-  'major-title-button major-title',
-]" v-for="(major, id) in onboardingData.major" :key="id" :disabled="id === displayedMajorIndex">
+        { 'full-opacity-on-hover': onboardingData.major.length === 1 },
+        'major-title-button major-title',
+      ]" v-for="(major, id) in onboardingData.major" :key="id" :disabled="id === displayedMajorIndex">
         <p :style="{
           'font-weight': id === displayedMajorIndex ? 500 : undefined,
           color:
@@ -52,9 +52,9 @@
             ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
             : '',
       }" @click="activateMinor(id)" :class="[
-  { 'full-opacity-on-hover': onboardingData.minor.length === 1 },
-  'major-title major-title-button',
-]" v-for="(minor, id) in onboardingData.minor" :key="id" :disabled="id === displayedMinorIndex">
+        { 'full-opacity-on-hover': onboardingData.minor.length === 1 },
+        'major-title major-title-button',
+      ]" v-for="(minor, id) in onboardingData.minor" :key="id" :disabled="id === displayedMinorIndex">
         <p :style="{
           'font-weight': id === displayedMinorIndex ? 500 : undefined,
           color:
@@ -74,9 +74,9 @@
             ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
             : '',
       }" @click="activatePreProgram(id)" :class="[
-  { 'full-opacity-on-hover': onboardingData.preProgram.length === 1 },
-  'major-title major-title-button',
-]" v-for="(preProgram, id) in onboardingData.preProgram" :key="id" :disabled="id === displayPreProgramIndex">
+        { 'full-opacity-on-hover': onboardingData.preProgram.length === 1 },
+        'major-title major-title-button',
+      ]" v-for="(preProgram, id) in onboardingData.preProgram" :key="id" :disabled="id === displayPreProgramIndex">
         <p :style="{
           'font-weight': id === displayPreProgramIndex ? 500 : undefined,
           color:
@@ -279,7 +279,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/scss/variables.scss';
+@import '@/scss/_variables.scss';
 
 .college,
 .major,

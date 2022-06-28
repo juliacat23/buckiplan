@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/scss/variables.scss';
+@import '@/scss/_variables.scss';
 
 .dropdown-button {
   padding: 0.5rem 1rem;
