@@ -74,10 +74,15 @@
               <label class="onboarding-label--review">{{ getMinorFullName(minor) }}</label>
             </div>
           </div>
+          <div class="onboarding-subHeader2-fillRow">
+            <span class="onboarding-subHeader2-review"> Your Graduate Degree</span>
+          </div>
           <div class="onboarding-selectWrapper-review">
-            <label class="onboarding-label">Pre-Programs</label>
-            <div v-for="(preProgram, index) in onboardingData.preProgram" :key="index">
-              <label class="onboarding-label--review">{{ getPreProgramFullName(preProgram) }}</label>
+            <label class="onboarding-label">Program</label>
+            <div>
+              <label class="onboarding-label--review" v-if="onboardingData.preProgram">
+                {{ preProgramText }}
+              </label>
             </div>
           </div>
         </div>
@@ -170,6 +175,9 @@ export default defineComponent({
   computed: {
     collegeText(): string {
       return getCollegeFullName(this.onboardingData.college);
+    },
+    preProgramText(): string {
+      return getPreProgramFullName(this.onboardingData.preProgram);
     },
     gradYearText(): string {
       return this.onboardingData.gradYear !== '' ? this.onboardingData.gradYear : placeholderText;

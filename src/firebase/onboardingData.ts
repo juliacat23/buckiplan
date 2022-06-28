@@ -12,7 +12,7 @@ export const setAppOnboardingData = (name: FirestoreUserName, onboarding: AppOnb
     colleges: onboarding.college ? [{ acronym: onboarding.college }] : [],
     majors: onboarding.major.map((acronym) => ({ acronym })),
     minors: onboarding.minor.map((acronym) => ({ acronym })),
-    prePrograms: onboarding.preProgram.map((acronym) => ({ acronym })),
+    prePrograms: onboarding.preProgram ? [{ acronym: onboarding.preProgram }] : [],
     exam: onboarding.exam,
   });
 };

@@ -34,7 +34,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import '@/scss/_variables.scss';
+@import '@/scss/variables.scss';
 
 .requirement-checker-warning {
   color: $warning;

@@ -28,12 +28,10 @@
           <div class="req" v-for="(req, index) in groupedRequirementFulfillmentReports" :key="index">
             <requirement-group :req="req" :reqIndex="index" :toggleableRequirementChoices="toggleableRequirementChoices"
               :displayedMajorIndex="displayedMajorIndex" :displayedMinorIndex="displayedMinorIndex"
-              :displayPreProgramIndex="displayPreProgramIndex"
               :showMajorOrMinorRequirements="showMajorOrMinorRequirements(index, req.groupName)"
               :numOfColleges="numOfColleges" :tourStep="tourStep"
               @changeToggleableRequirementChoice="chooseToggleableRequirementOption" @activateMajor="activateMajor"
-              @activateMinor="activateMinor" @activePreProgram="activatePreProgram"
-              @onShowAllCourses="onShowAllCourses" />
+              @activateMinor="activateMinor" @onShowAllCourses="onShowAllCourses" />
           </div>
         </div>
       </div>
@@ -208,16 +206,12 @@ export default defineComponent({
     // TODO CHANGE FOR MULTIPLE COLLEGES & GRAD PROGRAMS
     showMajorOrMinorRequirements(id: number, group: string): boolean {
       // colleges and programs should always be shown as there can only be 1
-      if (group === 'College') {
+      if (group === 'College' || group === 'preProgram') {
         return true;
       }
       // majors should be shown only if the id matches the index of the displayed major
       if (group === 'Major') {
         return id === this.displayedMajorIndex + this.numOfColleges;
-      }
-
-      if (group === 'preProgram') {
-        return id === this.displayPreProgramIndex + this.numOfColleges + this.onboardingData.major.length + this.onboardingData.minor.length;
       }
       // minors should be shown depending on index and number of college and majors selected
       return (

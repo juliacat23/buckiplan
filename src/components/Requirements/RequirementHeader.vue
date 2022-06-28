@@ -1,8 +1,10 @@
 <template>
   <div class="requirementheader">
     <!-- TODO change for multiple colleges -->
-    <h1 v-if="reqIndex <= numOfColleges ||
-      reqIndex == numOfColleges + onboardingData.major.length
+    <h1 v-if="
+      reqIndex <= numOfColleges ||
+      reqIndex == numOfColleges + onboardingData.major.length ||
+      req.groupName === 'preProgram'
     " class="col top p-0">
       {{ req.groupName }} Requirements
     </h1>
@@ -27,9 +29,9 @@
             ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
             : '',
       }" @click="activateMajor(id)" :class="[
-        { 'full-opacity-on-hover': onboardingData.major.length === 1 },
-        'major-title-button major-title',
-      ]" v-for="(major, id) in onboardingData.major" :key="id" :disabled="id === displayedMajorIndex">
+  { 'full-opacity-on-hover': onboardingData.major.length === 1 },
+  'major-title-button major-title',
+]" v-for="(major, id) in onboardingData.major" :key="id" :disabled="id === displayedMajorIndex">
         <p :style="{
           'font-weight': id === displayedMajorIndex ? 500 : undefined,
           color:
@@ -52,9 +54,9 @@
             ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
             : '',
       }" @click="activateMinor(id)" :class="[
-        { 'full-opacity-on-hover': onboardingData.minor.length === 1 },
-        'major-title major-title-button',
-      ]" v-for="(minor, id) in onboardingData.minor" :key="id" :disabled="id === displayedMinorIndex">
+  { 'full-opacity-on-hover': onboardingData.minor.length === 1 },
+  'major-title major-title-button',
+]" v-for="(minor, id) in onboardingData.minor" :key="id" :disabled="id === displayedMinorIndex">
         <p :style="{
           'font-weight': id === displayedMinorIndex ? 500 : undefined,
           color:
@@ -65,26 +67,16 @@
         <!-- <p :style="{'color': minor.display ? `#${reqGroupColorMap[req.group][0]}` : ''}" class="minor-title-bottom">({{user.collegeFN}})</p> Change for multiple colleges -->
       </button>
     </div>
-    <div
-      v-if="reqIndex == numOfColleges + onboardingData.major.length + onboardingData.minor.length && req.groupName === 'preProgram'"
-      class="minor">
+    <div v-if="req.groupName === 'preProgram'" class="grad">
       <button :style="{
-        'border-bottom':
-          id === displayPreProgramIndex
-            ? `2px solid #${getReqColor(req.groupName, onboardingData)}`
-            : '',
-      }" @click="activatePreProgram(id)" :class="[
-        { 'full-opacity-on-hover': onboardingData.preProgram.length === 1 },
-        'major-title major-title-button',
-      ]" v-for="(preProgram, id) in onboardingData.preProgram" :key="id" :disabled="id === displayPreProgramIndex">
+        'border-bottom': `2px solid #${getReqColor(req.groupName, onboardingData)}`,
+      }" class="grad-title-button grad-title full-opacity-on-hover" :disabled="true">
         <p :style="{
-          'font-weight': id === displayPreProgramIndex ? 500 : undefined,
-          color:
-            id === displayPreProgramIndex ? `#${getReqColor(req.groupName, onboardingData)}` : '',
-        }" class="minor-title-top">
-          {{ getPreProgramFullName(preProgram) }}
+          'font-weight': 500,
+          color: `#${getReqColor(req.groupName, onboardingData)}`,
+        }" class="grad-title-top">
+          {{ getPreProgramFullName(onboardingData.preProgram) }}
         </p>
-        <!-- <p :style="{'color': minor.display ? `#${reqGroupColorMap[req.group][0]}` : ''}" class="minor-title-bottom">({{user.collegeFN}})</p> Change for multiple colleges -->
       </button>
     </div>
 
@@ -142,7 +134,6 @@ export default defineComponent({
     displayDetails: { type: Boolean, required: true },
     displayedMajorIndex: { type: Number, required: true },
     displayedMinorIndex: { type: Number, required: true },
-    displayPreProgramIndex: { type: Number, required: true },
     req: { type: Object as PropType<GroupedRequirementFulfillmentReport>, required: true },
     onboardingData: { type: Object as PropType<AppOnboardingData>, required: true },
     showMajorOrMinorRequirements: { type: Boolean, required: true },

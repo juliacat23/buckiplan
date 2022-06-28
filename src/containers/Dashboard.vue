@@ -135,7 +135,7 @@ export default defineComponent({
   },
   mounted() {
     listenerUnsubscriber = initializeFirestoreListeners(() => {
-      if (this.onboardingData.college !== '' || this.onboardingData.grad !== '') {
+      if (this.onboardingData.college !== '' || this.onboardingData.preProgram !== '') {
         this.loaded = true;
       } else {
         this.startOnboarding();
