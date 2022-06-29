@@ -206,7 +206,7 @@ export default defineComponent({
     // TODO CHANGE FOR MULTIPLE COLLEGES & GRAD PROGRAMS
     showMajorOrMinorRequirements(id: number, group: string): boolean {
       // colleges and programs should always be shown as there can only be 1
-      if (group === 'College' || group === 'preProgram') {
+      if (group === 'College' || group === 'Pre-Professional') {
         return true;
       }
       // majors should be shown only if the id matches the index of the displayed major

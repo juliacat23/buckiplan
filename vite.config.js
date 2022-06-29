@@ -7,4 +7,7 @@ export default defineConfig({
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
   server: { port: 8080 },
   plugins: [vue(), EnvironmentPlugin('all')],
+  css: {
+    devSourcemap: true,
+  },
 });

@@ -106,7 +106,7 @@
     </div>
     <div class="onboarding-section">
       <div class="onboarding-subHeader onboarding-subHeader--indent">
-        <span class="onboarding-subHeader--font">Graduate Degree</span>
+        <span class="onboarding-subHeader--font">Pre-Professional</span>
       </div>
       <div class="onboarding-inputs">
         <div class="onboarding-inputWrapper">

@@ -4,7 +4,7 @@
     <h1 v-if="
       reqIndex <= numOfColleges ||
       reqIndex == numOfColleges + onboardingData.major.length ||
-      req.groupName === 'preProgram'
+      req.groupName === 'Pre-Professional'
     " class="col top p-0">
       {{ req.groupName }} Requirements
     </h1>
@@ -67,14 +67,14 @@
         <!-- <p :style="{'color': minor.display ? `#${reqGroupColorMap[req.group][0]}` : ''}" class="minor-title-bottom">({{user.collegeFN}})</p> Change for multiple colleges -->
       </button>
     </div>
-    <div v-if="req.groupName === 'preProgram'" class="grad">
+    <div v-if="req.groupName === 'Pre-Professional'" class="preProgram">
       <button :style="{
         'border-bottom': `2px solid #${getReqColor(req.groupName, onboardingData)}`,
-      }" class="grad-title-button grad-title full-opacity-on-hover" :disabled="true">
+      }" class="preProgram-title-button preProgram-title full-opacity-on-hover" :disabled="true">
         <p :style="{
           'font-weight': 500,
           color: `#${getReqColor(req.groupName, onboardingData)}`,
-        }" class="grad-title-top">
+        }" class="preProgram-title-top">
           {{ getPreProgramFullName(onboardingData.preProgram) }}
         </p>
       </button>
@@ -275,7 +275,7 @@ export default defineComponent({
 .college,
 .major,
 .minor,
-.grad {
+.preProgram {
   display: flex;
   padding-bottom: 25px;
 

@@ -160,7 +160,7 @@ type RequirementFulfillment = {
 };
 
 type GroupedRequirementFulfillmentReport = {
-  readonly groupName: 'College' | 'Major' | 'Minor' | 'preProgram';
+  readonly groupName: 'College' | 'Major' | 'Minor' | 'Pre-Professional';
   readonly specific: string;
   readonly reqs: readonly RequirementFulfillment[];
 };

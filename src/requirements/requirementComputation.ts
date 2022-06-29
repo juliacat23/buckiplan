@@ -285,8 +285,8 @@ export default function computeGroupedRequirementFulfillmentReports(
         ({ groupName: 'Minor', specific: minorName, reqs: fulfillmentStatistics } as const)
     ),
     ...Array.from(preProgramFulfillmentStatisticsMap.entries()).map(
-      ([gradName, fulfillmentStatistics]) =>
-        ({ groupName: 'preProgram', specific: gradName, reqs: fulfillmentStatistics } as const)
+      ([preProgramName, fulfillmentStatistics]) =>
+        ({ groupName: 'Pre-Professional', specific: preProgramName, reqs: fulfillmentStatistics } as const)
     ),
   ];
 
