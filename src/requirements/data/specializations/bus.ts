@@ -53,18 +53,14 @@ const AccountingOpenOption: CollegeOrMajorRequirement = {
   },
 };
 
-const CHEM2080: CollegeOrMajorRequirement = {
-  name: 'Chemistry',
-  description:
-    'CHEM 2090 and CHEM 2080 (can also be substituted by CHEM 2150, PHYS 2214, PHYS 2218, BTRY 3080, ECON 3130, MATH 2930, or MATH 4710).',
+const intBusForeignLanguage: CollegeOrMajorRequirement = {
+  name: 'Foreign Language',
+  description: 'coursework or proficiency through the third semester (1103) of amodern foreign language is required.',
   source: 'https://www.cs.cornell.edu/undergrad/rulesandproceduresengineering/engineeringchecklist',
-  checker: includesWithSubRequirements(
-    ['CHEM 2090'],
-    ['CHEM 2080', 'CHEM 2150', 'PHYS 2214', 'PHYS 2218', 'BTRY 3080', 'ECON 3130', 'MATH 2930', 'MATH 4710']
-  ),
+  checker: [(course: Course): boolean => course.catalogSatisfiesReq?.includes('FL1') ?? false],
   fulfilledBy: 'courses',
-  perSlotMinCount: [1, 1],
-  slotNames: ['CHEM 2090', 'CHEM 2080 (or alt)'],
+  perSlotMinCount: [3],
+  slotNames: ['FL'],
 };
 
-export { AccountingOpenOption, CHEM2080 };
+export { AccountingOpenOption, intBusForeignLanguage };

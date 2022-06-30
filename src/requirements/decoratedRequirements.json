@@ -417,46 +417,10 @@
               "163768"
             ]
           ]
-        }
-      ]
-    },
-    "EHE1": {
-      "name": "College of Education and Human Ecology",
-      "requirements": [
-        {
-          "name": "Writing",
-          "description": "Complete a 3 credit hours of a first year writing course and 3 credit hours of a second year writing course for a total of 6 writing credits",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "courses",
-          "perSlotMinCount": [
-            1,
-            1
-          ],
-          "slotNames": [
-            "First Year Writing",
-            "Second Year Writing"
-          ],
-          "courses": [
-            [],
-            [
-              "151835",
-              "151853",
-              "152047",
-              "154342",
-              "154827",
-              "159740",
-              "160283",
-              "160284",
-              "162585",
-              "163040",
-              "163041",
-              "163527"
-            ]
-          ]
         },
         {
-          "name": "Visual and Performing Arts",
-          "description": "Choose one course. A maximum of one course is permitted from the department of the major across the Literature and Visual and Performing Arts categories, but this course may not be counted on the major.",
+          "name": "Open Option",
+          "description": "Complete 6 credits of courses from any GE category",
           "source": "http://fye.osu.edu/glossary.html",
           "fulfilledBy": "credits",
           "perSlotMinCount": [
@@ -464,181 +428,110 @@
           ],
           "courses": [
             [
+              207,
               208,
+              213,
+              "15048",
+              "147068",
+              "147093",
+              "147134",
+              "147159",
+              "147237",
+              "147546",
+              "147883",
               "147959",
+              "147972",
+              "147978",
+              "148126",
+              "148129",
+              "148138",
+              "149177",
+              "149217",
+              "149248",
+              "149770",
+              "149981",
+              "150267",
+              "150394",
               "150408",
               "150444",
               "150472",
+              "150482",
+              "150483",
+              "150485",
+              "150486",
+              "150549",
+              "150554",
+              "150605",
+              "150610",
+              "150640",
               "151208",
-              "154885",
-              "158192",
-              "160339",
-              "160540",
-              "160670",
-              "161548",
-              "162714",
-              "162971",
-              "162972",
-              "163294",
-              "163953",
-              "164032",
-              "164382"
-            ]
-          ]
-        },
-        {
-          "name": "Natural Science",
-          "description": "Complete a minimum of 10 credit hours",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            10
-          ],
-          "courses": [
-            [
-              "147159",
-              "147591",
-              "147615",
-              "147617",
-              "149167",
-              "149204",
-              "149253",
-              "149722",
-              "149770",
-              "150258",
-              "150264",
-              "150267",
-              "150288",
-              "150297",
-              "150298",
-              "150301",
-              "150303",
+              "151245",
               "151246",
               "151248",
               "151251",
+              "151258",
+              "151574",
               "151644",
-              "152083",
+              "151650",
+              "151657",
+              "151686",
+              "151687",
+              "151690",
+              "151711",
+              "151825",
+              "151832",
+              "151835",
+              "151853",
+              "151883",
+              "151892",
+              "152042",
+              "152047",
+              "152089",
+              "152469",
+              "152470",
               "152638",
+              "152670",
+              "152678",
+              "152685",
+              "153390",
               "153533",
               "153582",
               "153584",
               "153802",
               "153822",
               "153823",
-              "158221",
-              "160245",
-              "161120",
-              "161470",
-              "161751",
-              "162779",
-              "163447",
-              "163451",
-              "163500",
-              "164139",
-              "164211"
-            ]
-          ],
-          "additionalRequirements": {
-            "Complete at least one course in the Biological Sciences with a lab ": {
-              "fulfilledBy": "credits",
-              "perSlotMinCount": [
-                4
-              ],
-              "courses": [
-                [
-                  "147159",
-                  "149770",
-                  "150267",
-                  "151246",
-                  "151248",
-                  "151251",
-                  "151644",
-                  "152638",
-                  "153533",
-                  "153582",
-                  "153584",
-                  "153802",
-                  "153822",
-                  "153823",
-                  "160245",
-                  "161120",
-                  "161470",
-                  "163447",
-                  "163451"
-                ]
-              ]
-            },
-            "Complete at least one course in the Physical Sciences with a lab ": {
-              "fulfilledBy": "credits",
-              "perSlotMinCount": [
-                4
-              ],
-              "courses": [
-                [
-                  "147591",
-                  "147615",
-                  "147617",
-                  "149167",
-                  "149204",
-                  "149253",
-                  "149722",
-                  "150258",
-                  "150264",
-                  "150288",
-                  "150297",
-                  "150298",
-                  "150301",
-                  "150303",
-                  "152083",
-                  "158221",
-                  "161751",
-                  "162779",
-                  "163500",
-                  "164139",
-                  "164211"
-                ]
-              ]
-            }
-          }
-        },
-        {
-          "name": "Literature",
-          "description": "Choose one course. A maximum of one course is permitted from the department of the major across the Literature and Visual and Performing Arts categories, but this course may not be counted on the major.",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            3
-          ],
-          "courses": [
-            [
-              "147237",
-              "150394",
-              "150483",
-              "150610",
+              "154342",
+              "154525",
+              "154537",
+              "154538",
+              "154539",
+              "154540",
+              "154543",
               "154576",
-              "155420",
-              "160543",
-              "162295"
-            ]
-          ]
-        },
-        {
-          "name": "Historical Study",
-          "description": "Choose one course from the following list.",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            3
-          ],
-          "courses": [
-            [
-              213,
-              "147546",
-              "152469",
-              "152470",
+              "154689",
+              "154690",
+              "154703",
+              "154822",
+              "154826",
+              "154827",
+              "154829",
+              "154830",
+              "154839",
+              "154885",
+              "155116",
               "155118",
+              "155407",
+              "155417",
               "155418",
+              "155420",
+              "156017",
+              "156205",
+              "156505",
+              "156524",
+              "156715",
               "156805",
+              "157234",
+              "158192",
               "158359",
               "158360",
               "158370",
@@ -683,93 +576,65 @@
               "158527",
               "158529",
               "158530",
+              "159740",
               "159748",
               "159749",
               "159752",
+              "160183",
+              "160245",
+              "160283",
+              "160284",
+              "160339",
+              "160540",
+              "160543",
+              "160582",
+              "160670",
               "160814",
               "160824",
               "161055",
               "161057",
               "161058",
+              "161120",
+              "161295",
+              "161470",
+              "161548",
+              "161621",
               "161990",
+              "162295",
+              "162398",
+              "162453",
               "162510",
+              "162585",
+              "162714",
               "162798",
               "162966",
+              "162971",
+              "162972",
+              "163040",
+              "163041",
+              "163076",
               "163108",
+              "163178",
+              "163294",
               "163373",
               "163374",
+              "163434",
+              "163447",
+              "163451",
+              "163527",
               "163713",
+              "163768",
               "163937",
-              "164176"
-            ]
-          ]
-        },
-        {
-          "name": "Social Sciences",
-          "description": "Students in the College of Business are required to complete ECON 2001 and ECON 2002 (or equivalents). Any additional courses selected from this category will count as Open Options",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "courses",
-          "perSlotMinCount": [
-            1,
-            1
-          ],
-          "slotNames": [
-            "Microeconomics",
-            "Macroeconomics"
-          ],
-          "courses": [
-            [
-              205,
-              "152673"
-            ],
-            [
-              205,
-              "152675"
-            ]
-          ]
-        },
-        {
-          "name": "Global Studies",
-          "description": "You must complete at least two courses from this area. Each course can overlap with another GE category or the major. If you do not choose overlapping courses, the global studies requirement must still be met. ",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "allowCourseDoubleCounting": true,
-          "perSlotMinCount": [
-            6
-          ],
-          "courses": [
-            [
-              "154538",
-              "162398"
-            ]
-          ]
-        },
-        {
-          "name": "Social Diversity in the US",
-          "description": "You must complete at least one course from this area, which can overlap with another GE category or the major. If you do not choose an overlapping course, the social diversity requirement must still be met",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "allowCourseDoubleCounting": true,
-          "perSlotMinCount": [
-            3
-          ],
-          "courses": [
-            [
-              "147134",
-              "147972",
-              "147978",
-              "149217",
-              "149981",
-              "150554",
-              "151832",
-              "151892",
-              "152685",
-              "154537",
-              "154543",
-              "154689",
-              "156017",
-              "161295",
-              "163768"
+              "163953",
+              "163955",
+              "164032",
+              "164176",
+              "164345",
+              "164382",
+              "164623",
+              "164742",
+              "164825",
+              "164905"
             ]
           ]
         }
@@ -1004,35 +869,468 @@
       ],
       "specializations": [
         {
-          "name": "Chemistry",
-          "description": "CHEM 2090 and CHEM 2080 (can also be substituted by CHEM 2150, PHYS 2214, PHYS 2218, BTRY 3080, ECON 3130, MATH 2930, or MATH 4710).",
-          "source": "https://www.cs.cornell.edu/undergrad/rulesandproceduresengineering/engineeringchecklist",
-          "fulfilledBy": "courses",
+          "name": "Open Option",
+          "description": "Complete at least 6 credits of Open Option Coursework",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
           "perSlotMinCount": [
-            1,
-            1
-          ],
-          "slotNames": [
-            "CHEM 2090",
-            "CHEM 2080 (or alt)"
+            6
           ],
           "courses": [
-            [],
-            []
-          ]
+            [
+              207,
+              208,
+              213,
+              "15048",
+              "147068",
+              "147093",
+              "147134",
+              "147159",
+              "147237",
+              "147546",
+              "147883",
+              "147959",
+              "147972",
+              "147978",
+              "148126",
+              "148129",
+              "148138",
+              "149177",
+              "149217",
+              "149248",
+              "149770",
+              "149981",
+              "150267",
+              "150394",
+              "150408",
+              "150444",
+              "150472",
+              "150482",
+              "150483",
+              "150485",
+              "150486",
+              "150549",
+              "150554",
+              "150605",
+              "150610",
+              "150640",
+              "151208",
+              "151245",
+              "151246",
+              "151248",
+              "151251",
+              "151258",
+              "151574",
+              "151644",
+              "151650",
+              "151657",
+              "151686",
+              "151687",
+              "151690",
+              "151711",
+              "151825",
+              "151832",
+              "151835",
+              "151853",
+              "151883",
+              "151892",
+              "152042",
+              "152047",
+              "152089",
+              "152469",
+              "152470",
+              "152638",
+              "152670",
+              "152678",
+              "152685",
+              "153390",
+              "153533",
+              "153582",
+              "153584",
+              "153802",
+              "153822",
+              "153823",
+              "154342",
+              "154525",
+              "154537",
+              "154538",
+              "154539",
+              "154540",
+              "154543",
+              "154576",
+              "154689",
+              "154690",
+              "154703",
+              "154822",
+              "154826",
+              "154827",
+              "154829",
+              "154830",
+              "154839",
+              "154885",
+              "155116",
+              "155118",
+              "155407",
+              "155417",
+              "155418",
+              "155420",
+              "156017",
+              "156205",
+              "156505",
+              "156524",
+              "156715",
+              "156805",
+              "157234",
+              "158192",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159740",
+              "159748",
+              "159749",
+              "159752",
+              "160183",
+              "160245",
+              "160283",
+              "160284",
+              "160339",
+              "160540",
+              "160543",
+              "160582",
+              "160670",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161120",
+              "161295",
+              "161470",
+              "161548",
+              "161621",
+              "161990",
+              "162295",
+              "162398",
+              "162453",
+              "162510",
+              "162585",
+              "162714",
+              "162798",
+              "162966",
+              "162971",
+              "162972",
+              "163040",
+              "163041",
+              "163076",
+              "163108",
+              "163178",
+              "163294",
+              "163373",
+              "163374",
+              "163434",
+              "163447",
+              "163451",
+              "163527",
+              "163713",
+              "163768",
+              "163937",
+              "163953",
+              "163955",
+              "164032",
+              "164176",
+              "164345",
+              "164382",
+              "164623",
+              "164742",
+              "164825",
+              "164905"
+            ]
+          ],
+          "additionalRequirements": {
+            "Complete ECON 4001.01, ECON 4001.02 or ECON 4001.03 ": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                3
+              ],
+              "courses": [
+                [
+                  "152688",
+                  "152689"
+                ]
+              ]
+            },
+            "Select at least one course from any of the GE categories": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                3
+              ],
+              "courses": [
+                [
+                  207,
+                  208,
+                  213,
+                  "15048",
+                  "147068",
+                  "147093",
+                  "147134",
+                  "147159",
+                  "147237",
+                  "147546",
+                  "147883",
+                  "147959",
+                  "147972",
+                  "147978",
+                  "148126",
+                  "148129",
+                  "148138",
+                  "149177",
+                  "149217",
+                  "149248",
+                  "149770",
+                  "149981",
+                  "150267",
+                  "150394",
+                  "150408",
+                  "150444",
+                  "150472",
+                  "150482",
+                  "150483",
+                  "150485",
+                  "150486",
+                  "150549",
+                  "150554",
+                  "150605",
+                  "150610",
+                  "150640",
+                  "151208",
+                  "151245",
+                  "151246",
+                  "151248",
+                  "151251",
+                  "151258",
+                  "151574",
+                  "151644",
+                  "151650",
+                  "151657",
+                  "151686",
+                  "151687",
+                  "151690",
+                  "151711",
+                  "151825",
+                  "151832",
+                  "151835",
+                  "151853",
+                  "151883",
+                  "151892",
+                  "152042",
+                  "152047",
+                  "152089",
+                  "152469",
+                  "152470",
+                  "152638",
+                  "152670",
+                  "152678",
+                  "152685",
+                  "153390",
+                  "153533",
+                  "153582",
+                  "153584",
+                  "153802",
+                  "153822",
+                  "153823",
+                  "154342",
+                  "154525",
+                  "154537",
+                  "154538",
+                  "154539",
+                  "154540",
+                  "154543",
+                  "154576",
+                  "154689",
+                  "154690",
+                  "154703",
+                  "154822",
+                  "154826",
+                  "154827",
+                  "154829",
+                  "154830",
+                  "154839",
+                  "154885",
+                  "155116",
+                  "155118",
+                  "155407",
+                  "155417",
+                  "155418",
+                  "155420",
+                  "156017",
+                  "156205",
+                  "156505",
+                  "156524",
+                  "156715",
+                  "156805",
+                  "157234",
+                  "158192",
+                  "158359",
+                  "158360",
+                  "158370",
+                  "158387",
+                  "158388",
+                  "158389",
+                  "158390",
+                  "158392",
+                  "158401",
+                  "158403",
+                  "158404",
+                  "158407",
+                  "158410",
+                  "158415",
+                  "158416",
+                  "158418",
+                  "158419",
+                  "158422",
+                  "158424",
+                  "158427",
+                  "158434",
+                  "158437",
+                  "158440",
+                  "158447",
+                  "158448",
+                  "158452",
+                  "158453",
+                  "158461",
+                  "158464",
+                  "158468",
+                  "158480",
+                  "158487",
+                  "158493",
+                  "158497",
+                  "158502",
+                  "158507",
+                  "158514",
+                  "158518",
+                  "158522",
+                  "158525",
+                  "158526",
+                  "158527",
+                  "158529",
+                  "158530",
+                  "159740",
+                  "159748",
+                  "159749",
+                  "159752",
+                  "160183",
+                  "160245",
+                  "160283",
+                  "160284",
+                  "160339",
+                  "160540",
+                  "160543",
+                  "160582",
+                  "160670",
+                  "160814",
+                  "160824",
+                  "161055",
+                  "161057",
+                  "161058",
+                  "161120",
+                  "161295",
+                  "161470",
+                  "161548",
+                  "161621",
+                  "161990",
+                  "162295",
+                  "162398",
+                  "162453",
+                  "162510",
+                  "162585",
+                  "162714",
+                  "162798",
+                  "162966",
+                  "162971",
+                  "162972",
+                  "163040",
+                  "163041",
+                  "163076",
+                  "163108",
+                  "163178",
+                  "163294",
+                  "163373",
+                  "163374",
+                  "163434",
+                  "163447",
+                  "163451",
+                  "163527",
+                  "163713",
+                  "163768",
+                  "163937",
+                  "163953",
+                  "163955",
+                  "164032",
+                  "164176",
+                  "164345",
+                  "164382",
+                  "164623",
+                  "164742",
+                  "164825",
+                  "164905"
+                ]
+              ]
+            }
+          }
         }
       ]
     },
-    "SCIEDUC": {
-      "name": "Science and Mathematics Education",
+    "INTLBUS": {
+      "name": "International Business",
       "schools": [
-        "EHE1"
+        "BUS1"
       ],
       "requirements": [
         {
-          "name": "Pre-Major Requirements",
-          "description": "Complete the following courses for admission into the major. Students can choose between HDFS 2420 and ESEPSY 5401 to fulfill the third course requirement",
-          "source": "https://ehe.osu.edu/undergraduate/science-and-mathematics-education",
+          "name": "Mathematical and Programming Courses",
+          "description": "Intro-level math and programming courses. Must be taken in your first two years of the business curriculum",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
           "fulfilledBy": "courses",
           "perSlotMinCount": [
             1,
@@ -1040,51 +1338,235 @@
             1
           ],
           "slotNames": [
-            "FEEP",
-            "Philosophy of Education",
-            "Adolescent Learning/Development"
+            "Calculus I",
+            "Statistics",
+            "Excel"
           ],
           "courses": [
             [
-              "152473"
+              102,
+              215,
+              216,
+              "151913",
+              "151927",
+              "151966"
             ],
             [
-              "154822"
+              "149362",
+              "149363"
             ],
             [
-              "152658"
+              "160644"
             ]
           ]
         },
         {
-          "name": "Major Course Requirements",
-          "description": "Complete all of the following courses below",
-          "source": "https://ehe.osu.edu/undergraduate/science-and-mathematics-education",
-          "fulfilledBy": "credits",
+          "name": "Business Foundations",
+          "description": "Intro-level business courses to be taken in the first two years of the business curriculum",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
           "perSlotMinCount": [
-            43
+            1,
+            1
+          ],
+          "slotNames": [
+            "Microeconomics",
+            "Macroeconomics"
           ],
           "courses": [
             [
-              "154891"
+              205,
+              "152673",
+              "152731"
             ],
             [
-              "154899"
+              205,
+              "152675",
+              "152732"
+            ]
+          ]
+        },
+        {
+          "name": "Business Core",
+          "description": "All business students are required to complete a series of business core courses, regardless of specialization. Business core courses include managerial and financial accounting, finance, marketing, operations management, logistics management, organizational behavior, international business, business law, business statistics, business analytics, applied business skills, and strategic management.",
+          "source": "https://files.fisher.osu.edu/undergraduate/public/2021-07/ACCT.pdf?VersionId=fP8t35eUFNh3AXEZ1fY7sOsO.B6RWBSs",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "Accounting I",
+            "Accounting II",
+            "Decision Sciences",
+            "Business Analytics",
+            "Business Skills & Environment",
+            "International Business",
+            "Legal Environment of Business",
+            "Logistics Management",
+            "Business Finance",
+            "Operations Management",
+            "Marketing Management",
+            "Organizational Behavior",
+            "Strategic Management"
+          ],
+          "courses": [
+            [
+              "147656",
+              "151828"
             ],
             [
-              "154900"
+              "147655",
+              "151831"
             ],
-            [],
-            [],
             [
-              "149292"
+              "147676"
             ],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
+            [
+              "150045"
+            ],
+            [
+              "161585",
+              "161913"
+            ],
+            [
+              "156762"
+            ],
+            [
+              "157166"
+            ],
+            [
+              "147690"
+            ],
+            [
+              "157165"
+            ],
+            [
+              "147675"
+            ],
+            [
+              "147707"
+            ],
+            [
+              "153218",
+              "153219"
+            ],
+            [
+              "153250"
+            ]
+          ]
+        },
+        {
+          "name": "Accounting Specialization",
+          "description": "Intro-level business courses to be taken in the first two years of the business curriculum",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "Legal Business Issues",
+            "Financial Accounting I",
+            "Financial Accounting II",
+            "Cost Accounting",
+            "Tax Accounting I",
+            "Accounting Information Systems",
+            "Advanced Financial Accounting",
+            "Auditing Principles"
+          ],
+          "courses": [
+            [
+              "157925"
+            ],
+            [
+              "151837",
+              "151855"
+            ],
+            [
+              "151843",
+              "151857"
+            ],
+            [
+              "147652",
+              "151870"
+            ],
+            [
+              "147650",
+              "151873"
+            ],
+            [
+              "147641",
+              "151882"
+            ],
+            [
+              "147651"
+            ],
+            [
+              "151884"
+            ]
+          ]
+        },
+        {
+          "name": "Electives",
+          "description": "Select one elective course from the following",
+          "source": "https://files.fisher.osu.edu/undergraduate/public/2021-07/ACCT.pdf?VersionId=fP8t35eUFNh3AXEZ1fY7sOsO.B6RWBSs",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1
+          ],
+          "slotNames": [
+            "Course"
+          ],
+          "courses": [
+            [
+              "147643",
+              "147647",
+              "147649",
+              "158212",
+              "163453"
+            ]
+          ]
+        }
+      ],
+      "specializations": [
+        {
+          "name": "Foreign Language",
+          "description": "coursework or proficiency through the third semester (1103) of amodern foreign language is required.",
+          "source": "https://www.cs.cornell.edu/undergrad/rulesandproceduresengineering/engineeringchecklist",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            3
+          ],
+          "slotNames": [
+            "FL"
+          ],
+          "courses": [
+            [
+              "151150",
+              "160091",
+              "164033",
+              "164802",
+              "164806",
+              "164807"
+            ]
           ]
         }
       ]

@@ -95,6 +95,29 @@ const businessRequirements: readonly CollegeOrMajorRequirement[] = [
     allowCourseDoubleCounting: true,
     perSlotMinCount: [3],
   },
+  {
+    name: 'Open Option',
+    description: 'Complete 6 credits of courses from any GE category',
+    source: 'http://fye.osu.edu/glossary.html',
+    checker: [
+      (course: Course): boolean =>
+        (course.catalogSatisfiesReq?.includes('WR2') ||
+          course.catalogSatisfiesReq?.includes('AH1') ||
+          course.catalogSatisfiesReq?.includes('AH2') ||
+          course.catalogSatisfiesReq?.includes('AH3') ||
+          course.catalogSatisfiesReq?.includes('AH4') ||
+          course.catalogSatisfiesReq?.includes('SD1') ||
+          course.catalogSatisfiesReq?.includes('SD2') ||
+          course.catalogSatisfiesReq?.includes('SS1') ||
+          course.catalogSatisfiesReq?.includes('SS2') ||
+          course.catalogSatisfiesReq?.includes('SS3') ||
+          course.catalogSatisfiesReq?.includes('NS1') ||
+          course.catalogSatisfiesReq?.includes('NS1')) ??
+        false,
+    ],
+    fulfilledBy: 'credits',
+    perSlotMinCount: [3],
+  },
 ];
 // offers two undergraduate majors: AEM and Hotel Admin
 export default businessRequirements;
