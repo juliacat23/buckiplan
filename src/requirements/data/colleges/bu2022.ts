@@ -66,8 +66,9 @@ const businessRequirements: readonly CollegeOrMajorRequirement[] = [
     perSlotMinCount: [3],
   },
   {
-    name: 'Language Proficiency',
-    description: 'You must complete course work through the third language course (1103 or equivalent). ',
+    name: 'Social Sciences',
+    description:
+      'Students in the College of Business are required to complete ECON 2001 and ECON 2002 (or equivalents). Any additional courses selected from this category will count as Open Options',
     source: 'http://fye.osu.edu/glossary.html',
     checker: includesWithSubRequirements(['ECON 2001.01', 'ECON 2001.01H'], ['ECON 2002.01', 'ECON 2002.01H']),
     fulfilledBy: 'courses',
@@ -93,14 +94,6 @@ const businessRequirements: readonly CollegeOrMajorRequirement[] = [
     fulfilledBy: 'credits',
     allowCourseDoubleCounting: true,
     perSlotMinCount: [3],
-  },
-  {
-    name: 'Open-Option',
-    description: 'You must complete at least six hours from any of the following courses',
-    source: 'http://fye.osu.edu/glossary.html',
-    checker: [(course: Course): boolean => course.catalogSatisfiesReq?.includes('AH2') ?? false],
-    fulfilledBy: 'credits',
-    perSlotMinCount: [6],
   },
 ];
 // offers two undergraduate majors: AEM and Hotel Admin

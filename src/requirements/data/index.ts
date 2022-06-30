@@ -8,6 +8,9 @@ import businessRequirements from './colleges/bu2022';
 import accountRequirements from './majors/account';
 import scieducRequirements from './majors/scieduc';
 
+// major specialization
+import { AccountingOpenOption, CHEM2080 } from './specializations/acSpec';
+
 // minors
 import medanthRequirements from './minors/medanth';
 import flmstdRequirements from './minors/flmstd';
@@ -41,6 +44,7 @@ const json: RequirementsJson = {
       name: 'Accounting',
       schools: ['BUS1'],
       requirements: accountRequirements,
+      specializations: [CHEM2080],
     },
     SCIEDUC: {
       name: 'Science and Mathematics Education',

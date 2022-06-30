@@ -350,8 +350,8 @@
           ]
         },
         {
-          "name": "Language Proficiency",
-          "description": "You must complete course work through the third language course (1103 or equivalent). ",
+          "name": "Social Sciences",
+          "description": "Students in the College of Business are required to complete ECON 2001 and ECON 2002 (or equivalents). Any additional courses selected from this category will count as Open Options",
           "source": "http://fye.osu.edu/glossary.html",
           "fulfilledBy": "courses",
           "perSlotMinCount": [
@@ -415,27 +415,6 @@
               "156017",
               "161295",
               "163768"
-            ]
-          ]
-        },
-        {
-          "name": "Open-Option",
-          "description": "You must complete at least six hours from any of the following courses",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            6
-          ],
-          "courses": [
-            [
-              "147237",
-              "150394",
-              "150483",
-              "150610",
-              "154576",
-              "155420",
-              "160543",
-              "162295"
             ]
           ]
         }
@@ -726,8 +705,8 @@
           ]
         },
         {
-          "name": "Language Proficiency",
-          "description": "You must complete course work through the third language course (1103 or equivalent). ",
+          "name": "Social Sciences",
+          "description": "Students in the College of Business are required to complete ECON 2001 and ECON 2002 (or equivalents). Any additional courses selected from this category will count as Open Options",
           "source": "http://fye.osu.edu/glossary.html",
           "fulfilledBy": "courses",
           "perSlotMinCount": [
@@ -791,27 +770,6 @@
               "156017",
               "161295",
               "163768"
-            ]
-          ]
-        },
-        {
-          "name": "Open-Option",
-          "description": "You must complete at least six hours from any of the following courses",
-          "source": "http://fye.osu.edu/glossary.html",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            6
-          ],
-          "courses": [
-            [
-              "147237",
-              "150394",
-              "150483",
-              "150610",
-              "154576",
-              "155420",
-              "160543",
-              "162295"
             ]
           ]
         }
@@ -1041,6 +999,26 @@
               "158212",
               "163453"
             ]
+          ]
+        }
+      ],
+      "specializations": [
+        {
+          "name": "Chemistry",
+          "description": "CHEM 2090 and CHEM 2080 (can also be substituted by CHEM 2150, PHYS 2214, PHYS 2218, BTRY 3080, ECON 3130, MATH 2930, or MATH 4710).",
+          "source": "https://www.cs.cornell.edu/undergrad/rulesandproceduresengineering/engineeringchecklist",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "CHEM 2090",
+            "CHEM 2080 (or alt)"
+          ],
+          "courses": [
+            [],
+            []
           ]
         }
       ]
