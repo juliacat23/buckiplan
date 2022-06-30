@@ -440,6 +440,382 @@
           ]
         }
       ]
+    },
+    "EHE1": {
+      "name": "College of Education and Human Ecology",
+      "requirements": [
+        {
+          "name": "Writing",
+          "description": "Complete a 3 credit hours of a first year writing course and 3 credit hours of a second year writing course for a total of 6 writing credits",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "First Year Writing",
+            "Second Year Writing"
+          ],
+          "courses": [
+            [],
+            [
+              "151835",
+              "151853",
+              "152047",
+              "154342",
+              "154827",
+              "159740",
+              "160283",
+              "160284",
+              "162585",
+              "163040",
+              "163041",
+              "163527"
+            ]
+          ]
+        },
+        {
+          "name": "Visual and Performing Arts",
+          "description": "Choose one course. A maximum of one course is permitted from the department of the major across the Literature and Visual and Performing Arts categories, but this course may not be counted on the major.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              208,
+              "147959",
+              "150408",
+              "150444",
+              "150472",
+              "151208",
+              "154885",
+              "158192",
+              "160339",
+              "160540",
+              "160670",
+              "161548",
+              "162714",
+              "162971",
+              "162972",
+              "163294",
+              "163953",
+              "164032",
+              "164382"
+            ]
+          ]
+        },
+        {
+          "name": "Natural Science",
+          "description": "Complete a minimum of 10 credit hours",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            10
+          ],
+          "courses": [
+            [
+              "147159",
+              "147591",
+              "147615",
+              "147617",
+              "149167",
+              "149204",
+              "149253",
+              "149722",
+              "149770",
+              "150258",
+              "150264",
+              "150267",
+              "150288",
+              "150297",
+              "150298",
+              "150301",
+              "150303",
+              "151246",
+              "151248",
+              "151251",
+              "151644",
+              "152083",
+              "152638",
+              "153533",
+              "153582",
+              "153584",
+              "153802",
+              "153822",
+              "153823",
+              "158221",
+              "160245",
+              "161120",
+              "161470",
+              "161751",
+              "162779",
+              "163447",
+              "163451",
+              "163500",
+              "164139",
+              "164211"
+            ]
+          ],
+          "additionalRequirements": {
+            "Complete at least one course in the Biological Sciences with a lab ": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                4
+              ],
+              "courses": [
+                [
+                  "147159",
+                  "149770",
+                  "150267",
+                  "151246",
+                  "151248",
+                  "151251",
+                  "151644",
+                  "152638",
+                  "153533",
+                  "153582",
+                  "153584",
+                  "153802",
+                  "153822",
+                  "153823",
+                  "160245",
+                  "161120",
+                  "161470",
+                  "163447",
+                  "163451"
+                ]
+              ]
+            },
+            "Complete at least one course in the Physical Sciences with a lab ": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                4
+              ],
+              "courses": [
+                [
+                  "147591",
+                  "147615",
+                  "147617",
+                  "149167",
+                  "149204",
+                  "149253",
+                  "149722",
+                  "150258",
+                  "150264",
+                  "150288",
+                  "150297",
+                  "150298",
+                  "150301",
+                  "150303",
+                  "152083",
+                  "158221",
+                  "161751",
+                  "162779",
+                  "163500",
+                  "164139",
+                  "164211"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "Literature",
+          "description": "Choose one course. A maximum of one course is permitted from the department of the major across the Literature and Visual and Performing Arts categories, but this course may not be counted on the major.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "147237",
+              "150394",
+              "150483",
+              "150610",
+              "154576",
+              "155420",
+              "160543",
+              "162295"
+            ]
+          ]
+        },
+        {
+          "name": "Historical Study",
+          "description": "Choose one course from the following list.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              213,
+              "147546",
+              "152469",
+              "152470",
+              "155118",
+              "155418",
+              "156805",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159748",
+              "159749",
+              "159752",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161990",
+              "162510",
+              "162798",
+              "162966",
+              "163108",
+              "163373",
+              "163374",
+              "163713",
+              "163937",
+              "164176"
+            ]
+          ]
+        },
+        {
+          "name": "Language Proficiency",
+          "description": "You must complete course work through the third language course (1103 or equivalent). ",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Microeconomics",
+            "Macroeconomics"
+          ],
+          "courses": [
+            [
+              205,
+              "152673"
+            ],
+            [
+              205,
+              "152675"
+            ]
+          ]
+        },
+        {
+          "name": "Global Studies",
+          "description": "You must complete at least two courses from this area. Each course can overlap with another GE category or the major. If you do not choose overlapping courses, the global studies requirement must still be met. ",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "allowCourseDoubleCounting": true,
+          "perSlotMinCount": [
+            6
+          ],
+          "courses": [
+            [
+              "154538",
+              "162398"
+            ]
+          ]
+        },
+        {
+          "name": "Social Diversity in the US",
+          "description": "You must complete at least one course from this area, which can overlap with another GE category or the major. If you do not choose an overlapping course, the social diversity requirement must still be met",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "allowCourseDoubleCounting": true,
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "147134",
+              "147972",
+              "147978",
+              "149217",
+              "149981",
+              "150554",
+              "151832",
+              "151892",
+              "152685",
+              "154537",
+              "154543",
+              "154689",
+              "156017",
+              "161295",
+              "163768"
+            ]
+          ]
+        },
+        {
+          "name": "Open-Option",
+          "description": "You must complete at least six hours from any of the following courses",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            6
+          ],
+          "courses": [
+            [
+              "147237",
+              "150394",
+              "150483",
+              "150610",
+              "154576",
+              "155420",
+              "160543",
+              "162295"
+            ]
+          ]
+        }
+      ]
     }
   },
   "major": {
@@ -665,6 +1041,72 @@
               "158212",
               "163453"
             ]
+          ]
+        }
+      ]
+    },
+    "SCIEDUC": {
+      "name": "Science and Mathematics Education",
+      "schools": [
+        "EHE1"
+      ],
+      "requirements": [
+        {
+          "name": "Pre-Major Requirements",
+          "description": "Complete the following courses for admission into the major. Students can choose between HDFS 2420 and ESEPSY 5401 to fulfill the third course requirement",
+          "source": "https://ehe.osu.edu/undergraduate/science-and-mathematics-education",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "FEEP",
+            "Philosophy of Education",
+            "Adolescent Learning/Development"
+          ],
+          "courses": [
+            [
+              "152473"
+            ],
+            [
+              "154822"
+            ],
+            [
+              "152658"
+            ]
+          ]
+        },
+        {
+          "name": "Major Course Requirements",
+          "description": "Complete all of the following courses below",
+          "source": "https://ehe.osu.edu/undergraduate/science-and-mathematics-education",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            43
+          ],
+          "courses": [
+            [
+              "154891"
+            ],
+            [
+              "154899"
+            ],
+            [
+              "154900"
+            ],
+            [],
+            [],
+            [
+              "149292"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
           ]
         }
       ]

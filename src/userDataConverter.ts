@@ -17,6 +17,7 @@ export const osuCourseToFirebaseSemesterCourseWithCustomIDAndColor = (
   const { subject, catalogNbr: number, titleLong: name } = course;
   const credits = course.enrollGroups[0].unitsMaximum;
   const creditRange = createCourseCreditRange(course);
+
   const alternateSemesters =
     !course.catalogWhenOffered || course.catalogWhenOffered === ''
       ? []

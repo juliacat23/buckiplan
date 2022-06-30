@@ -144,7 +144,7 @@ interface OSUCourse {
 }
 
 interface OSUCourseFullDetail extends OSUCourse {
-  readonly catalogAttributes?: string;
+  readonly catalogAtt?: readonly string[];
 }
 
 type AppOnboardingData = {
@@ -166,8 +166,8 @@ type AppBottomBarCourse = {
   readonly credits: number;
   readonly color: string;
   readonly semesters: readonly string[];
-  description: string;
-  prereqs: string;
+  readonly description: string;
+  readonly prereqs: string;
 };
 
 type AppToggleableRequirementChoices = Readonly<Record<string, string>>;

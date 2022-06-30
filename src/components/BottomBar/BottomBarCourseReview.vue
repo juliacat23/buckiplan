@@ -1,9 +1,9 @@
 <template>
   <div class="details">
-    <div class="details-ratings-link-wrapper">
+    <!-- <div class="details-ratings-link-wrapper">
       <a :href="CURLink" class="details-ratings-link" target="_blank" @click="clickCUReviewsLink()">Learn more on
         CUReviews</a>
-    </div>
+    </div> -->
     <div class="details-ratings-wrapper">
       <div class="details-ratings">
         <!-- <p class="details-ratings-title">
@@ -97,11 +97,6 @@ export default defineComponent({
     coursePrereqs(): string {
       return noneIfEmpty(this.courseObj.prereqs);
     },
-    CURLink(): string {
-      const [subject, number] = this.courseObj.code.split(' ');
-      return `https://www.cureviews.org/course/${subject}/${number}`;
-    },
-
   },
 });
 </script>

@@ -2,7 +2,6 @@ import { createApp, App as VueApp } from 'vue';
 import VueGtag from 'vue-gtag-next';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'intro.js/introjs.css';
 
 import './scss/app.scss';

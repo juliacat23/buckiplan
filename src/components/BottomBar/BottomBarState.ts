@@ -33,17 +33,6 @@ export const reportSubjectColorChange = (code: string, color: string): void => {
   );
 };
 
-const getDetailedInformationForBottomBar = async (subject: string, number: string) => {
-  const courses: readonly OSUCourseFullDetail[] = (
-    await fetch(`https://classes.cornell.edu/api/2.0/search/classes.json?roster&subject=${subject}`).then((response) =>
-      response.json()
-    )
-  ).data.classes;
-  return osuCourseDetailedInformationToPartialBottomCourseInformation(
-    checkNotNull(courses.find((it) => it.catalogNbr === number))
-  );
-};
-
 const getReviews = (
   subject: string,
   number: string
@@ -79,26 +68,6 @@ export const addCourseToBottomBar = (course: FirestoreSemesterCourse): void => {
 
   vueForBottomBar.bottomCourses = [firestoreSemesterCourseToBottomBarCourse(course), ...vueForBottomBar.bottomCourses];
   vueForBottomBar.bottomCourseFocus = 0;
-
-  const [subject, number] = course.code.split(' ');
-  Promise.all([
-    getReviews(subject, number).then(({ classRating, classDifficulty, classWorkload }) => {
-      const bottomBarCourse = vueForBottomBar.bottomCourses.find(
-        ({ uniqueID, code }) => uniqueID === course.uniqueID && code === course.code
-      );
-      if (bottomBarCourse) {
-      }
-    }),
-    getDetailedInformationForBottomBar(subject, number).then(({ description, prereqs }) => {
-      const bottomBarCourse = vueForBottomBar.bottomCourses.find(
-        ({ uniqueID, code }) => uniqueID === course.uniqueID && code === course.code
-      );
-      if (bottomBarCourse) {
-        bottomBarCourse.description = description;
-        bottomBarCourse.prereqs = prereqs;
-      }
-    }),
-  ]);
 };
 
 export const toggleBottomBar = (gtag?: GTag): void => {

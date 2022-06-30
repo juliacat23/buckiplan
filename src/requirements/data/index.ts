@@ -6,6 +6,7 @@ import businessRequirements from './colleges/bu2022';
 
 // majors
 import accountRequirements from './majors/account';
+import scieducRequirements from './majors/scieduc';
 
 // minors
 import medanthRequirements from './minors/medanth';
@@ -30,12 +31,21 @@ const json: RequirementsJson = {
       name: 'Fisher College of Business',
       requirements: businessRequirements,
     },
+    EHE1: {
+      name: 'College of Education and Human Ecology',
+      requirements: businessRequirements,
+    },
   },
   major: {
     ACCT: {
       name: 'Accounting',
       schools: ['BUS1'],
       requirements: accountRequirements,
+    },
+    SCIEDUC: {
+      name: 'Science and Mathematics Education',
+      schools: ['EHE1'],
+      requirements: scieducRequirements,
     },
   },
   minor: {
