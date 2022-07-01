@@ -8,20 +8,20 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
     source:
       'https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse',
     checker: includesWithSubRequirements(
-      ['ENG 1181.01', 'ENG 1181.02', 'ENG 1281.01H', 'ENG 1281.02H', 'ENG 1281.03H'],
-      ['ENG 1182.01', 'ENG 1182.02', 'ENG 1282.02H', 'ENG 1282.02H', 'ENG 1282.03H'],
+      ['ENGR 1181.01', 'ENGR 1181.02', 'ENGR 1281.01H', 'ENGR 1281.02H', 'ENGR 1281.03H'],
+      ['ENGR 1182.01', 'ENGR 1182.02', 'ENGR 1282.02H', 'ENGR 1282.02H', 'ENGR 1282.03H'],
       ['MATH 1151', 'MATH 1161.01', 'MATH 1161.02', 'MATH 1181H'],
       ['MATH 1172', 'MATH 2162.01', 'MATH 2162.02', '2182H'],
       ['PHYSICS 1250', 'PHYSICS 1250H', 'PHYSICS 1260'],
       ['CSE 2221']
     ),
     fulfilledBy: 'courses',
-    perSlotMinCount: [1, 1, 1, 1, 1],
+    perSlotMinCount: [1, 1, 1, 1, 1, 1],
     slotNames: [
       'FE/FEH 1',
       'FE/FEH 2',
       'Calculus I',
-      'Calculus I',
+      'Calculus 2',
       'Mechanics, Work and Energy, Thermal Physics',
       'Software I: Software Components',
     ],
