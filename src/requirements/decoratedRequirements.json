@@ -639,6 +639,906 @@
           ]
         }
       ]
+    },
+    "PUBHLTH": {
+      "name": "Public Health",
+      "requirements": [
+        {
+          "name": "Writing",
+          "description": "Complete a 3 credit hours of a first year writing course and 3 credit hours of a second year writing course for a total of 6 writing credits",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "First Year Writing",
+            "Second Year Writing"
+          ],
+          "courses": [
+            [],
+            [
+              "151835",
+              "151853",
+              "152047",
+              "154342",
+              "154827",
+              "159740",
+              "160283",
+              "160284",
+              "162585",
+              "163040",
+              "163041",
+              "163527"
+            ]
+          ]
+        },
+        {
+          "name": "Literature",
+          "description": "Choose one course. A maximum of one course is permitted from the department of the major across the Literature and Visual and Performing Arts categories, but this course may not be counted on the major.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "147237",
+              "150394",
+              "150483",
+              "150610",
+              "154576",
+              "155420",
+              "160543",
+              "162295"
+            ]
+          ]
+        },
+        {
+          "name": "Visual and Performing Arts",
+          "description": "Choose one course. A maximum of one course is permitted from the department of the major across the Literature and Visual and Performing Arts categories, but this course may not be counted on the major.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              208,
+              "147959",
+              "150408",
+              "150444",
+              "150472",
+              "151208",
+              "154885",
+              "158192",
+              "160339",
+              "160540",
+              "160670",
+              "161548",
+              "162714",
+              "162971",
+              "162972",
+              "163294",
+              "163953",
+              "164032",
+              "164382"
+            ]
+          ]
+        },
+        {
+          "name": "Mathematics",
+          "description": "Complete MATH 1116 or higher Math GE course",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              102,
+              215,
+              216,
+              "151612",
+              "151620",
+              "151625",
+              "151627",
+              "151810",
+              "151898",
+              "151908",
+              "151913",
+              "151919",
+              "151921",
+              "151923",
+              "151927",
+              "151933",
+              "151935",
+              "151960",
+              "151962",
+              "151965",
+              "151966",
+              "151979",
+              "151988",
+              "151994",
+              "151999",
+              "152001",
+              "152003",
+              "152004",
+              "152007",
+              "152009",
+              "152015",
+              "152017",
+              "152019",
+              "153056",
+              "153057",
+              "153059",
+              "153060",
+              "153061",
+              "153063",
+              "153064",
+              "153065",
+              "153066",
+              "153069",
+              "153070",
+              "153071",
+              "153072",
+              "153073",
+              "153075",
+              "153076",
+              "153077",
+              "153078",
+              "153079",
+              "153080",
+              "153081",
+              "153082",
+              "153083",
+              "153084",
+              "153085",
+              "153086",
+              "153093",
+              "153094",
+              "153095",
+              "153096",
+              "153097",
+              "153098",
+              "153099",
+              "153100",
+              "153101",
+              "153102",
+              "153104",
+              "153105",
+              "153107",
+              "153111",
+              "153114",
+              "153116",
+              "153118",
+              "153119",
+              "153121",
+              "153181",
+              "153191",
+              "154070",
+              "159921",
+              "159922",
+              "159924",
+              "160118",
+              "160119",
+              "160120",
+              "160241",
+              "161627",
+              "161658",
+              "161760",
+              "161761",
+              "161770",
+              "161936",
+              "162214",
+              "163056",
+              "163057",
+              "163220",
+              "163244",
+              "163502",
+              "163534",
+              "163944",
+              "163945",
+              "164269",
+              "164270",
+              "164309"
+            ]
+          ]
+        },
+        {
+          "name": "Data Analysis",
+          "description": "Complete SOCIOL 3549: Statistics in Sociology",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "156025"
+            ]
+          ]
+        },
+        {
+          "name": "Natural Science",
+          "description": "Complete a minimum of 10 credit hours",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            10
+          ],
+          "courses": [
+            [
+              "147159",
+              "147591",
+              "147615",
+              "147617",
+              "149167",
+              "149204",
+              "149253",
+              "149722",
+              "149770",
+              "150258",
+              "150264",
+              "150267",
+              "150288",
+              "150297",
+              "150298",
+              "150301",
+              "150303",
+              "151246",
+              "151248",
+              "151251",
+              "151644",
+              "152083",
+              "152638",
+              "153533",
+              "153582",
+              "153584",
+              "153802",
+              "153822",
+              "153823",
+              "158221",
+              "160245",
+              "161120",
+              "161470",
+              "161751",
+              "162779",
+              "163447",
+              "163451",
+              "163500",
+              "164139",
+              "164211"
+            ]
+          ],
+          "additionalRequirements": {
+            "Complete at least one course in the Biological Sciences with a lab ": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                4
+              ],
+              "courses": [
+                [
+                  "147159",
+                  "149770",
+                  "150267",
+                  "151246",
+                  "151248",
+                  "151251",
+                  "151644",
+                  "152638",
+                  "153533",
+                  "153582",
+                  "153584",
+                  "153802",
+                  "153822",
+                  "153823",
+                  "160245",
+                  "161120",
+                  "161470",
+                  "163447",
+                  "163451"
+                ]
+              ]
+            },
+            "Complete at least one course in the Physical Sciences with a lab ": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                4
+              ],
+              "courses": [
+                [
+                  "147591",
+                  "147615",
+                  "147617",
+                  "149167",
+                  "149204",
+                  "149253",
+                  "149722",
+                  "150258",
+                  "150264",
+                  "150288",
+                  "150297",
+                  "150298",
+                  "150301",
+                  "150303",
+                  "152083",
+                  "158221",
+                  "161751",
+                  "162779",
+                  "163500",
+                  "164139",
+                  "164211"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "Historical Study",
+          "description": "Choose one course from the following list.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              213,
+              "147546",
+              "152469",
+              "152470",
+              "155118",
+              "155418",
+              "156805",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159748",
+              "159749",
+              "159752",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161990",
+              "162510",
+              "162798",
+              "162966",
+              "163108",
+              "163373",
+              "163374",
+              "163713",
+              "163937",
+              "164176"
+            ]
+          ]
+        },
+        {
+          "name": "Culture and Ideas",
+          "description": "Complete at least one course from the following",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "allowCourseDoubleCounting": true,
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              207,
+              213,
+              "15048",
+              "147546",
+              "148129",
+              "148138",
+              "150482",
+              "150485",
+              "150486",
+              "150605",
+              "150640",
+              "151657",
+              "151686",
+              "151690",
+              "152089",
+              "152469",
+              "152470",
+              "153390",
+              "154703",
+              "154822",
+              "154839",
+              "155118",
+              "155407",
+              "155417",
+              "155418",
+              "156505",
+              "156715",
+              "156805",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159748",
+              "159749",
+              "159752",
+              "160183",
+              "160582",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161621",
+              "161990",
+              "162453",
+              "162510",
+              "162798",
+              "162966",
+              "163076",
+              "163108",
+              "163178",
+              "163373",
+              "163374",
+              "163434",
+              "163713",
+              "163937",
+              "163955",
+              "164176",
+              "164345",
+              "164623",
+              "164742",
+              "164825",
+              "164905"
+            ]
+          ]
+        },
+        {
+          "name": "Social Sciences",
+          "description": "Complete two social science courses for a total of 6 credits ",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            10
+          ],
+          "courses": [
+            [
+              "147159",
+              "147591",
+              "147615",
+              "147617",
+              "149167",
+              "149204",
+              "149253",
+              "149722",
+              "149770",
+              "150258",
+              "150264",
+              "150267",
+              "150288",
+              "150297",
+              "150298",
+              "150301",
+              "150303",
+              "151246",
+              "151248",
+              "151251",
+              "151644",
+              "152083",
+              "152638",
+              "153533",
+              "153582",
+              "153584",
+              "153802",
+              "153822",
+              "153823",
+              "158221",
+              "160245",
+              "161120",
+              "161470",
+              "161751",
+              "162779",
+              "163447",
+              "163451",
+              "163500",
+              "164139",
+              "164211"
+            ]
+          ],
+          "additionalRequirements": {
+            "Complete SOCIOL 1101: Introduction to Sociology": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                3
+              ],
+              "courses": [
+                [
+                  "155775"
+                ]
+              ]
+            },
+            "Choose a social sciences course from Group A or Group C ": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                3
+              ],
+              "courses": [
+                [
+                  "147134",
+                  "147972",
+                  "147978",
+                  "149217",
+                  "149981",
+                  "150554",
+                  "151832",
+                  "151892",
+                  "152685",
+                  "154537",
+                  "154538",
+                  "154543",
+                  "154689",
+                  "156017",
+                  "161295",
+                  "162398",
+                  "163768"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "Foreign Language",
+          "description": "You must complete course work through the third language course (1103 or equivalent). ",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "allowCourseDoubleCounting": true,
+          "perSlotMinCount": [
+            12
+          ],
+          "courses": [
+            [
+              "151150",
+              "160091",
+              "164033",
+              "164802",
+              "164806",
+              "164807"
+            ]
+          ]
+        },
+        {
+          "name": "Global Studies",
+          "description": "You must complete at least two courses from this area. Each course can overlap with another GE category or the major. If you do not choose overlapping courses, the global studies requirement must still be met. ",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "allowCourseDoubleCounting": true,
+          "perSlotMinCount": [
+            6
+          ],
+          "courses": [
+            [
+              "154538",
+              "162398"
+            ]
+          ]
+        },
+        {
+          "name": "Social Diversity in the US",
+          "description": "SOCIOL 1101, required as a Social Sciences GE, already fulfils this requirement.",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "allowCourseDoubleCounting": true,
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "155775"
+            ]
+          ]
+        },
+        {
+          "name": "Open Option",
+          "description": "Complete 6 credits of courses from any GE category",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              207,
+              208,
+              213,
+              "15048",
+              "147068",
+              "147093",
+              "147134",
+              "147159",
+              "147237",
+              "147546",
+              "147883",
+              "147959",
+              "147972",
+              "147978",
+              "148126",
+              "148129",
+              "148138",
+              "149177",
+              "149217",
+              "149248",
+              "149770",
+              "149981",
+              "150267",
+              "150394",
+              "150408",
+              "150444",
+              "150472",
+              "150482",
+              "150483",
+              "150485",
+              "150486",
+              "150549",
+              "150554",
+              "150605",
+              "150610",
+              "150640",
+              "151208",
+              "151245",
+              "151246",
+              "151248",
+              "151251",
+              "151258",
+              "151574",
+              "151644",
+              "151650",
+              "151657",
+              "151686",
+              "151687",
+              "151690",
+              "151711",
+              "151825",
+              "151832",
+              "151835",
+              "151853",
+              "151883",
+              "151892",
+              "152042",
+              "152047",
+              "152089",
+              "152469",
+              "152470",
+              "152638",
+              "152670",
+              "152678",
+              "152685",
+              "153390",
+              "153533",
+              "153582",
+              "153584",
+              "153802",
+              "153822",
+              "153823",
+              "154342",
+              "154525",
+              "154537",
+              "154538",
+              "154539",
+              "154540",
+              "154543",
+              "154576",
+              "154689",
+              "154690",
+              "154703",
+              "154822",
+              "154826",
+              "154827",
+              "154829",
+              "154830",
+              "154839",
+              "154885",
+              "155116",
+              "155118",
+              "155407",
+              "155417",
+              "155418",
+              "155420",
+              "156017",
+              "156205",
+              "156505",
+              "156524",
+              "156715",
+              "156805",
+              "157234",
+              "158192",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159740",
+              "159748",
+              "159749",
+              "159752",
+              "160183",
+              "160245",
+              "160283",
+              "160284",
+              "160339",
+              "160540",
+              "160543",
+              "160582",
+              "160670",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161120",
+              "161295",
+              "161470",
+              "161548",
+              "161621",
+              "161990",
+              "162295",
+              "162398",
+              "162453",
+              "162510",
+              "162585",
+              "162714",
+              "162798",
+              "162966",
+              "162971",
+              "162972",
+              "163040",
+              "163041",
+              "163076",
+              "163108",
+              "163178",
+              "163294",
+              "163373",
+              "163374",
+              "163434",
+              "163447",
+              "163451",
+              "163527",
+              "163713",
+              "163768",
+              "163937",
+              "163953",
+              "163955",
+              "164032",
+              "164176",
+              "164345",
+              "164382",
+              "164623",
+              "164742",
+              "164825",
+              "164905"
+            ]
+          ]
+        }
+      ]
     }
   },
   "major": {
@@ -1566,6 +2466,575 @@
               "164802",
               "164806",
               "164807"
+            ]
+          ]
+        }
+      ]
+    },
+    "PUBHLTHENV": {
+      "name": "Public Health (Environmental)",
+      "schools": [
+        "PUBHLTH"
+      ],
+      "requirements": [
+        {
+          "name": "Major Admission Requirements",
+          "description": "Courses to be completed before applying to the BSPH Major. All Courses overlap with GE requirements",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "First-Year Composition",
+            "Math",
+            "Biology I",
+            "Sociology"
+          ],
+          "courses": [
+            [
+              206,
+              207,
+              "150416",
+              "150417",
+              "150418"
+            ],
+            [
+              102,
+              215,
+              216,
+              "151919",
+              "151921",
+              "151923",
+              "151927"
+            ],
+            [
+              101,
+              125,
+              203,
+              "149978",
+              "149989"
+            ],
+            [
+              "154533",
+              "155775"
+            ]
+          ]
+        },
+        {
+          "name": "Foundation Courses",
+          "description": "Intro-level math and programming courses. Must be taken in your first two years of the business curriculum",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "Biostatistics",
+            "Current Issues in Global Environmental Health",
+            "Global Public Health",
+            "Behavior in Public Health",
+            "Epidemiology",
+            "Health Care"
+          ],
+          "courses": [
+            [
+              "147041",
+              "162051"
+            ],
+            [
+              "159192"
+            ],
+            [
+              "160522"
+            ],
+            [
+              "159209"
+            ],
+            [
+              "159253"
+            ],
+            [
+              "159373"
+            ]
+          ]
+        },
+        {
+          "name": "Public Health Core",
+          "description": "Select at least 3 of the following courses",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            9
+          ],
+          "courses": [
+            [
+              "159191",
+              "159193",
+              "159194",
+              "159195",
+              "159196",
+              "159254",
+              "159255",
+              "159271"
+            ]
+          ]
+        },
+        {
+          "name": "Chemistry Core",
+          "description": "Complete a two-semester sequence of General Chemistry and a one-semester sequence of Organic Chemistry with a lab",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "General Chemistry I",
+            "General Chemistry II",
+            "Organic Chemistry I",
+            "Organic Chemistry I Lab"
+          ],
+          "courses": [
+            [
+              105,
+              204,
+              "149724",
+              "149736",
+              "149738"
+            ],
+            [
+              "149734",
+              "149737",
+              "149749"
+            ],
+            [
+              "149759"
+            ],
+            [
+              "149766"
+            ]
+          ]
+        },
+        {
+          "name": "Earth Science Core",
+          "description": "Select at least 3 of the following courses",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            9
+          ],
+          "courses": [
+            [
+              "150294",
+              "150297",
+              "150353",
+              "151076",
+              "155125"
+            ]
+          ]
+        },
+        {
+          "name": "Capstone Experience",
+          "description": "Complete PUBHLTH 3180 or 3180E and Choose 1 Course From the following below:",
+          "source": "https://data-analytics.osu.edu/major/core-curriculum",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Capstone Preparation",
+            "Capstone"
+          ],
+          "courses": [
+            [
+              "161694",
+              "161835"
+            ],
+            [
+              "160531",
+              "161678",
+              "161695",
+              "161839",
+              "163405"
+            ]
+          ]
+        },
+        {
+          "name": "Major Electives",
+          "description": "Select six credits from interdisciplinary specialization courses not already used. Other approved courses that fulfill Major Electives: EARTHSC 5651, ENR 2100, 3000, GEOG 2800, 5220, PUBHLTH 5015, 5330, 3998",
+          "source": "https://data-analytics.osu.edu/major/core-curriculum",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            5
+          ],
+          "courses": [
+            [
+              "149204",
+              "149506",
+              "150294",
+              "150297",
+              "150353",
+              "151076",
+              "151510",
+              "152036",
+              "152081",
+              "155125",
+              "159191",
+              "159193",
+              "159194",
+              "159195",
+              "159196",
+              "159254",
+              "159255",
+              "159271"
+            ]
+          ]
+        }
+      ],
+      "specializations": [
+        {
+          "name": "Data Analysis",
+          "description": "Complete either STAT 1350 or STAT 1450",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            4
+          ],
+          "courses": [
+            [
+              "149361",
+              "149364"
+            ]
+          ]
+        },
+        {
+          "name": "Open Option",
+          "description": "Coursework in Calculus I and Biology fulfils the Open Option GE Category. Select 1 Biology course and 1 Calculus course",
+          "source": "http://fye.osu.edu/glossary.html",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Biology",
+            "Calculus I"
+          ],
+          "courses": [
+            [
+              101,
+              203,
+              "149997",
+              "150021"
+            ],
+            [
+              102,
+              215,
+              216,
+              "151927"
+            ]
+          ]
+        },
+        {
+          "name": "Mathematics",
+          "description": "Introductionary Mathematics. Option 1: MATH 1148 + MATH 1149; Option 2: MATH 1150",
+          "source": "https://www.cs.cornell.edu/undergrad/rulesandproceduresengineering/engineeringchecklist",
+          "fulfilledBy": "toggleable",
+          "fulfillmentOptions": {
+            "Option 1": {
+              "description": "MATH 1148 and MATH 1149",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1,
+                1
+              ],
+              "slotNames": [
+                "College Algebra",
+                "Trigonometry"
+              ],
+              "courses": [
+                [
+                  "151919"
+                ],
+                [
+                  "151921"
+                ]
+              ]
+            },
+            "Option 2": {
+              "description": "MATH 1150",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1
+              ],
+              "slotNames": [
+                "Pre-Calculus"
+              ],
+              "courses": [
+                [
+                  "151923"
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "PUBHLTHSOC": {
+      "name": "Public Health (Sociology)",
+      "schools": [
+        "PUBHLTH"
+      ],
+      "requirements": [
+        {
+          "name": "Foundation Courses",
+          "description": "Intro-level math and programming courses. Must be taken in your first two years of the business curriculum",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "Biostatistics",
+            "Current Issues in Global Environmental Health",
+            "Global Public Health",
+            "Behavior in Public Health",
+            "Epidemiology",
+            "Health Care"
+          ],
+          "courses": [
+            [
+              "147041",
+              "162051"
+            ],
+            [
+              "159192"
+            ],
+            [
+              "160522"
+            ],
+            [
+              "159209"
+            ],
+            [
+              "159253"
+            ],
+            [
+              "159373"
+            ]
+          ]
+        },
+        {
+          "name": "Interdisciplinary Specialization Courses",
+          "description": "Intro-level business courses to be taken in the first two years of the business curriculum",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            27
+          ],
+          "courses": [
+            [
+              "154538",
+              "154540",
+              "154544",
+              "154594",
+              "154595",
+              "159193",
+              "159195",
+              "159254",
+              "159255"
+            ]
+          ]
+        },
+        {
+          "name": "Focus Area",
+          "description": "Complete 9 credits from one of the following focus areas",
+          "source": "https://data-analytics.osu.edu/major/specialization",
+          "fulfilledBy": "toggleable",
+          "fulfillmentOptions": {
+            "Criminology/Violence": {
+              "description": "",
+              "counting": "credits",
+              "perSlotMinCount": [
+                9
+              ],
+              "courses": [
+                [
+                  "154531",
+                  "154550",
+                  "154551",
+                  "154554",
+                  "154583",
+                  "154584",
+                  "154585",
+                  "156018",
+                  "162419"
+                ]
+              ]
+            },
+            "Global": {
+              "description": "",
+              "counting": "credits",
+              "perSlotMinCount": [
+                9
+              ],
+              "courses": [
+                [
+                  "154539",
+                  "154554",
+                  "156016",
+                  "156018"
+                ]
+              ]
+            },
+            "Maternal and Child Health": {
+              "description": "",
+              "counting": "credits",
+              "perSlotMinCount": [
+                9
+              ],
+              "courses": [
+                [
+                  "154536",
+                  "154537",
+                  "154553",
+                  "156017",
+                  "161295"
+                ]
+              ]
+            },
+            "Policy": {
+              "description": "",
+              "counting": "credits",
+              "perSlotMinCount": [
+                9
+              ],
+              "courses": [
+                [
+                  "154536",
+                  "154539",
+                  "154551",
+                  "156017",
+                  "162419"
+                ]
+              ]
+            },
+            "Poverty/Inequality": {
+              "description": "",
+              "counting": "credits",
+              "perSlotMinCount": [
+                9
+              ],
+              "courses": [
+                [
+                  "154526",
+                  "154536",
+                  "154539",
+                  "154542",
+                  "156017",
+                  "161295"
+                ]
+              ]
+            },
+            "Social Constructs of Gender": {
+              "description": "",
+              "counting": "credits",
+              "perSlotMinCount": [
+                9
+              ],
+              "courses": [
+                [
+                  "154537",
+                  "154550",
+                  "154554",
+                  "154580",
+                  "154584",
+                  "154597",
+                  "156018",
+                  "156029"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "Capstone Experience",
+          "description": "Complete PUBHLTH 3180 or 3180E and Choose 1 Course From the following below:",
+          "source": "https://data-analytics.osu.edu/major/core-curriculum",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Capstone Preparation",
+            "Capstone"
+          ],
+          "courses": [
+            [
+              "161694",
+              "161835"
+            ],
+            [
+              "160531",
+              "161678",
+              "161695",
+              "161839",
+              "163405"
+            ]
+          ]
+        },
+        {
+          "name": "Major Electives",
+          "description": "Select 5 credits from any Sociology course not already used. Other approved Major Elective courses: PUBHLTH 3998, PUBHLTH 5015, PUBHEHS 5330, KNSFHP 2250, 3312, 3314 ",
+          "source": "https://data-analytics.osu.edu/major/core-curriculum",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            5
+          ],
+          "courses": [
+            [
+              "147989",
+              "147998",
+              "154526",
+              "154531",
+              "154536",
+              "154537",
+              "154539",
+              "154542",
+              "154550",
+              "154551",
+              "154553",
+              "154554",
+              "154580",
+              "154583",
+              "154584",
+              "154585",
+              "154597",
+              "156016",
+              "156017",
+              "156018",
+              "156029",
+              "161295",
+              "162419",
+              "163585"
             ]
           ]
         }

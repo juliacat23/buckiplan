@@ -3,12 +3,16 @@ import universityRequirements from './university';
 
 // colleges
 import businessRequirements from './colleges/bu2022';
+import pubhealthRequirements from './colleges/pubhlth';
 
 // majors
 import accountRequirements from './majors/account';
+import pubhealthsocRequirements from './majors/phsoc';
+import pubhealthenvRequirements from './majors/phenv';
 
 // major specialization
 import { AccountingOpenOption, intBusForeignLanguage } from './specializations/bus';
+import { envDataAnalysis, envOpenOption, envMath } from './specializations/pubhlth';
 
 // minors
 import medanthRequirements from './minors/medanth';
@@ -33,6 +37,10 @@ const json: RequirementsJson = {
       name: 'Fisher College of Business',
       requirements: businessRequirements,
     },
+    PUBHLTH: {
+      name: 'Public Health',
+      requirements: pubhealthRequirements,
+    },
   },
   major: {
     ACCT: {
@@ -46,6 +54,17 @@ const json: RequirementsJson = {
       schools: ['BUS1'],
       requirements: accountRequirements,
       specializations: [intBusForeignLanguage],
+    },
+    PUBHLTHENV: {
+      name: 'Public Health - Environmental ',
+      schools: ['PUBHLTH'],
+      requirements: pubhealthenvRequirements,
+      specializations: [envDataAnalysis, envOpenOption, envMath],
+    },
+    PUBHLTHSOC: {
+      name: 'Public Health - Sociology',
+      schools: ['PUBHLTH'],
+      requirements: pubhealthsocRequirements,
     },
   },
   minor: {
