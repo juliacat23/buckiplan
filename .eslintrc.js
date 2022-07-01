@@ -1,6 +1,15 @@
 module.exports = {
   root: true,
-  extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:vue/recommended',
+    'airbnb-base',
+    '@vue/typescript',
+    'plugin:import/typescript',
+    'prettier',
+    'plugin:cypress/recommended',
+  ],
   reportUnusedDisableDirectives: true,
   plugins: ['@typescript-eslint'],
   parserOptions: {
@@ -17,6 +26,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/ban-ts-comment': ['error'],
     'vue/attribute-hyphenation': ['off'],
+    // TODO: auto-fix of this and the next rule introduces too many code changes that might cause merge conflict.
     'vue/attributes-order': ['off'],
     'vue/order-in-components': ['off'],
     'vue/multi-word-component-names': ['off'],
