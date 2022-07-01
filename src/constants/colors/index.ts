@@ -114,10 +114,6 @@ export const coursesColorSet = [
     hex: '#2E8B57',
   },
   {
-    text: 'Cornflower',
-    hex: ' #6495ED',
-  },
-  {
     text: 'Slate Blue',
     hex: '#7B68EE',
   },
