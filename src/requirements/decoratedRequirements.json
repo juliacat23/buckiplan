@@ -82,7 +82,10 @@
             "Second Year Writing"
           ],
           "courses": [
-            [],
+            [
+              "150417",
+              "150418"
+            ],
             [
               "151835",
               "151853",
@@ -640,6 +643,449 @@
         }
       ]
     },
+    "ENG": {
+      "name": "Engineering",
+      "requirements": [
+        {
+          "name": "Writing",
+          "description": "Select two courses, one per subgroup",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "First Year Writing",
+            "Second Year Writing"
+          ],
+          "courses": [
+            [
+              "150417",
+              "150418"
+            ],
+            [
+              "151835",
+              "151853",
+              "152047",
+              "154342",
+              "154827",
+              "159740",
+              "160283",
+              "160284",
+              "162585",
+              "163040",
+              "163041",
+              "163527"
+            ]
+          ]
+        },
+        {
+          "name": "Social Sciences",
+          "description": "Select two courses, no more than one per subgroup",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            6
+          ],
+          "courses": [
+            [
+              "147068",
+              "147093",
+              "147883",
+              "148126",
+              "149177",
+              "149248",
+              "150549",
+              "151245",
+              "151258",
+              "151574",
+              "151650",
+              "151687",
+              "151711",
+              "151825",
+              "151883",
+              "152042",
+              "152670",
+              "152678",
+              "154525",
+              "154539",
+              "154540",
+              "154690",
+              "154826",
+              "154829",
+              "154830",
+              "155116",
+              "156205",
+              "156524",
+              "157234"
+            ]
+          ],
+          "additionalRequirements": {
+            "Individuals & Groups Subgroup": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                0
+              ],
+              "courses": [
+                [
+                  "147068",
+                  "148126",
+                  "149177",
+                  "150549",
+                  "151245",
+                  "151258",
+                  "151574",
+                  "151825",
+                  "151883",
+                  "152678",
+                  "154525",
+                  "154690",
+                  "154826",
+                  "154829",
+                  "154830",
+                  "155116",
+                  "157234"
+                ]
+              ]
+            },
+            "Organizations & Politics Subgroup": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                0
+              ],
+              "courses": [
+                [
+                  "147068",
+                  "148126",
+                  "149177",
+                  "150549",
+                  "151245",
+                  "151258",
+                  "151574",
+                  "151825",
+                  "151883",
+                  "152678",
+                  "154525",
+                  "154690",
+                  "154826",
+                  "154829",
+                  "154830",
+                  "155116",
+                  "157234"
+                ]
+              ]
+            },
+            "Human, Natural & Economic Resources Subgroup": {
+              "fulfilledBy": "credits",
+              "perSlotMinCount": [
+                0
+              ],
+              "courses": [
+                [
+                  "147068",
+                  "148126",
+                  "149177",
+                  "150549",
+                  "151245",
+                  "151258",
+                  "151574",
+                  "151825",
+                  "151883",
+                  "152678",
+                  "154525",
+                  "154690",
+                  "154826",
+                  "154829",
+                  "154830",
+                  "155116",
+                  "157234"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "Historical Study",
+          "description": "Choose one course",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              213,
+              "147546",
+              "152469",
+              "152470",
+              "155118",
+              "155418",
+              "156805",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159748",
+              "159749",
+              "159752",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161990",
+              "162510",
+              "162798",
+              "162966",
+              "163108",
+              "163373",
+              "163374",
+              "163713",
+              "163937",
+              "164176"
+            ]
+          ]
+        },
+        {
+          "name": "Arts & Humanities",
+          "description": "Select two courses, one per subgroup",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Literature",
+            "Visual and Performing Arts"
+          ],
+          "courses": [
+            [
+              "147237",
+              "150394",
+              "150483",
+              "150610",
+              "154576",
+              "155420",
+              "160543",
+              "162295"
+            ],
+            [
+              208,
+              "147959",
+              "150408",
+              "150444",
+              "150472",
+              "151208",
+              "154885",
+              "158192",
+              "160339",
+              "160540",
+              "160670",
+              "161548",
+              "162714",
+              "162971",
+              "162972",
+              "163294",
+              "163953",
+              "164032",
+              "164382"
+            ]
+          ]
+        },
+        {
+          "name": "Breadth",
+          "description": "Select one course from Historical Study or Cultures & Ideas. Credit  for a foreign language sequence through 1103, or credit for a foreign language course with a prerequisite of 1103, can be used to satisfy the Cultures & Ideas Gen Ed category",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              208,
+              213,
+              "147546",
+              "147959",
+              "150408",
+              "150444",
+              "150472",
+              "151208",
+              "152469",
+              "152470",
+              "154885",
+              "155118",
+              "155418",
+              "156805",
+              "158192",
+              "158359",
+              "158360",
+              "158370",
+              "158387",
+              "158388",
+              "158389",
+              "158390",
+              "158392",
+              "158401",
+              "158403",
+              "158404",
+              "158407",
+              "158410",
+              "158415",
+              "158416",
+              "158418",
+              "158419",
+              "158422",
+              "158424",
+              "158427",
+              "158434",
+              "158437",
+              "158440",
+              "158447",
+              "158448",
+              "158452",
+              "158453",
+              "158461",
+              "158464",
+              "158468",
+              "158480",
+              "158487",
+              "158493",
+              "158497",
+              "158502",
+              "158507",
+              "158514",
+              "158518",
+              "158522",
+              "158525",
+              "158526",
+              "158527",
+              "158529",
+              "158530",
+              "159748",
+              "159749",
+              "159752",
+              "160339",
+              "160540",
+              "160670",
+              "160814",
+              "160824",
+              "161055",
+              "161057",
+              "161058",
+              "161548",
+              "161990",
+              "162510",
+              "162714",
+              "162798",
+              "162966",
+              "162971",
+              "162972",
+              "163108",
+              "163294",
+              "163373",
+              "163374",
+              "163713",
+              "163937",
+              "163953",
+              "164032",
+              "164176",
+              "164382"
+            ]
+          ]
+        },
+        {
+          "name": "Professional Ethics",
+          "description": "Select one course. This category permits overlap with another Gen Ed category.",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "152678",
+              "155407",
+              "156016",
+              "160239",
+              "161993",
+              "162453"
+            ]
+          ]
+        },
+        {
+          "name": "Diversity",
+          "description": "Select one course. This category permits overlap with another Gen Ed course",
+          "source": "https://advising.engineering.osu.edu/current-students/curriculum/general-education",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "147134",
+              "147972",
+              "147978",
+              "149217",
+              "149981",
+              "150554",
+              "151832",
+              "151892",
+              "152685",
+              "154537",
+              "154538",
+              "154543",
+              "154689",
+              "156017",
+              "161295",
+              "162398",
+              "163768"
+            ]
+          ]
+        }
+      ]
+    },
     "PUBHLTH": {
       "name": "Public Health",
       "requirements": [
@@ -657,7 +1103,10 @@
             "Second Year Writing"
           ],
           "courses": [
-            [],
+            [
+              "150417",
+              "150418"
+            ],
             [
               "151835",
               "151853",
@@ -2221,6 +2670,466 @@
         }
       ]
     },
+    "CSE": {
+      "name": "Computer Science",
+      "schools": [
+        "ENG"
+      ],
+      "requirements": [
+        {
+          "name": "Major Admission Requirements",
+          "description": "Courses to be completed before applying to the CSE Major",
+          "source": "https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "FE/FEH 1",
+            "FE/FEH 2",
+            "Calculus I",
+            "Calculus I",
+            "Mechanics, Work and Energy, Thermal Physics",
+            "Software I: Software Components"
+          ],
+          "courses": [
+            [],
+            [],
+            [
+              102,
+              215,
+              216,
+              "151927",
+              "151966"
+            ],
+            [
+              "151965"
+            ],
+            [
+              "147687",
+              "147688",
+              "147712"
+            ],
+            [
+              "150505"
+            ]
+          ]
+        },
+        {
+          "name": "Computer Science Core",
+          "description": "Intro-level math and programming courses. Must be taken in your first two years of the business curriculum",
+          "source": "https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "Software II: Software Development & Design",
+            "Foundations I: Discrete Structures",
+            "Foundations II: Data Structures & Algorithms",
+            "Systems I: Low-Level Programing",
+            "Systems II: Operating Systems",
+            "Computing Ethics (choose 1)"
+          ],
+          "courses": [
+            [
+              "150509"
+            ],
+            [
+              "150511"
+            ],
+            [
+              "150518"
+            ],
+            [
+              "150519"
+            ],
+            [
+              "150521"
+            ],
+            [
+              "150535"
+            ],
+            [
+              "150527",
+              "162453"
+            ]
+          ]
+        },
+        {
+          "name": "Non-Computer Science Core",
+          "description": "Select at least 3 of the following courses",
+          "source": "https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "Anaog Systems",
+            "Digital Logic",
+            "Linear Algebra",
+            "Foundations of Higher Mathematics",
+            "Statistics for Engineers"
+          ],
+          "courses": [
+            [
+              "162440"
+            ],
+            [
+              "162442"
+            ],
+            [
+              "153059",
+              "163502"
+            ],
+            [
+              "153060",
+              "163534"
+            ],
+            []
+          ]
+        },
+        {
+          "name": "Specialization",
+          "description": "Select and choose one of the following specialization options: Artifical Intelligence, Computer Graphics and Game Design, Database Systems and Data Analytics, Information and Computation Assurance, Computer Networking, Computer Systems, Software Engineering, Individualized Option",
+          "source": "https://cse.osu.edu/sites/default/files/uploads/purple_bs_cis_and_cse_specialization_options_au18_forward_rev_022219_purple.pdf",
+          "fulfilledBy": "toggleable",
+          "fulfillmentOptions": {
+            "Artifical Intelligence": {
+              "description": "Complete the required courses of CSE 3521 and CSE 5522. Choose one course to complete from the remaining options",
+              "counting": "credits",
+              "perSlotMinCount": [
+                3,
+                3,
+                3
+              ],
+              "courses": [
+                [
+                  "150541"
+                ],
+                [],
+                [
+                  "150760",
+                  "150761",
+                  "150762",
+                  "150763"
+                ]
+              ]
+            },
+            "Computer Graphics and Game Design": {
+              "description": "Complete the required courses of CSE 3541 and CSE 3902. Choose one course to complete from the remaining options",
+              "counting": "credits",
+              "perSlotMinCount": [
+                3,
+                3,
+                3
+              ],
+              "courses": [
+                [
+                  "150543"
+                ],
+                [
+                  "150548"
+                ],
+                [
+                  "150760",
+                  "150761",
+                  "150762",
+                  "150763"
+                ]
+              ]
+            },
+            "Business Analytics": {
+              "description": "Complete coursework in economics and business analytics. Students must complete at least 9 credits of elective courses from the list below.",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1,
+                1,
+                1,
+                1,
+                3
+              ],
+              "slotNames": [
+                "Microeconomics",
+                "Macroeconomics",
+                "\"Big Data\"",
+                "Designing Business Solutions",
+                "Electives"
+              ],
+              "courses": [
+                [
+                  205,
+                  "152673"
+                ],
+                [
+                  205,
+                  "152675"
+                ],
+                [
+                  "151694"
+                ],
+                [
+                  "151701"
+                ],
+                [
+                  "163585"
+                ],
+                [
+                  "147641",
+                  "147672",
+                  "147674",
+                  "147675",
+                  "147682",
+                  "147686",
+                  "147690",
+                  "147693",
+                  "147707",
+                  "150013",
+                  "150240",
+                  "150241",
+                  "151808",
+                  "157163",
+                  "157165",
+                  "157167",
+                  "161301"
+                ]
+              ]
+            },
+            "Computational Analytics": {
+              "description": "Students in the Computational Analytics specialization must take 10 credit hours of coursework from the electives listed below",
+              "counting": "credits",
+              "perSlotMinCount": [
+                10
+              ],
+              "courses": [
+                [
+                  "148128",
+                  "150518",
+                  "150521",
+                  "150540",
+                  "150541",
+                  "150546",
+                  "150548",
+                  "150630",
+                  "150722",
+                  "150748",
+                  "150749",
+                  "150760",
+                  "150761",
+                  "150762",
+                  "150763",
+                  "151938",
+                  "151954",
+                  "152102",
+                  "155235",
+                  "155236"
+                ]
+              ]
+            },
+            "Data Visualization": {
+              "description": "All students specializing in Data Visualization must complete the following courses. ISE 5760 must be taken as a core requirement",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1,
+                1,
+                1,
+                1
+              ],
+              "slotNames": [
+                "Information Design",
+                "Intro to Data Vis",
+                "Interactive Arts",
+                "Trends in Data Vis"
+              ],
+              "courses": [
+                [
+                  "153370"
+                ],
+                [
+                  "150789"
+                ],
+                [
+                  "160220"
+                ],
+                [
+                  "163245"
+                ]
+              ]
+            },
+            "Social Science Analytics": {
+              "description": "Students are required to complete 1 Overview of Research Methods course, 3 elective courses, and independent research in the social sciences",
+              "counting": "courses",
+              "perSlotMinCount": [
+                1,
+                1,
+                3
+              ],
+              "slotNames": [
+                "Research Methods",
+                "Independent Research",
+                "Electives"
+              ],
+              "courses": [
+                [
+                  "151599",
+                  "151975",
+                  "154544"
+                ],
+                [
+                  "148190",
+                  "150063",
+                  "159919",
+                  "161082",
+                  "161506",
+                  "161512"
+                ],
+                [
+                  "148119",
+                  "148120",
+                  "149506",
+                  "149507",
+                  "149509",
+                  "149512",
+                  "150183",
+                  "150702",
+                  "151600",
+                  "152721",
+                  "161948"
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "name": "Chemistry Core",
+          "description": "Complete a two-semester sequence of General Chemistry and a one-semester sequence of Organic Chemistry with a lab",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "slotNames": [
+            "General Chemistry I",
+            "General Chemistry II",
+            "Organic Chemistry I",
+            "Organic Chemistry I Lab"
+          ],
+          "courses": [
+            [
+              105,
+              204,
+              "149724",
+              "149736",
+              "149738"
+            ],
+            [
+              "149734",
+              "149737",
+              "149749"
+            ],
+            [
+              "149759"
+            ],
+            [
+              "149766"
+            ]
+          ]
+        },
+        {
+          "name": "Earth Science Core",
+          "description": "Select at least 3 of the following courses",
+          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            9
+          ],
+          "courses": [
+            [
+              "150294",
+              "150297",
+              "150353",
+              "151076",
+              "155125"
+            ]
+          ]
+        },
+        {
+          "name": "Capstone Experience",
+          "description": "Complete PUBHLTH 3180 or 3180E and Choose 1 Course From the following below:",
+          "source": "https://data-analytics.osu.edu/major/core-curriculum",
+          "fulfilledBy": "courses",
+          "perSlotMinCount": [
+            1,
+            1
+          ],
+          "slotNames": [
+            "Capstone Preparation",
+            "Capstone"
+          ],
+          "courses": [
+            [
+              "161694",
+              "161835"
+            ],
+            [
+              "160531",
+              "161678",
+              "161695",
+              "161839",
+              "163405"
+            ]
+          ]
+        },
+        {
+          "name": "Major Electives",
+          "description": "Select six credits from interdisciplinary specialization courses not already used. Other approved courses that fulfill Major Electives: EARTHSC 5651, ENR 2100, 3000, GEOG 2800, 5220, PUBHLTH 5015, 5330, 3998",
+          "source": "https://data-analytics.osu.edu/major/core-curriculum",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            5
+          ],
+          "courses": [
+            [
+              "149204",
+              "149506",
+              "150294",
+              "150297",
+              "150353",
+              "151076",
+              "151510",
+              "152036",
+              "152081",
+              "155125",
+              "159191",
+              "159193",
+              "159194",
+              "159195",
+              "159196",
+              "159254",
+              "159255",
+              "159271"
+            ]
+          ]
+        }
+      ]
+    },
     "INTLBUS": {
       "name": "International Business",
       "schools": [
@@ -2472,7 +3381,7 @@
       ]
     },
     "PUBHLTHENV": {
-      "name": "Public Health (Environmental)",
+      "name": "Public Health - Environmental ",
       "schools": [
         "PUBHLTH"
       ],
@@ -2793,7 +3702,7 @@
       ]
     },
     "PUBHLTHSOC": {
-      "name": "Public Health (Sociology)",
+      "name": "Public Health - Sociology",
       "schools": [
         "PUBHLTH"
       ],
@@ -3384,7 +4293,10 @@
             "Second-Year Writing"
           ],
           "courses": [
-            [],
+            [
+              "150417",
+              "150418"
+            ],
             [
               "151835",
               "151853",
@@ -3816,7 +4728,10 @@
             "First-Year English Composition"
           ],
           "courses": [
-            []
+            [
+              "150417",
+              "150418"
+            ]
           ]
         },
         {

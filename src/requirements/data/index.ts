@@ -4,9 +4,11 @@ import universityRequirements from './university';
 // colleges
 import businessRequirements from './colleges/bu2022';
 import pubhealthRequirements from './colleges/pubhlth';
+import engPre2022Requirements from './colleges/engPre2022';
 
 // majors
 import accountRequirements from './majors/account';
+import cseRequirements from './majors/cse';
 import pubhealthsocRequirements from './majors/phsoc';
 import pubhealthenvRequirements from './majors/phenv';
 
@@ -37,6 +39,10 @@ const json: RequirementsJson = {
       name: 'Fisher College of Business',
       requirements: businessRequirements,
     },
+    ENG: {
+      name: 'Engineering',
+      requirements: engPre2022Requirements,
+    },
     PUBHLTH: {
       name: 'Public Health',
       requirements: pubhealthRequirements,
@@ -48,6 +54,11 @@ const json: RequirementsJson = {
       schools: ['BUS1'],
       requirements: accountRequirements,
       specializations: [AccountingOpenOption],
+    },
+    CSE: {
+      name: 'Computer Science',
+      schools: ['ENG'],
+      requirements: cseRequirements,
     },
     INTLBUS: {
       name: 'International Business',
