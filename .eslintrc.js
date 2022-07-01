@@ -1,17 +1,8 @@
 module.exports = {
   root: true,
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:vue/recommended',
-    'airbnb-base',
-    '@vue/typescript',
-    'plugin:import/typescript',
-    'prettier',
-    'plugin:cypress/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:vue/vue3-essential', 'plugin:import/typescript', 'prettier'],
   reportUnusedDisableDirectives: true,
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import'],
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020,
@@ -28,8 +19,16 @@ module.exports = {
     'vue/attribute-hyphenation': ['off'],
     // TODO: auto-fix of this and the next rule introduces too many code changes that might cause merge conflict.
     'vue/attributes-order': ['off'],
-    'vue/order-in-components': ['off'],
+    'vue/first-attribute-linebreak': ['off'],
     'vue/multi-word-component-names': ['off'],
+    'vue/order-in-components': ['off'],
+    'vue/first-attribute-linebreak': [
+      'error',
+      {
+        singleline: 'ignore',
+        multiline: 'ignore',
+      },
+    ],
     'vue/no-v-html': ['error'],
     'no-console': ['warn'],
     'no-await-in-loop': ['error'],
