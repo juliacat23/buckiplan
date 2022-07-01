@@ -1,26 +1,21 @@
 <template>
-  <router-view />
+  <div id="app">
+    <router-view :class="{ 'disable-scroll': isModalOpen }" />
+    <div id="modalTarget"></div>
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent } from 'vue';
+import store from '@/store';
 
-nav {
-  padding: 30px;
+export default defineComponent({
+  computed: {
+    isModalOpen() {
+      return store.state.isTeleportModalOpen;
+    },
+  },
+});
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
