@@ -13,6 +13,9 @@ type FirestoreSemesterCourse = {
   readonly credits: number;
   readonly creditRange: readonly [number, number];
   readonly semesters: readonly string[];
+  readonly description?: readonly string;
+  readonly prereqs?: readonly string;
+  readonly career?: readonly string;
   readonly color: string;
 };
 
@@ -166,8 +169,9 @@ type AppBottomBarCourse = {
   readonly credits: number;
   readonly color: string;
   readonly semesters: readonly string[];
-  readonly description: string;
-  readonly prereqs: string;
+  readonly career?: readonly string;
+  readonly description?: string;
+  readonly prereqs?: string;
 };
 
 type AppToggleableRequirementChoices = Readonly<Record<string, string>>;

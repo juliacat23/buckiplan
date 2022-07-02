@@ -13,12 +13,12 @@
       </div>
       <div>
         <div class="section">
-          <h1 class="info-head">Instructors</h1>
-          <!-- <p class="info-fact">{{ courseInstructors }}</p> -->
+          <h1 class="info-head">Academic Career</h1>
+          <p class="info-fact">{{ courseObj.career }}</p>
         </div>
         <div class="section">
           <h1 class="info-head">Enrollment Information</h1>
-          <!-- <p class="info-fact">{{ courseEnrollment }}</p> -->
+          <p class="info-fact">{{ courseObj.career }}</p>
         </div>
       </div>
       <div>

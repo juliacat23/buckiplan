@@ -50,10 +50,10 @@
         </div> -->
       </div>
     </div>
-    <div class="details-head">Prerequisites</div>
-    <p class="info-fact">{{ coursePrereqs }}</p>
     <div class="details-head">Description</div>
     <p class="info-fact">{{ courseObj.description }}</p>
+    <div class="details-head">Prerequisites</div>
+    <p class="info-fact">{{ courseObj.prereqs }}</p>
   </div>
 </template>
 
@@ -94,9 +94,6 @@ export default defineComponent({
   },
 
   computed: {
-    coursePrereqs(): string {
-      return noneIfEmpty(this.courseObj.prereqs);
-    },
   },
 });
 </script>

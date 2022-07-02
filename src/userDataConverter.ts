@@ -24,6 +24,12 @@ export const osuCourseToFirebaseSemesterCourseWithCustomIDAndColor = (
       : course.catalogWhenOffered.replace(/\./g, '').split(', ');
   const semesters = alternateSemesters;
 
+  const description = course.catalogDescription;
+
+  const prereqs = course.catalogPreReqs;
+
+  const career = course.acadCareer;
+
   return {
     crseId: course.crseId,
     code: `${subject} ${number}`,
@@ -32,6 +38,9 @@ export const osuCourseToFirebaseSemesterCourseWithCustomIDAndColor = (
     creditRange,
     semesters,
     color,
+    career,
+    description,
+    prereqs,
     uniqueID,
   };
 };
@@ -53,6 +62,9 @@ export const firestoreSemesterCourseToBottomBarCourse = ({
   credits,
   color,
   semesters,
+  career,
+  description,
+  prereqs,
   uniqueID,
 }: FirestoreSemesterCourse): AppBottomBarCourse => ({
   code,
@@ -60,8 +72,9 @@ export const firestoreSemesterCourseToBottomBarCourse = ({
   credits,
   color,
   semesters,
-  prereqs: '',
-  description: '',
+  career,
+  prereqs,
+  description,
   uniqueID,
 });
 
