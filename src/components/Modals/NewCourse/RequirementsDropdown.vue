@@ -7,12 +7,12 @@
         <img class="warning-icon" src="@/assets/images/warning.svg" alt="warning icon" />
         {{ selected }}
       </div>
-      <drop-down-arrow :isFlipped="showDropdown" :fillColor="emGreen" />
+      <drop-down-arrow :isFlipped="showDropdown" :fillColor="scarlet" />
     </button>
     <button v-else class="dropdown" type="button" @click="showDropdown = !showDropdown" data-toggle="dropdown"
       aria-haspopup="true" :aria-expanded="showDropdown" data-cyId="newCourse-requirementsDropdown">
       {{ selected === '' ? 'Select one (optional)' : selected }}
-      <drop-down-arrow :isFlipped="showDropdown" :fillColor="emGreen" />
+      <drop-down-arrow :isFlipped="showDropdown" :fillColor="scarlet" />
     </button>
     <ul v-if="showDropdown" class="dropdown-content">
       <li v-for="option in relatedRequirements.filter(it => it.id !== selectedID)" :key="option.id">
@@ -41,11 +41,12 @@ import { PropType, defineComponent } from 'vue';
 
 import { clickOutside } from '@/utilities';
 import DropDownArrow from '@/components/DropDownArrow.vue';
-import { emGreen } from '@/constants/scss-variables';
+import { scarlet } from '@/constants/scss-variables';
+
 
 type Data = {
   showDropdown: boolean;
-  emGreen: string;
+  scarlet: string;
 };
 
 export default defineComponent({
@@ -67,7 +68,7 @@ export default defineComponent({
   data(): Data {
     return {
       showDropdown: false,
-      emGreen,
+      scarlet,
     };
   },
   computed: {
@@ -98,10 +99,10 @@ export default defineComponent({
 @import '@/scss/variables';
 
 .dropdown {
-  border: 1px solid $emGreen;
+  border: 1px solid $scarlet;
   box-sizing: border-box;
   border-radius: 4px;
-  color: $emGreen;
+  color: $scarlet;
   height: 36px;
   margin-bottom: 20px;
   background: none;

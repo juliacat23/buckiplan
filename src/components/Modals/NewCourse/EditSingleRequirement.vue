@@ -45,10 +45,10 @@ export default defineComponent({
 @import '@/scss/variables';
 
 .edit-requirement {
-  border: 1px solid $emGreen;
+  border: 1px solid $scarlet;
   box-sizing: border-box;
   border-radius: 4px;
-  color: $emGreen;
+  color: $scarlet;
   height: 36px;
   width: 196px;
   margin-bottom: 20px;
@@ -62,7 +62,7 @@ export default defineComponent({
 
   &-selected {
     @extend .edit-requirement, .edit-requirement-text;
-    background: $emGreen;
+    background: $scarlet;
     color: $white;
     display: flex;
     flex-direction: row;

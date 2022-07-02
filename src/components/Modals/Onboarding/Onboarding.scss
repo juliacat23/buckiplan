@@ -295,13 +295,13 @@ input {
 
   &-add {
     cursor: pointer;
-    color: $emGreen;
+    color: $scarlet;
   }
 
   &-remove {
     cursor: pointer;
     margin-left: 1rem;
-    color: $emGreen;
+    color: $scarlet;
     padding-bottom: 0.5rem;
   }
 
@@ -351,7 +351,7 @@ input {
   }
 
   &-button {
-    background: $emGreen;
+    background: $scarlet;
     border: 0;
     box-sizing: border-box;
     border-radius: 1px;
@@ -364,7 +364,7 @@ input {
 
     &-previous {
       background: $white;
-      color: $emGreen;
+      color: $scarlet;
       border-radius: 0px;
       border-width: 0px;
     }
@@ -520,7 +520,7 @@ input {
   }
 
   &-required-star {
-    color: $emGreen;
+    color: $scarlet;
     display: contents;
   }
 

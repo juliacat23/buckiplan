@@ -6,6 +6,7 @@ export const secondaryGray: string;
 export const lightPlaceholderGray: string;
 export const darkPlaceholderGray: string;
 export const emGreen: string;
+export const scarlet: string;
 export const smallBreakpoint: string;
 export const smallMediumBreakpoint: string;
 export const mediumBreakpoint: string;

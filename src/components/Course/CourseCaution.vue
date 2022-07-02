@@ -191,7 +191,7 @@ li.warning-item {
 }
 
 .warning-button {
-  color: $emGreen;
+  color: $scarlet;
   text-transform: uppercase;
   font-weight: normal;
   text-decoration-line: underline;

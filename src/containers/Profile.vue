@@ -103,11 +103,8 @@ export default defineComponent({
           .some((majorFullName: string) => majorFullName === '') ||
         this.onboarding.minor
           .map(getMinorFullName)
-          .some((minorFullName: string) => minorFullName === '') ||
-        this.onboarding.preProgram
-          .map(getPreProgramFullName)
-          .some((preProgramFullName: string) => preProgramFullName === '')
-      );
+          .some((minorFullName: string) => minorFullName === ''));
+
     },
     isError(): boolean {
       if (!this.changed || this.isInvalidGraduationSemester || this.isInvalidMajorMinorGradError) {
@@ -190,7 +187,7 @@ export default defineComponent({
       college: string,
       major: readonly string[],
       minor: readonly string[],
-      preProgram: readonly string[],
+      preProgram: string,
       name: FirestoreUserName
     ) {
       this.name = name;
@@ -324,7 +321,7 @@ export default defineComponent({
   }
 
   &-finishButton {
-    background: $emGreen;
+    background: $scarlet;
     border: 0;
     box-sizing: border-box;
     border-radius: 1px;
@@ -338,14 +335,14 @@ export default defineComponent({
 
     &-previous {
       background: $white;
-      color: $emGreen;
+      color: $scarlet;
       border-radius: 0px;
       border-width: 0px;
     }
   }
 
   &-finishButton:disabled {
-    background: $emGreen;
+    background: $scarlet;
     border: 0;
     opacity: 0.5;
     box-sizing: border-box;

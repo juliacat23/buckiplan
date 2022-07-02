@@ -23,10 +23,10 @@
         <div class="newCourse-title">
           <strong class="newCourse-name">
             {{
-              nonAutoRequirementsTextArray
-                .filter(it => !it.selected)
-                .map(it => it.name)
-                .join(', ')
+                nonAutoRequirementsTextArray
+                  .filter(it => !it.selected)
+                  .map(it => it.name)
+                  .join(', ')
             }}
           </strong>
         </div>
@@ -34,9 +34,9 @@
       <div v-else>
         <div v-if="selectedRequirementName === ''" class="newCourse-title">
           {{
-            selectedRequirementName === ''
-              ? 'This class could potentially fulfill the following requirement(s):'
-              : ''
+              selectedRequirementName === ''
+                ? 'This class could potentially fulfill the following requirement(s):'
+                : ''
           }}
         </div>
         <div v-else>
@@ -64,7 +64,7 @@ import { PropType, defineComponent } from 'vue';
 import { GTagEvent } from '@/gtag';
 import RequirementsDropdown from '@/components/Modals/NewCourse/RequirementsDropdown.vue';
 
-export type RequirementWithID = { readonly id: string; readonly name: string };
+export type RequirementWithID = { readonly id: string; readonly name: string; };
 
 export default defineComponent({
   components: { RequirementsDropdown },
@@ -77,12 +77,12 @@ export default defineComponent({
     },
     // self check requirements
     potentialRequirements: {
-      type: Array as PropType<readonly { readonly id: string; readonly name: string }[]>,
+      type: Array as PropType<readonly { readonly id: string; readonly name: string; }[]>,
       required: true,
     },
     // all the other ones that don't allow double counting
     relatedRequirements: {
-      type: Array as PropType<readonly { readonly id: string; readonly name: string }[]>,
+      type: Array as PropType<readonly { readonly id: string; readonly name: string; }[]>,
       required: true,
     },
   },
@@ -102,10 +102,10 @@ export default defineComponent({
     },
     // nonAutoRequirements = relatedRequirements + potentialRequirements
     // All the requirements that are not automatically associated with the course
-    nonAutoRequirements(): { readonly id: string; readonly name: string }[] {
+    nonAutoRequirements(): { readonly id: string; readonly name: string; }[] {
       return this.relatedRequirements.concat(this.potentialRequirements);
     },
-    nonAutoRequirementsTextArray(): { readonly name: string; readonly selected: boolean }[] {
+    nonAutoRequirementsTextArray(): { readonly name: string; readonly selected: boolean; }[] {
       return this.nonAutoRequirements.map(it => ({
         name: it.name,
         selected: it.name === this.selectedRequirementName,
@@ -155,7 +155,7 @@ export default defineComponent({
     font-weight: 600;
     font-size: 14px;
     line-height: 14px;
-    color: $emGreen;
+    color: $scarlet;
 
     &-container {
       display: flex;
