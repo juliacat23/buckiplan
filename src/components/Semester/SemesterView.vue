@@ -27,12 +27,7 @@
     </div>
     <div class="semesterView-bot">
       <div class="semesterView-builtBy">
-        Built with
-        <img class="semesterView-heart" src="@/assets/images/redHeart.svg" alt="heart" />
-        by
-        <a target="_blank" href="https://www.cornelldti.org/projects/courseplan/">
-          Cornell Design &amp; Tech Initiative
-        </a>
+        BuckiPlan @ {{ getYear() }}
       </div>
     </div>
   </main>
@@ -133,6 +128,10 @@ export default defineComponent({
     getToggleTooltipText() {
       return `<div class="introjs-tooltipTop"><div class="introjs-customTitle">Toggle between Views</div><div class="introjs-customProgress">4/4</div>
       </div><div class = "introjs-bodytext">View semesters and courses in full or compact mode.</div>`;
+    },
+    getYear() {
+      const today = new Date();
+      return today.getFullYear();
     },
   },
 });

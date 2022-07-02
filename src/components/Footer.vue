@@ -2,8 +2,7 @@
     <div class="container-fluid footer p-0 page_404">
         <div class="row footer justify-content-center m-0">
             <div class="col-3 footer">
-                <a href="https://www.cornelldti.org/projects/courseplan/" class="footer" target="_blank">
-                    Cornell DTI @ {{ getYear() }}</a>
+                Buckiplan @ {{ getYear() }}
             </div>
             <div class="col-3">
                 <!-- <p class="footer">
