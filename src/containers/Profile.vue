@@ -300,7 +300,7 @@ export default defineComponent({
     display: flex;
     align-items: center;
     color: #000000;
-    border-bottom: 3px solid $emGreen;
+    border-bottom: 3px solid $scarlet;
   }
 
   &-button {

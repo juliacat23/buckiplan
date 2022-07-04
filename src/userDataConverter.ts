@@ -30,6 +30,10 @@ export const osuCourseToFirebaseSemesterCourseWithCustomIDAndColor = (
 
   const career = course.acadCareer;
 
+  const instruction = course.instructionInfo;
+
+  const mode = course.instructionMode;
+
   return {
     crseId: course.crseId,
     code: `${subject} ${number}`,
@@ -41,6 +45,8 @@ export const osuCourseToFirebaseSemesterCourseWithCustomIDAndColor = (
     career,
     description,
     prereqs,
+    instruction,
+    mode,
     uniqueID,
   };
 };
@@ -65,6 +71,8 @@ export const firestoreSemesterCourseToBottomBarCourse = ({
   career,
   description,
   prereqs,
+  instruction,
+  mode,
   uniqueID,
 }: FirestoreSemesterCourse): AppBottomBarCourse => ({
   code,
@@ -75,6 +83,8 @@ export const firestoreSemesterCourseToBottomBarCourse = ({
   career,
   prereqs,
   description,
+  instruction,
+  mode,
   uniqueID,
 });
 

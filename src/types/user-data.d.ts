@@ -13,6 +13,9 @@ type FirestoreSemesterCourse = {
   readonly credits: number;
   readonly creditRange: readonly [number, number];
   readonly semesters: readonly string[];
+  readonly reqs?: readonly string[];
+  readonly instruction?: readonly string;
+  readonly mode: readonly string;
   readonly description?: readonly string;
   readonly prereqs?: readonly string;
   readonly career?: readonly string;
@@ -133,17 +136,20 @@ interface OSUCourse {
   readonly crseId: number;
   readonly subject: string;
   readonly catalogNbr: string;
+  readonly catalogLevel: string;
   readonly titleLong: string;
+  readonly catalogWhenOffered?: string | null;
+  readonly catalogDescription?: string;
+  readonly acadGroup: string;
+  readonly acadCareer: string;
+  readonly catalogSatisfiesReq?: string;
+  readonly instructionInfo: string;
+  readonly instructionMode: string;
   readonly enrollGroups: readonly {
     readonly unitsMinimum: number;
     readonly unitsMaximum: number;
   }[];
-  readonly catalogWhenOffered?: string | null;
-  readonly catalogSatisfiesReq?: string;
-  readonly catalogDescription?: string;
   readonly catalogPreReqs?: string;
-  readonly acadCareer: string;
-  readonly acadGroup: string;
 }
 
 interface OSUCourseFullDetail extends OSUCourse {
@@ -170,6 +176,8 @@ type AppBottomBarCourse = {
   readonly color: string;
   readonly semesters: readonly string[];
   readonly career?: readonly string;
+  readonly instruction?: readonly string;
+  readonly mode?: readonly string;
   readonly description?: string;
   readonly prereqs?: string;
 };

@@ -104,7 +104,7 @@ export default defineComponent({
   height: 25.25rem;
   display: flex;
   flex-direction: column;
-  background-color: $emGreen;
+  background-color: $scarlet;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
   padding: 1rem 1.5rem;
