@@ -86,16 +86,12 @@ export const coursesColorSet = [
     hex: '#FF6347',
   },
   {
-    text: 'Gold',
-    hex: '#FFD700',
-  },
-  {
     text: 'Raspberry',
     hex: '#872657',
   },
   {
     text: 'Turquoise',
-    hex: '#00C5CD',
+    hex: '#39c9bb',
   },
   {
     text: 'Khaki',
