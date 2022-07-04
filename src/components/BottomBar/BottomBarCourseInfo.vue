@@ -163,12 +163,11 @@ export default defineComponent({
 
 .geInfo {
   width: 100%;
-  padding-right: 20px;
+  padding-right: 3px;
   padding-left: 20px;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin-bottom: 0rem;
 
   &-head {
@@ -180,8 +179,7 @@ export default defineComponent({
   }
 
   &-fact {
-    padding-right: 10px;
-    font-size: 16px;
+    padding-right: 2px;
     color: $primaryGray;
     margin-bottom: 0rem;
   }
