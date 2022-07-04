@@ -507,7 +507,7 @@ export default defineComponent({
   border-radius: 11px;
 
   &-addSemesterButton {
-    background: $sangBlue;
+    background: $brightMaroon;
     border-radius: 8px;
     min-height: 2.5rem;
     min-width: 9rem;

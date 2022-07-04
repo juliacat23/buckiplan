@@ -177,12 +177,12 @@ export default defineComponent({
     border: none;
     padding: 0;
     font-weight: normal;
-    color: $sangBlue;
+    color: $brightMaroon;
   }
 
   a {
     font-weight: normal;
-    color: $sangBlue;
+    color: $brightMaroon;
   }
 }
 </style>

@@ -150,7 +150,7 @@ export const clickOutside = {
 
 /// reqGroupColorList determines the colors of the first 3 types of requirements the user has in their plan
 // if they have 4 - wraps around
-const reqGroupColorList = ['4D7D92', '148481', '105351'];
+const reqGroupColorList = ['ba0c2f', 'a70b2a', '950a26'];
 
 // get the color for a given requirement type in the requirements sidebar
 export function getReqColor(groupName: string, onboardingData: AppOnboardingData): string {

@@ -192,8 +192,8 @@ export default defineComponent({
 }
 
 button.active {
-  color: $sangBlue;
-  border-bottom: solid 10px $sangBlue;
+  color: $brightMaroon;
+  border-bottom: solid 10px $brightMaroon;
   padding-bottom: 2px;
   margin: 5px;
 }

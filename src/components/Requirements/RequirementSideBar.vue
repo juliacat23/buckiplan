@@ -403,9 +403,9 @@ export default defineComponent({
 .see-all-button {
   width: 4.75rem;
   height: 2rem;
-  color: $sangBlue;
+  color: $brightMaroon;
   border-radius: 3px;
-  border: 1px solid $sangBlue;
+  border: 1px solid $brightMaroon;
   background-color: $white;
   display: flex;
   justify-content: center;
@@ -429,7 +429,7 @@ export default defineComponent({
 
   &--disabled {
     opacity: 0.3;
-    border: 1px solid $sangBlue;
+    border: 1px solid $brightMaroon;
     background-color: $disabledGray;
   }
 }

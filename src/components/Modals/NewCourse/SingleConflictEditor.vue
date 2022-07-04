@@ -99,8 +99,8 @@ export default defineComponent({
   &-pill {
     margin-left: 0.3rem;
     padding: 0 0.3rem;
-    color: $sangBlue;
-    border: 1px solid $sangBlue;
+    color: $brightMaroon;
+    border: 1px solid $brightMaroon;
     border-radius: 10px;
     font-size: 12px;
     line-height: 14px;

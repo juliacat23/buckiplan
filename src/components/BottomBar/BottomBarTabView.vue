@@ -109,7 +109,7 @@ export default defineComponent({
       color: $white;
       width: 9rem;
       height: 1.75rem;
-      background-color: $sangBlue;
+      background-color: $brightMaroon;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       display: flex;

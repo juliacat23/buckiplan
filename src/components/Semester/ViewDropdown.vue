@@ -12,9 +12,9 @@
         @click="$emit('click-compact', true)" />
       <div class="dropdown-content--hline" />
       <view-dropdown-option alt="order by newest" :selected="orderByNewest" :image="newestArrow" label="Newest"
-        @click="onOrderClick(true)" />
-      <view-dropdown-option alt="order by oldest" :selected="!orderByNewest" :image="oldestArrow" label="Oldest"
         @click="onOrderClick(false)" />
+      <view-dropdown-option alt="order by oldest" :selected="!orderByNewest" :image="oldestArrow" label="Oldest"
+        @click="onOrderClick(true)" />
     </div>
   </div>
 </template>
