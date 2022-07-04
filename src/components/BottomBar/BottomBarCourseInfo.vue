@@ -40,7 +40,7 @@
   <div class="geInfo">
     <div class="geSection">
       <h1 class="geInfo-head">GE Attributes</h1>
-      <p class="geInfo-fact">{{ courseObj.prereqs }}</p>
+      <p class="geInfo-fact">{{ courseObj.reqsDescription }}</p>
     </div>
   </div>
 </template>
