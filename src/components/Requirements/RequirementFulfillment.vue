@@ -104,6 +104,7 @@ export default defineComponent({
 
 .description {
   color: $onboardingGray;
+  white-space: pre-wrap;
   font-size: 14px;
 }
 </style>

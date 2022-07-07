@@ -16,7 +16,7 @@
     <div class="progress-string">{{ progressString }}</div>
   </div>
   <div v-else>
-    {{ requirement.description }}
+    <div style="white-space: pre-line">{{ requirement.description }}</div>
     <a :style="{ color: `#${color}` }" :href="requirement.source" target="_blank">
       <strong>Learn More</strong></a>
   </div>
@@ -68,8 +68,10 @@ export default defineComponent({
   padding: 0 0.5rem;
   border-left: 1px solid $inactiveGray;
 
+
   .single-choice {
-    display: block;
+    white-space: pre-wrap;
+    display: block
   }
 }
 

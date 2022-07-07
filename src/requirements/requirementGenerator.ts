@@ -31,6 +31,9 @@ const specialCourses: Course[] = Object.entries(SPECIAL_COURSES)
     titleLong: '',
     enrollGroups: [],
     acadCareer: '',
+    catalogLevel: '',
+    instructionInfo: '',
+    instructionMode: '',
     acadGroup: '',
   }))
   .filter(({ crseId }) => crseId !== NO_FULFILLMENTS_COURSE_ID);

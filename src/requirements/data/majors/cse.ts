@@ -122,153 +122,98 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
     perSlotMinCount: [17],
   },
   {
-    name: 'Specialization',
-    description:
-      'Select and choose one of the following specialization options: Artifical Intelligence, Computer Graphics and Game Design, Database Systems and Data Analytics, Information and Computation Assurance, Computer Networking, Computer Systems, Software Engineering, Individualized Option',
-    source:
-      'https://cse.osu.edu/sites/default/files/uploads/purple_bs_cis_and_cse_specialization_options_au18_forward_rev_022219_purple.pdf',
+    name: 'Name',
+    description: 'Option 1: CHEM 2070 and CHEM 2080, Option 2: CHEM 2150',
+    source: 'https://chemistry.cornell.edu/required-core-courses',
     fulfilledBy: 'toggleable',
     fulfillmentOptions: {
       'Artifical Intelligence': {
         description:
-          'Complete the required courses of CSE 3521 and CSE 5522. Choose one course to complete from the remaining options',
-        counting: 'credits',
+          'Required Courses: CSE 3521 and CSE 5522 \n A. Choose one from CSE 5523, CSE 5524, CSE 5525, CSE 5526',
         checker: includesWithSubRequirements(
-          ['CSE 3521'],
-          ['CSE 5522'],
+          ['CSE 3521', 'CSE 5522'],
           ['CSE 5523', 'CSE 5524', 'CSE 5525', 'CSE 5526']
         ),
-        perSlotMinCount: [3, 3, 3],
+        counting: 'courses',
+        perSlotMinCount: [2, 1],
+        slotNames: ['Required Courses', 'Elective Courses'],
       },
       'Computer Graphics and Game Design': {
         description:
-          'Complete the required courses of CSE 3541 and CSE 3902. Choose one course to complete from the remaining options',
-        counting: 'credits',
-        checker: includesWithSubRequirements(
-          ['CSE 3541'],
-          ['CSE 3902'],
-          ['CSE 5523', 'CSE 5524', 'CSE 5525', 'CSE 5526']
-        ),
-        perSlotMinCount: [3, 3, 3],
-      },
-      'Business Analytics': {
-        description:
-          'Complete coursework in economics and business analytics. Students must complete at least 9 credits of elective courses from the list below.',
+          'Required Courses: CSE 3541 and CSE 3902 ' +
+          'A. Choose one from CSE 5542, CSE 5543, CSE 5544, CSE 5545, CSE 5912, CSE 5913',
         counting: 'courses',
         checker: includesWithSubRequirements(
-          ['ECON 2001.01', 'ECON 2001.02', 'ECON 2001.03'],
-          ['ECON 2002.01', 'ECON 2002.02', 'ECON 2002.03'],
-          ['BUSADM 3630.05'],
-          ['BUSADM 3632.05'],
-          ['PUBHLTH 5015'],
-          [
-            'BUSFIN 3210',
-            'BUSFIN 3220',
-            'BUSFIN 3222',
-            'BUSFIN 3250',
-            'BUSFIN 4201',
-            'ACCTMIS 2000',
-            'ACCTMIS 3600',
-            'ACTMIS 4210',
-            'ACCTMIS 4310',
-            'ACCTMIS 4650',
-            'ACCTMIS 5000',
-            'BUSMI 3150',
-            'BUSML 3250',
-            'BUSML 4202',
-            'BUSML 4210',
-            'BUSML 4211',
-            'BUSML 4212',
-            'BUSOBA 3230',
-            'BUSOBA 4250',
-            'BUSOBA 4251',
-            'BUSML 3380',
-            'BUSML 4382',
-            'BUSML 4386',
-          ]
+          ['CSE 3541', 'CSE 3902'],
+          ['CSE 5542', 'CSE 5543', 'CSE 5544', 'CSE 5545', 'CSE 5912', 'CSE 5913']
         ),
-        perSlotMinCount: [1, 1, 1, 1, 3],
-        slotNames: ['Microeconomics', 'Macroeconomics', '"Big Data"', 'Designing Business Solutions', 'Electives'],
+        perSlotMinCount: [2, 1],
+        slotNames: ['Required Courses', 'Elective Courses'],
       },
-      'Computational Analytics': {
-        description:
-          'Students in the Computational Analytics specialization must take 10 credit hours of coursework from the electives listed below',
-        counting: 'credits',
-        checker: includesWithSingleRequirement(
-          'CSE 3461',
-          'CSE 4471',
-          'CSE 5472',
-          'CSE 5473',
-          'CSE 2331',
-          'CSE 3521',
-          'CSE 5245',
-          'CSE 5523',
-          'CSE 5524',
-          'CSE 5526',
-          'CSE 2331',
-          'CSE 2431',
-          'CSE 3901',
-          'CSE 3902',
-          'CSE 3903',
-          'CSE 5245',
-          'CSE 5361',
-          'CSE 5441',
-          'LING 5801',
-          'LING 5802',
-          'CSE 5525',
-          'LING 4100',
-          'LING 4200',
-          'LING 4300',
-          'LING 4400'
-        ),
-        perSlotMinCount: [10],
-      },
-      'Data Visualization': {
-        description:
-          'All students specializing in Data Visualization must complete the following courses. ISE 5760 must be taken as a core requirement',
+      'Database Systems and Data Analytics': {
+        description: 'Required Courses: CSE 3241 and CSE 5242 ' + 'A. Choose one from CSE 5243, CSE 5523',
         counting: 'courses',
-        checker: includesWithSubRequirements(['DESIGN 5505'], ['CSE 5544'], ['ACCAD 5141'], ['ACCAD 5150']),
-        perSlotMinCount: [1, 1, 1, 1],
-        slotNames: ['Information Design', 'Intro to Data Vis', 'Interactive Arts', 'Trends in Data Vis'],
+        checker: includesWithSubRequirements(['CSE 3241', 'CSE 5242'], ['CSE 5243', 'CSE 5523']),
+        perSlotMinCount: [2, 1],
+        slotNames: ['Required Courses', 'Elective Courses'],
       },
-      'Social Science Analytics': {
+      'Information and Computation Assurance': {
         description:
-          'Students are required to complete 1 Overview of Research Methods course, 3 elective courses, and independent research in the social sciences',
+          'Required Courses: CSE 3461 and CSE 4471 ' +
+          'A. Choose one from CSE 5472, CSE 5573' +
+          'B. Additional Recommended Courses: CSE 3901, 5351, 5432; relevant courses in business, economics or law',
+        counting: 'courses',
+        checker: includesWithSubRequirements(['CSE 3461', 'CSE 4471'], ['CSE 5472', 'CSE 5473']),
+        perSlotMinCount: [2, 1],
+        slotNames: ['Required Courses', 'Elective Courses'],
+      },
+      'Computer Networking': {
+        description:
+          'Required Course: CSE 3461 ' +
+          'A. Choose two from CSE 5432, CSE 5462, CSE 5463, CSE 5472, CSE 5473' +
+          'B. Additional Recommended Courses: CSE 3901, 5351',
         counting: 'courses',
         checker: includesWithSubRequirements(
-          ['COMM 3160', 'POLITSC 4781', 'PYSCH 2300', 'SOCIOL 3487'],
-          [
-            'ANTHROP 4998',
-            'ANTHROP 4999',
-            'ASAMSTS 4998',
-            'ASAMSTS 4999',
-            'ARTSSCI 4998',
-            'ARTSSCI 4999',
-            'ATMOSSC 4998',
-            'ATMOSSC 4999',
-            'COMM 4998',
-            'COMM 4999',
-          ],
-          [
-            'ANTHRO 5650',
-            'ANTHRO 5651',
-            'COMM 3163',
-            'ECON 4050',
-            'ECON 5420',
-            'GEOG 5200',
-            'GEOG 5201',
-            'GEOG 5210',
-            'GEOG 5222',
-            'GEOG 5223',
-            'GEOG 5225',
-            'GEOG 5226',
-            'POLITSC 3780',
-            'PSYCH 4511',
-            'SOCIOL 4650',
-          ]
+          ['CSE 3461'],
+          ['CSE 5532', 'CSE 5462', 'CSE 5462', 'CSE 5472', 'CSE 5473']
         ),
-        perSlotMinCount: [1, 1, 3],
-        slotNames: ['Research Methods', 'Independent Research', 'Electives'],
+        perSlotMinCount: [1, 2],
+        slotNames: ['Required Courses', 'Elective Courses'],
+      },
+      'Computer Systems': {
+        description:
+          'Required Course: CSE 3421 ' +
+          'A. Choose one from CSE 5433, CSE 5462, CSE 5441' +
+          'B. Choose one from CSE 5433, CSE 5441, CSE 3461, CSE 5243' +
+          'C. Additional Recommended Courses: CSE 5434, 6421*, 6431*, 6441*' +
+          '*Courses only available by petition',
+        counting: 'courses',
+        checker: includesWithSubRequirements(
+          ['CSE 3421'],
+          ['CSE 5433', 'CSE 5462', 'CSE 5441'],
+          ['CSE 5433', 'CSE 5441', 'CSE 3461', 'CSE 5243']
+        ),
+        perSlotMinCount: [1, 1, 1],
+        slotNames: ['Required Courses', 'Group A', 'Group B'],
+      },
+      'Software Engineering': {
+        description:
+          'Required Courses: CSE 3231 and CSE 3232 ' + 'A. Choose one from CSE 3321, CSE 5234, CSE 5235, CSE 5236',
+        counting: 'courses',
+        checker: includesWithSubRequirements(
+          ['CSE 3231', 'CSE 3232'],
+          ['CSE 3321', 'CSE 5234', 'CSE 5235', 'CSE 5236']
+        ),
+        perSlotMinCount: [2, 1],
+        slotNames: ['Required Courses', 'Elective Courses'],
+      },
+      'Individualized Option': {
+        description:
+          'Students should consult with their faculty advisors to identify the most reasonable set of courses that would be appropriate, given their specific interests.',
+        counting: 'courses',
+        checker: [(course: Course): boolean => course.subject === 'CSE'],
+        perSlotMinCount: [3],
+        slotNames: ['Individualized Course Option'],
       },
     },
   },
