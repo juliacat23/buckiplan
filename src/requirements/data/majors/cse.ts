@@ -1,5 +1,5 @@
-import { CollegeOrMajorRequirement } from '@/requirements/types';
-import { includesWithSingleRequirement, includesWithSubRequirements } from '../checkers';
+import { CollegeOrMajorRequirement, Course } from '@/requirements/types';
+import { ifCodeMatch, includesWithSingleRequirement, includesWithSubRequirements } from '../checkers';
 
 const cseRequirements: readonly CollegeOrMajorRequirement[] = [
   {
@@ -73,6 +73,53 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
       'Foundations of Higher Mathematics',
       'Statistics for Engineers',
     ],
+  },
+  {
+    name: 'Math and Science Electives',
+    description: 'Complete at least 8 credit hours',
+    source:
+      'https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse',
+    checker: includesWithSingleRequirement(
+      'MATH 2153',
+      'MATH 2255',
+      'MATH 2415',
+      'ANTHROP 2200',
+      'BIOLOGY 1113',
+      'BIOLOGY 1114',
+      'CHEM 1210',
+      'CHEM 1220',
+      'EARTHSC 1121',
+      'EARTHSC 1122',
+      'ENR 2000',
+      'ENR 3000',
+      'ENR 3001',
+      'FDSCTE 2200',
+      'HSC 2201',
+      'HSC 2202',
+      'PHYSICS 1251'
+    ),
+    fulfilledBy: 'credits',
+    perSlotMinCount: [8],
+  },
+  {
+    name: 'Technical Electives',
+    description:
+      'Choose 17 credit hours of coursework that meets the following criteria:' +
+      '1. Any CSE course 3000-level or above not already used to fulfill another requirement' +
+      '2. At most 2 credit hours of CSE 4251-4256' +
+      '3. At most 2 hours of CSE 4193(H), 3 hours of 4998(H), or 6 hours of 4999(H) AND no more than 6 hours total of 4193/4998/4999 combined' +
+      '4. At most 8 hours of non-CSE courses at the 2000-level and above approved by the academic advisor',
+    source:
+      'https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse',
+    checker: [
+      (course: Course): boolean => {
+        const { catalogNbr } = course;
+        return !(ifCodeMatch(catalogNbr, '1***') || ifCodeMatch(catalogNbr, '2***'));
+      },
+    ],
+    fulfilledBy: 'credits',
+    checkerWarning: 'We do not check that the courses fulfil the criteria for Technical Electives',
+    perSlotMinCount: [17],
   },
   {
     name: 'Specialization',
