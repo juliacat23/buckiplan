@@ -7563,12 +7563,19 @@
           ],
           "courses": [
             [
+              101,
               105,
+              125,
+              203,
               204,
               "147159",
               "147710",
+              "149398",
+              "149436",
               "149724",
               "149734",
+              "149989",
+              "150021",
               "150278",
               "151332",
               "151994",
@@ -7576,13 +7583,15 @@
               "152035",
               "152081",
               "152083",
-              "153057"
+              "153057",
+              "153582",
+              "153584"
             ]
           ]
         },
         {
           "name": "Technical Electives",
-          "description": "Choose 17 credit hours of coursework that meets the following criteria:1. Any CSE course 3000-level or above not already used to fulfill another requirement2. At most 2 credit hours of CSE 4251-42563. At most 2 hours of CSE 4193(H), 3 hours of 4998(H), or 6 hours of 4999(H) AND no more than 6 hours total of 4193/4998/4999 combined4. At most 8 hours of non-CSE courses at the 2000-level and above approved by the academic advisor",
+          "description": "Choose 17 credit hours of coursework that meets the following criteria:\n\n1. Any CSE course 3000-level or above not already used to fulfill another requirement\n\n2. At most 2 credit hours of CSE 4251-4256\n\n3. At most 2 hours of CSE 4193(H), 3 hours of 4998(H), or 6 hours of 4999(H) AND no more than 6 hours total of 4193/4998/4999 combined\n\n4. At most 8 hours of non-CSE courses at the 2000-level and above approved by the academic advisor",
           "source": "https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse",
           "fulfilledBy": "credits",
           "checkerWarning": "We do not check that the courses fulfil the criteria for Technical Electives",
@@ -7602,6 +7611,7 @@
               210,
               211,
               213,
+              "15075",
               "147034",
               "147038",
               "147042",
@@ -12161,30 +12171,42 @@
               "164943",
               "164954",
               "164956",
-              "164969"
+              "164969",
+              "1507589",
+              "1507590",
+              "1507591",
+              "1507592",
+              "1507593",
+              "1507594",
+              "1507595"
             ]
           ]
         },
         {
-          "name": "Name",
-          "description": "Option 1: CHEM 2070 and CHEM 2080, Option 2: CHEM 2150",
-          "source": "https://chemistry.cornell.edu/required-core-courses",
+          "name": "Concentration",
+          "description": "Students must select and complete one of the following specialized options. The courses listed below may dictate CSE core choices and technical elective choices.",
+          "source": "https://cse.osu.edu/sites/default/files/uploads/purple_bs_cis_and_cse_specialization_options_au18_forward_rev_022219_purple.pdf",
           "fulfilledBy": "toggleable",
           "fulfillmentOptions": {
             "Artifical Intelligence": {
-              "description": "Required Courses: CSE 3521 and CSE 5522 \n A. Choose one from CSE 5523, CSE 5524, CSE 5525, CSE 5526",
+              "description": "Required Courses: CSE 3521 and CSE 5522 \n \nChoose one from CSE 5523, CSE 5524, CSE 5525, CSE 5526",
               "counting": "courses",
               "perSlotMinCount": [
-                2,
+                1,
+                1,
                 1
               ],
               "slotNames": [
-                "Required Courses",
-                "Elective Courses"
+                "Survey of Artificial Intelligence I: Basic Techniques",
+                "Survey of Artificial Intelligence II: Advanced Techniques",
+                "Elective"
               ],
               "courses": [
                 [
                   "150541"
+                ],
+                [
+                  "15075"
                 ],
                 [
                   "150760",
@@ -12195,42 +12217,52 @@
               ]
             },
             "Computer Graphics and Game Design": {
-              "description": "Required Courses: CSE 3541 and CSE 3902 A. Choose one from CSE 5542, CSE 5543, CSE 5544, CSE 5545, CSE 5912, CSE 5913",
+              "description": "Required Courses: CSE 3541 and CSE 3902 \n\nChoose one from CSE 5542, CSE 5543, CSE 5544, CSE 5545, CSE 5912, CSE 5913",
               "counting": "courses",
               "perSlotMinCount": [
-                2,
+                1,
+                1,
                 1
               ],
               "slotNames": [
-                "Required Courses",
-                "Elective Courses"
+                "Computer Game and Animation Techniques",
+                "Project: Design, Development, and Documentation of Interactive Systems",
+                "Elective"
               ],
               "courses": [
                 [
-                  "150543",
+                  "150543"
+                ],
+                [
                   "150548"
                 ],
                 [
                   "150785",
                   "150789",
-                  "150796"
+                  "150796",
+                  "1507589",
+                  "1507590"
                 ]
               ]
             },
             "Database Systems and Data Analytics": {
-              "description": "Required Courses: CSE 3241 and CSE 5242 A. Choose one from CSE 5243, CSE 5523",
+              "description": "Required Courses: CSE 3241 and CSE 5242 \n\nChoose one from CSE 5243, CSE 5523",
               "counting": "courses",
               "perSlotMinCount": [
-                2,
+                1,
+                1,
                 1
               ],
               "slotNames": [
-                "Required Courses",
-                "Elective Courses"
+                "Introduction to Database Systems",
+                "Advanced Database Management Systems",
+                "Elective"
               ],
               "courses": [
                 [
-                  "150532",
+                  "150532"
+                ],
+                [
                   "150626"
                 ],
                 [
@@ -12240,36 +12272,41 @@
               ]
             },
             "Information and Computation Assurance": {
-              "description": "Required Courses: CSE 3461 and CSE 4471 A. Choose one from CSE 5472, CSE 5573B. Additional Recommended Courses: CSE 3901, 5351, 5432; relevant courses in business, economics or law",
+              "description": "Required Courses: CSE 3461 and CSE 4471 \n\nChoose one from CSE 5472, CSE 5573\n\nAdditional Recommended Courses: CSE 3901, 5351, 5432; relevant courses in business, economics or law",
               "counting": "courses",
               "perSlotMinCount": [
-                2,
+                1,
+                1,
                 1
               ],
               "slotNames": [
-                "Required Courses",
-                "Elective Courses"
+                "Computer Networking and Internet Technologies",
+                "Information Security",
+                "Elective"
               ],
               "courses": [
                 [
-                  "150540",
+                  "150540"
+                ],
+                [
                   "150748"
                 ],
                 [
-                  "150749"
+                  "150749",
+                  "1507591"
                 ]
               ]
             },
             "Computer Networking": {
-              "description": "Required Course: CSE 3461 A. Choose two from CSE 5432, CSE 5462, CSE 5463, CSE 5472, CSE 5473B. Additional Recommended Courses: CSE 3901, 5351",
+              "description": "Required Course: CSE 3461\n\nChoose two from CSE 5432, CSE 5462, CSE 5463, CSE 5472, CSE 5473\n\nAdditional Recommended Courses: CSE 3901, 5351",
               "counting": "courses",
               "perSlotMinCount": [
                 1,
                 2
               ],
               "slotNames": [
-                "Required Courses",
-                "Elective Courses"
+                "Computer Networking and Internet Technologies",
+                "Elective"
               ],
               "courses": [
                 [
@@ -12277,12 +12314,15 @@
                 ],
                 [
                   "150742",
-                  "150749"
+                  "150749",
+                  "1507591",
+                  "1507592",
+                  "1507593"
                 ]
               ]
             },
             "Computer Systems": {
-              "description": "Required Course: CSE 3421 A. Choose one from CSE 5433, CSE 5462, CSE 5441B. Choose one from CSE 5433, CSE 5441, CSE 3461, CSE 5243C. Additional Recommended Courses: CSE 5434, 6421*, 6431*, 6441**Courses only available by petition",
+              "description": "Required Course: CSE 3421\n\nChoose one from CSE 5433, CSE 5462, CSE 5441\n\nChoose one from CSE 5433, CSE 5441, CSE 3461, CSE 5243\n\nAdditional Recommended Courses: CSE 5434, 6421*, 6431*, 6441*\n\n*Courses only available by petition",
               "counting": "courses",
               "perSlotMinCount": [
                 1,
@@ -12290,7 +12330,7 @@
                 1
               ],
               "slotNames": [
-                "Required Courses",
+                "Introduction to Computer Architecture",
                 "Group A",
                 "Group B"
               ],
@@ -12300,35 +12340,42 @@
                 ],
                 [
                   "150722",
-                  "150742"
+                  "150742",
+                  "1507594"
                 ],
                 [
                   "150540",
                   "150628",
-                  "150722"
+                  "150722",
+                  "1507594"
                 ]
               ]
             },
             "Software Engineering": {
-              "description": "Required Courses: CSE 3231 and CSE 3232 A. Choose one from CSE 3321, CSE 5234, CSE 5235, CSE 5236",
+              "description": "Required Courses: CSE 3231 and CSE 3232 \n\nChoose one from CSE 3321, CSE 5234, CSE 5235, CSE 5236",
               "counting": "courses",
               "perSlotMinCount": [
-                2,
+                1,
+                1,
                 1
               ],
               "slotNames": [
-                "Required Courses",
-                "Elective Courses"
+                "Software Engineering Techniques",
+                "Software Requirements Analysis",
+                "Elective"
               ],
               "courses": [
                 [
-                  "150528",
+                  "150528"
+                ],
+                [
                   "150530"
                 ],
                 [
                   "150533",
                   "150601",
-                  "150620"
+                  "150620",
+                  "1507595"
                 ]
               ]
             },
@@ -12339,10 +12386,11 @@
                 3
               ],
               "slotNames": [
-                "Individualized Course Option"
+                "Course"
               ],
               "courses": [
                 [
+                  "15075",
                   "148796",
                   "150487",
                   "150488",
@@ -12437,125 +12485,18 @@
                   "164670",
                   "164718",
                   "164726",
-                  "164782"
+                  "164782",
+                  "1507589",
+                  "1507590",
+                  "1507591",
+                  "1507592",
+                  "1507593",
+                  "1507594",
+                  "1507595"
                 ]
               ]
             }
           }
-        },
-        {
-          "name": "Chemistry Core",
-          "description": "Complete a two-semester sequence of General Chemistry and a one-semester sequence of Organic Chemistry with a lab",
-          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
-          "fulfilledBy": "courses",
-          "perSlotMinCount": [
-            1,
-            1,
-            1,
-            1
-          ],
-          "slotNames": [
-            "General Chemistry I",
-            "General Chemistry II",
-            "Organic Chemistry I",
-            "Organic Chemistry I Lab"
-          ],
-          "courses": [
-            [
-              105,
-              204,
-              "149724",
-              "149736",
-              "149738"
-            ],
-            [
-              "149734",
-              "149737",
-              "149749"
-            ],
-            [
-              "149759"
-            ],
-            [
-              "149766"
-            ]
-          ]
-        },
-        {
-          "name": "Earth Science Core",
-          "description": "Select at least 3 of the following courses",
-          "source": "https://fisher.osu.edu/undergraduate/academics/degree-requirements",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            9
-          ],
-          "courses": [
-            [
-              "150294",
-              "150297",
-              "150353",
-              "151076",
-              "155125"
-            ]
-          ]
-        },
-        {
-          "name": "Capstone Experience",
-          "description": "Complete PUBHLTH 3180 or 3180E and Choose 1 Course From the following below:",
-          "source": "https://data-analytics.osu.edu/major/core-curriculum",
-          "fulfilledBy": "courses",
-          "perSlotMinCount": [
-            1,
-            1
-          ],
-          "slotNames": [
-            "Capstone Preparation",
-            "Capstone"
-          ],
-          "courses": [
-            [
-              "161694",
-              "161835"
-            ],
-            [
-              "160531",
-              "161678",
-              "161695",
-              "161839",
-              "163405"
-            ]
-          ]
-        },
-        {
-          "name": "Major Electives",
-          "description": "Select six credits from interdisciplinary specialization courses not already used. Other approved courses that fulfill Major Electives: EARTHSC 5651, ENR 2100, 3000, GEOG 2800, 5220, PUBHLTH 5015, 5330, 3998",
-          "source": "https://data-analytics.osu.edu/major/core-curriculum",
-          "fulfilledBy": "credits",
-          "perSlotMinCount": [
-            5
-          ],
-          "courses": [
-            [
-              "149204",
-              "149506",
-              "150294",
-              "150297",
-              "150353",
-              "151076",
-              "151510",
-              "152036",
-              "152081",
-              "155125",
-              "159191",
-              "159193",
-              "159194",
-              "159195",
-              "159196",
-              "159254",
-              "159255",
-              "159271"
-            ]
-          ]
         }
       ]
     },
@@ -13511,6 +13452,90 @@
     }
   },
   "minor": {
+    "BME": {
+      "name": "Biomedical Engineering",
+      "schools": [
+        "ENG1"
+      ],
+      "requirements": [
+        {
+          "name": "Introduction Requirements",
+          "description": "Complete BIOMEDE 2000, the introduction to Biomedical Engineering course",
+          "source": "https://bme.osu.edu/sites/default/files/uploads/curriculum/bme_minor.pdf",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "149379"
+            ]
+          ]
+        },
+        {
+          "name": "Science Coursework",
+          "description": "Complete a physiology or biological science course at the 2000 level or higher.\n\nExamples include ANATOMY 2200, BIOCHEM 4511, and EEOB 2520",
+          "source": "https://bme.osu.edu/sites/default/files/uploads/curriculum/bme_minor.pdf",
+          "fulfilledBy": "credits",
+          "checkerWarning": "We do not check if course is classified as a physiology or biological science course",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "149379"
+            ]
+          ]
+        },
+        {
+          "name": "Domain Course",
+          "description": "Complete at least one \"domain\" course",
+          "source": "https://bme.osu.edu/sites/default/files/uploads/curriculum/bme_minor.pdf",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "149387",
+              "149390",
+              "149392",
+              "149393",
+              "149395",
+              "149397"
+            ]
+          ]
+        },
+        {
+          "name": "Elective",
+          "description": "Complete at least 3 credit hours of electives coursework",
+          "source": "https://bme.osu.edu/sites/default/files/uploads/curriculum/bme_minor.pdf",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "149387",
+              "149390",
+              "149392",
+              "149393",
+              "149395",
+              "149397",
+              "149414",
+              "149428",
+              "149455",
+              "149458",
+              "149460",
+              "149461",
+              "149462",
+              "149465",
+              "161008"
+            ]
+          ]
+        }
+      ]
+    },
     "FLMSTD": {
       "name": "Film Studies",
       "schools": [
@@ -13638,6 +13663,46 @@
               "162536"
             ],
             []
+          ]
+        }
+      ]
+    },
+    "PE": {
+      "name": "Petroleum Engineering",
+      "schools": [
+        "ENG1"
+      ],
+      "requirements": [
+        {
+          "name": "Core Courses",
+          "description": "Complete the following four courses for a total of 12 credit hours",
+          "source": "https://artsandsciences.osu.edu/sites/artsandsciences.osu.edu/files/minor-petroleum-engineering.pdf",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            12
+          ],
+          "courses": [
+            [
+              "155124",
+              "163352",
+              "163516",
+              "163762"
+            ]
+          ]
+        },
+        {
+          "name": "Elective",
+          "description": "Choose one elective course from the following",
+          "source": "https://artsandsciences.osu.edu/sites/artsandsciences.osu.edu/files/minor-petroleum-engineering.pdf",
+          "fulfilledBy": "credits",
+          "perSlotMinCount": [
+            3
+          ],
+          "courses": [
+            [
+              "155136",
+              "163517"
+            ]
           ]
         }
       ]

@@ -83,19 +83,21 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
       'MATH 2153',
       'MATH 2255',
       'MATH 2415',
+      'HCS 2201',
+      'HCS 2202',
+      'STAT 4201',
+      'STAT 5301',
       'ANTHROP 2200',
-      'BIOLOGY 1113',
-      'BIOLOGY 1114',
+      'BIOLOGY 1113.01',
+      'BIOLOGY 1114.01',
+      'EARTHSC 1122',
       'CHEM 1210',
       'CHEM 1220',
       'EARTHSC 1121',
-      'EARTHSC 1122',
       'ENR 2000',
       'ENR 3000',
       'ENR 3001',
       'FDSCTE 2200',
-      'HSC 2201',
-      'HSC 2202',
       'PHYSICS 1251'
     ),
     fulfilledBy: 'credits',
@@ -105,9 +107,17 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
     name: 'Technical Electives',
     description:
       'Choose 17 credit hours of coursework that meets the following criteria:' +
+      '\n' +
+      '\n' +
       '1. Any CSE course 3000-level or above not already used to fulfill another requirement' +
+      '\n' +
+      '\n' +
       '2. At most 2 credit hours of CSE 4251-4256' +
+      '\n' +
+      '\n' +
       '3. At most 2 hours of CSE 4193(H), 3 hours of 4998(H), or 6 hours of 4999(H) AND no more than 6 hours total of 4193/4998/4999 combined' +
+      '\n' +
+      '\n' +
       '4. At most 8 hours of non-CSE courses at the 2000-level and above approved by the academic advisor',
     source:
       'https://cse.osu.edu/current-students/undergraduate/majors/bachelors-science-computer-science-engineering-bs-cse',
@@ -122,70 +132,100 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
     perSlotMinCount: [17],
   },
   {
-    name: 'Name',
-    description: 'Option 1: CHEM 2070 and CHEM 2080, Option 2: CHEM 2150',
-    source: 'https://chemistry.cornell.edu/required-core-courses',
+    name: 'Concentration',
+    description:
+      'Students must select and complete one of the following specialized options. The courses listed below may dictate CSE core choices and technical elective choices.',
+    source:
+      'https://cse.osu.edu/sites/default/files/uploads/purple_bs_cis_and_cse_specialization_options_au18_forward_rev_022219_purple.pdf',
     fulfilledBy: 'toggleable',
     fulfillmentOptions: {
       'Artifical Intelligence': {
         description:
-          'Required Courses: CSE 3521 and CSE 5522 \n A. Choose one from CSE 5523, CSE 5524, CSE 5525, CSE 5526',
+          'Required Courses: CSE 3521 and CSE 5522 \n \nChoose one from CSE 5523, CSE 5524, CSE 5525, CSE 5526',
         checker: includesWithSubRequirements(
-          ['CSE 3521', 'CSE 5522'],
+          ['CSE 3521'],
+          ['CSE 5522'],
           ['CSE 5523', 'CSE 5524', 'CSE 5525', 'CSE 5526']
         ),
         counting: 'courses',
-        perSlotMinCount: [2, 1],
-        slotNames: ['Required Courses', 'Elective Courses'],
+        perSlotMinCount: [1, 1, 1],
+        slotNames: [
+          'Survey of Artificial Intelligence I: Basic Techniques',
+          'Survey of Artificial Intelligence II: Advanced Techniques',
+          'Elective',
+        ],
       },
       'Computer Graphics and Game Design': {
         description:
           'Required Courses: CSE 3541 and CSE 3902 ' +
-          'A. Choose one from CSE 5542, CSE 5543, CSE 5544, CSE 5545, CSE 5912, CSE 5913',
+          '\n' +
+          '\n' +
+          'Choose one from CSE 5542, CSE 5543, CSE 5544, CSE 5545, CSE 5912, CSE 5913',
         counting: 'courses',
         checker: includesWithSubRequirements(
-          ['CSE 3541', 'CSE 3902'],
-          ['CSE 5542', 'CSE 5543', 'CSE 5544', 'CSE 5545', 'CSE 5912', 'CSE 5913']
+          ['CSE 3541'],
+          ['CSE 3902'],
+          ['CSE 5542', 'CSE 5543', 'CSE 5544', 'CSE 5912', 'CSE 5913']
         ),
-        perSlotMinCount: [2, 1],
-        slotNames: ['Required Courses', 'Elective Courses'],
+        perSlotMinCount: [1, 1, 1],
+        slotNames: [
+          'Computer Game and Animation Techniques',
+          'Project: Design, Development, and Documentation of Interactive Systems',
+          'Elective',
+        ],
       },
       'Database Systems and Data Analytics': {
-        description: 'Required Courses: CSE 3241 and CSE 5242 ' + 'A. Choose one from CSE 5243, CSE 5523',
+        description: 'Required Courses: CSE 3241 and CSE 5242 ' + '\n' + '\n' + 'Choose one from CSE 5243, CSE 5523',
         counting: 'courses',
-        checker: includesWithSubRequirements(['CSE 3241', 'CSE 5242'], ['CSE 5243', 'CSE 5523']),
-        perSlotMinCount: [2, 1],
-        slotNames: ['Required Courses', 'Elective Courses'],
+        checker: includesWithSubRequirements(['CSE 3241'], ['CSE 5242'], ['CSE 5243', 'CSE 5523']),
+        perSlotMinCount: [1, 1, 1],
+        slotNames: ['Introduction to Database Systems', 'Advanced Database Management Systems', 'Elective'],
       },
       'Information and Computation Assurance': {
         description:
           'Required Courses: CSE 3461 and CSE 4471 ' +
-          'A. Choose one from CSE 5472, CSE 5573' +
-          'B. Additional Recommended Courses: CSE 3901, 5351, 5432; relevant courses in business, economics or law',
+          '\n' +
+          '\n' +
+          'Choose one from CSE 5472, CSE 5573' +
+          '\n' +
+          '\n' +
+          'Additional Recommended Courses: CSE 3901, 5351, 5432; relevant courses in business, economics or law',
         counting: 'courses',
-        checker: includesWithSubRequirements(['CSE 3461', 'CSE 4471'], ['CSE 5472', 'CSE 5473']),
-        perSlotMinCount: [2, 1],
-        slotNames: ['Required Courses', 'Elective Courses'],
+        checker: includesWithSubRequirements(['CSE 3461'], ['CSE 4471'], ['CSE 5472', 'CSE 5473']),
+        perSlotMinCount: [1, 1, 1],
+        slotNames: ['Computer Networking and Internet Technologies', 'Information Security', 'Elective'],
       },
       'Computer Networking': {
         description:
-          'Required Course: CSE 3461 ' +
-          'A. Choose two from CSE 5432, CSE 5462, CSE 5463, CSE 5472, CSE 5473' +
-          'B. Additional Recommended Courses: CSE 3901, 5351',
+          'Required Course: CSE 3461' +
+          '\n' +
+          '\n' +
+          'Choose two from CSE 5432, CSE 5462, CSE 5463, CSE 5472, CSE 5473' +
+          '\n' +
+          '\n' +
+          'Additional Recommended Courses: CSE 3901, 5351',
         counting: 'courses',
         checker: includesWithSubRequirements(
           ['CSE 3461'],
-          ['CSE 5532', 'CSE 5462', 'CSE 5462', 'CSE 5472', 'CSE 5473']
+          ['CSE 5432', 'CSE 5462', 'CSE 5463', 'CSE 5472', 'CSE 5473']
         ),
         perSlotMinCount: [1, 2],
-        slotNames: ['Required Courses', 'Elective Courses'],
+        slotNames: ['Computer Networking and Internet Technologies', 'Elective'],
       },
       'Computer Systems': {
         description:
-          'Required Course: CSE 3421 ' +
-          'A. Choose one from CSE 5433, CSE 5462, CSE 5441' +
-          'B. Choose one from CSE 5433, CSE 5441, CSE 3461, CSE 5243' +
-          'C. Additional Recommended Courses: CSE 5434, 6421*, 6431*, 6441*' +
+          'Required Course: CSE 3421' +
+          '\n' +
+          '\n' +
+          'Choose one from CSE 5433, CSE 5462, CSE 5441' +
+          '\n' +
+          '\n' +
+          'Choose one from CSE 5433, CSE 5441, CSE 3461, CSE 5243' +
+          '\n' +
+          '\n' +
+          'Additional Recommended Courses: CSE 5434, 6421*, 6431*, 6441*' +
+          '\n' +
+          '\n' +
           '*Courses only available by petition',
         counting: 'courses',
         checker: includesWithSubRequirements(
@@ -194,18 +234,22 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
           ['CSE 5433', 'CSE 5441', 'CSE 3461', 'CSE 5243']
         ),
         perSlotMinCount: [1, 1, 1],
-        slotNames: ['Required Courses', 'Group A', 'Group B'],
+        slotNames: ['Introduction to Computer Architecture', 'Group A', 'Group B'],
       },
       'Software Engineering': {
         description:
-          'Required Courses: CSE 3231 and CSE 3232 ' + 'A. Choose one from CSE 3321, CSE 5234, CSE 5235, CSE 5236',
+          'Required Courses: CSE 3231 and CSE 3232 ' +
+          '\n' +
+          '\n' +
+          'Choose one from CSE 3321, CSE 5234, CSE 5235, CSE 5236',
         counting: 'courses',
         checker: includesWithSubRequirements(
-          ['CSE 3231', 'CSE 3232'],
+          ['CSE 3231'],
+          ['CSE 3232'],
           ['CSE 3321', 'CSE 5234', 'CSE 5235', 'CSE 5236']
         ),
-        perSlotMinCount: [2, 1],
-        slotNames: ['Required Courses', 'Elective Courses'],
+        perSlotMinCount: [1, 1, 1],
+        slotNames: ['Software Engineering Techniques', 'Software Requirements Analysis', 'Elective'],
       },
       'Individualized Option': {
         description:
@@ -213,86 +257,9 @@ const cseRequirements: readonly CollegeOrMajorRequirement[] = [
         counting: 'courses',
         checker: [(course: Course): boolean => course.subject === 'CSE'],
         perSlotMinCount: [3],
-        slotNames: ['Individualized Course Option'],
+        slotNames: ['Course'],
       },
     },
-  },
-  {
-    name: 'Chemistry Core',
-    description:
-      'Complete a two-semester sequence of General Chemistry and a one-semester sequence of Organic Chemistry with a lab',
-    source: 'https://fisher.osu.edu/undergraduate/academics/degree-requirements',
-    checker: includesWithSubRequirements(
-      ['CHEM 1210', 'CHEM 1610', 'CHEM 1910H', 'CHEM 1910'],
-      ['CHEM 1220', 'CHEM 1620', 'CHEM 1920', 'CHEM 1920H'],
-      ['CHEM 2510', 'CHEM 2910H', 'CHEM 2910'],
-      ['CHEM 2540']
-    ),
-    fulfilledBy: 'courses',
-    perSlotMinCount: [1, 1, 1, 1],
-    slotNames: ['General Chemistry I', 'General Chemistry II', 'Organic Chemistry I', 'Organic Chemistry I Lab'],
-  },
-  {
-    name: 'Earth Science Core',
-    description: 'Select at least 3 of the following courses',
-    source: 'https://fisher.osu.edu/undergraduate/academics/degree-requirements',
-    checker: includesWithSingleRequirement(
-      'EARTHSC 2203',
-      'EARTHSC 2204',
-      'EARTHSC 3411',
-      'EARTHSC 5203',
-      'EARTHSC 5663'
-    ),
-    fulfilledBy: 'credits',
-    perSlotMinCount: [9],
-  },
-  {
-    name: 'Capstone Experience',
-    description: 'Complete PUBHLTH 3180 or 3180E and Choose 1 Course From the following below:',
-    source: 'https://data-analytics.osu.edu/major/core-curriculum',
-    checker: includesWithSubRequirements(
-      ['PUBHLTH 3180', 'PUBHLTH 3180E'],
-      [
-        'PUBHLTH 3189.03',
-        'PUBHLTH 3189.03E',
-        'PUBHLTH 3191',
-        'PUBHLTH 3191E',
-        'PUBHLTH 3999',
-        'PUBHLTH 4999',
-        'PUBHLTH 4999.01H',
-      ]
-    ),
-    fulfilledBy: 'courses',
-    perSlotMinCount: [1, 1],
-    slotNames: ['Capstone Preparation', 'Capstone'],
-  },
-  {
-    name: 'Major Electives',
-    description:
-      'Select six credits from interdisciplinary specialization courses not already used. Other approved courses that fulfill Major Electives: EARTHSC 5651, ENR 2100, 3000, GEOG 2800, 5220, PUBHLTH 5015, 5330, 3998',
-    source: 'https://data-analytics.osu.edu/major/core-curriculum',
-    checker: includesWithSingleRequirement(
-      'EARTHSC 5651',
-      'ENR 2100',
-      'ENR 3000',
-      'GEOG 2800',
-      'GEOG 5200',
-      'EARTHSC 2203',
-      'EARTHSC 2204',
-      'EARTHSC 3411',
-      'EARTHSC 5203',
-      'EARTHSC 5663',
-      'PUBHEPI 5411',
-      'PUBHEPI 5412',
-      'PUBHEPI 5438',
-      'PUBHEHS 3320',
-      'PUBHEHS 4530',
-      'PUBHEHS 4325',
-      'PUBHEHS 5315',
-      'PUBHEHS 5325'
-    ),
-    fulfilledBy: 'credits',
-    perSlotMinCount: [5],
   },
 ];
 

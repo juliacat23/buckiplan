@@ -17,8 +17,10 @@ import { AccountingOpenOption, intBusForeignLanguage } from './specializations/b
 import { envDataAnalysis, envOpenOption, envMath } from './specializations/pubhlth';
 
 // minors
+import bmeRequirements from './minors/bme';
 import medanthRequirements from './minors/medanth';
 import flmstdRequirements from './minors/flmstd';
+import peteRequirements from './minors/pete';
 
 // pre-professional programs
 import predentRequirements from './prePrograms/predent';
@@ -79,6 +81,11 @@ const json: RequirementsJson = {
     },
   },
   minor: {
+    BME: {
+      name: 'Biomedical Engineering',
+      schools: ['ENG1'],
+      requirements: bmeRequirements,
+    },
     FLMSTD: {
       name: 'Film Studies',
       schools: ['ASC1'],
@@ -88,6 +95,11 @@ const json: RequirementsJson = {
       name: 'Medical Anthropology',
       schools: ['ASC1'],
       requirements: medanthRequirements,
+    },
+    PE: {
+      name: 'Petroleum Engineering',
+      schools: ['ENG1'],
+      requirements: peteRequirements,
     },
   },
   preProgram: {
