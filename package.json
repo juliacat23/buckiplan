@@ -17,7 +17,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.3",
-    "firebase": "^8.3.1",
+    "firebase": "^9.9.1",
     "firebase-admin": "^11.0.0",
     "intro.js": "^3.3.1",
     "vite": "^2.9.13",
