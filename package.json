@@ -12,7 +12,7 @@
     "req-gen": "npm run ts-node -- src/requirements/requirementGenerator.ts"
   },
   "dependencies": {
-    "@firebase/analytics": "^0.6.6",
+    "@firebase/analytics": "^0.8.3",
     "@vitejs/plugin-vue": "^2.3.3",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
